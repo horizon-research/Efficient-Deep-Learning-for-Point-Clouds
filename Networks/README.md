@@ -1,4 +1,6 @@
-## Networks
+### Networks
+-------------------------
+#### DGCNN
 
-- [ ] DGCNN
-- [ ] PointNet++
+-------------------------
+#### PointNet++
