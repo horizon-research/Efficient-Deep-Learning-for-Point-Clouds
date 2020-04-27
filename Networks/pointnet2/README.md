@@ -1,13 +1,13 @@
 ### PointNet++
 ------------
 
-#### Prerequisite
+### Prerequisite
 
 ------------
 
-#### How to run
+### How to run
 
 ------------
 
-#### About
+### About
 ------------
