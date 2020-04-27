@@ -1,0 +1,6 @@
+model_checkpoint_path: "model-best-acc.ckpt"
+all_model_checkpoint_paths: "model-220.ckpt"
+all_model_checkpoint_paths: "model-240.ckpt"
+all_model_checkpoint_paths: "model-260.ckpt"
+all_model_checkpoint_paths: "model-280.ckpt"
+all_model_checkpoint_paths: "model-best-acc.ckpt"
