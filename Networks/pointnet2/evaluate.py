@@ -174,21 +174,6 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     for i, name in enumerate(SHAPE_NAMES):
         log_string('%10s:\t%0.3f' % (name, class_accuracies[i]))
 
-#    code_view = 1
-#    if (code_view):
-#        profile_code_opt_builder = option_builder.ProfileOptionBuilder()
-#
-#        profile_code_opt_builder.with_max_depth(1000)
-#        profile_code_opt_builder.with_node_names(show_name_regexes=['pointnet2_cls_ssg.py.*', 'pointnet_util.py.*'])
-#
-#        profile_code_opt_builder.with_min_execution_time(min_micros=1)
-#
-#        profile_code_opt_builder.select(['micros'])
-#        profile_code_opt_builder.order_by('name')
-#
-#        tf_profiler.profile_python(profile_code_opt_builder.build())
-#
-
 if __name__=='__main__':
     with tf.Graph().as_default():
         evaluate(num_votes=FLAGS.num_votes)
