@@ -10,10 +10,8 @@ If you only want to experiment on ModelNet, the ```modelnet_dataset.py``` script
 This is a tricky part. It is necessary to install the right versions of libraries to get the code running.
 We have been experimenting in the environment below:
 
-OS: Ubuntu 18.04.3 LTS
-
-Python: 2.7
-
+OS: Ubuntu 18.04.3 LTS <br>
+Python: 2.7 <br>
 Libraries:
 - Tensorflow 1.12.0 
 - numpy 1.14
@@ -25,17 +23,15 @@ Toolchain:
 We highly recommend using virtual environment tools like Anaconda to set up the right environment. 
 
 ### 3. Compile:
-0. Suppose we are in the ```pointnet2``` directory:
-
-1. Enter directory ```./tf_ops/3d_interpolation``` and check if the CUDA path in the ```tf_interpolate_compile.sh``` script is set correctly. If not, please correct.
-2. Run ```sh tf_interpolate_compile.sh```
-3. Repeat 1-2 for ```./tf_ops/grouping``` and ```./tf_ops/sampling```.
-4. 
-run 
+0\. Suppose we are in the ```pointnet2``` directory: <br>
+1\. Enter directory ```./tf_ops/3d_interpolation``` and check if the CUDA path in the ```tf_interpolate_compile.sh``` script is set correctly. If not, please correct. <br>
+2\. Run ```sh tf_interpolate_compile.sh``` <br>
+3\. Repeat 1-2 for ```./tf_ops/grouping``` and ```./tf_ops/sampling```. <br>
+4\. run 
 ```python compile.py``` 
 to compile the [customized tf operators](https://github.com/charlesq34/pointnet2#compile-customized-tf-operators) (interpolation, grouping, sampling). 
 
-### 4. 
+### 4.
 
 ------------
 
