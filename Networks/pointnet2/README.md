@@ -25,7 +25,7 @@ We highly recommend using virtual environment tools like Anaconda to set up the 
 ### 3. Compile:
 0\.  Suppose we are in the ```pointnet2``` directory: <br>
 1\.  Enter directory ```./tf_ops/3d_interpolation``` and check if the CUDA path in the ```tf_interpolate_compile.sh``` script is set correctly. If not, please correct. <br>
-2\.  Run ```sh tf_interpolate_compile.sh``` <br>
+2\.  Run ```sh tf_interpolate_compile.sh```.<br>
 3\.  Repeat 1-2 for ```./tf_ops/grouping``` and ```./tf_ops/sampling```. <br>
 4\.  run 
 ```python compile.py``` 
