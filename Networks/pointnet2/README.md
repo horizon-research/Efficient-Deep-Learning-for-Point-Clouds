@@ -17,7 +17,8 @@ Libraries:
 - numpy 1.14
 - CUDA 10.2
 - cudnn 7.6.5
-Toolchain:
+
+Compiler Toolchain: 
 - gcc / gxx: 7.3.0 (to compile the tf ops)
 
 We highly recommend using virtual environment tools like Anaconda to set up the right environment. 
