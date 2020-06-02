@@ -27,9 +27,8 @@ We highly recommend using virtual environment tools like Anaconda to set up the 
 1\.  Enter directory ```./tf_ops/3d_interpolation``` and check if the CUDA path in the ```tf_interpolate_compile.sh``` script is set correctly. If not, please correct. <br>
 2\.  Run ```sh tf_interpolate_compile.sh```.<br>
 3\.  Repeat 1-2 for ```./tf_ops/grouping``` and ```./tf_ops/sampling```. <br>
-4\.  run 
-```python compile.py``` 
-to compile the [customized tf operators](https://github.com/charlesq34/pointnet2#compile-customized-tf-operators) (interpolation, grouping, sampling). 
+Or, If the CUDA paths were set correctly, run 
+```python compile.py``` in the ```pointnet2``` directory, to compile the [customized tf operators](https://github.com/charlesq34/pointnet2#compile-customized-tf-operators) (interpolation, grouping, sampling). 
 
 ### 4.
 
