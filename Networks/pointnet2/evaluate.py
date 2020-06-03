@@ -23,8 +23,7 @@ import modelnet_h5_dataset
 from tensorflow.python.profiler import model_analyzer
 from tensorflow.python.profiler import option_builder
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
-
+#os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 parser = argparse.ArgumentParser()
 parser.add_argument('--gpu', type=int, default=0, help='GPU to use [default: GPU 0]')
 parser.add_argument('--model', default='pointnet2_cls_ssg', help='Model name. [default: pointnet2_cls_ssg]')
