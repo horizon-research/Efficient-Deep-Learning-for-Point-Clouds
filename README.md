@@ -1,11 +1,11 @@
 ## Efficient-Deep-Learning-for-Point-Clouds
-This project contains algorithm optimizations for 3-d point cloud Deep Neural Networks. The goal is to improve the efficiency (speed, energy/power consumption). With that said, the key optmizations introduce parallelism in compute and reduces compute workload.
+This project is about designing efficient 3-d point cloud Deep Neural Networks with pure algorithm (software-level) optimizations. Our techniques 1). reduce redundant computation to achieve workload efficiency; 2). expose parallelism that can be easily captured by the underlying hardware.
 
-### Get Started (Before Running) ###
+### Optimized Networks
 ------------------
-
-### Build & Run ###
-------------------
+- [PointNet++]()
+- [DGCNN]()
+- [F-PointNet]()
 
 ### Acknowledgement ###
 ------------------
