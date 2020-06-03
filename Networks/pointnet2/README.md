@@ -29,7 +29,7 @@ This step is to compile the [customized tf operators](https://github.com/charles
 <img src="https://user-images.githubusercontent.com/19209239/83693739-a7772d80-a5c4-11ea-8459-f0e6841f29e8.png" alt="drawing" width="600"/>
 
 1\.  Enter directory ```./tf_ops/3d_interpolation``` and check if the CUDA path in the ```tf_interpolate_compile.sh``` script is set correctly; if not, please correct: <br>
-<img src="https://user-images.githubusercontent.com/19209239/83693994-2704fc80-a5c5-11ea-8994-456ad90ed53f.png" alt="drawing" width="1000"/>
+<img src="https://user-images.githubusercontent.com/19209239/83694347-d8a42d80-a5c5-11ea-850c-261019637fa2.png" alt="drawing" width="1000"/>
 
 2\.  Run ```sh tf_interpolate_compile.sh```.<br>
 3\.  Repeat 1-2 for ```./tf_ops/grouping``` and ```./tf_ops/sampling```. <br><br>
