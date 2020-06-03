@@ -24,10 +24,12 @@ Compiler Toolchain:
 We highly recommend using virtual environment tools like Anaconda to set up the right environment. 
 
 ### 3. Compile:
-0\.  Suppose we are in the ```pointnet2``` directory: <br><br>
+0\.  Suppose we are in the ```pointnet2``` directory: <br>
 <img src="https://user-images.githubusercontent.com/19209239/83693739-a7772d80-a5c4-11ea-8459-f0e6841f29e8.png" alt="drawing" width="600"/>
 
-1\.  Enter directory ```./tf_ops/3d_interpolation``` and check if the CUDA path in the ```tf_interpolate_compile.sh``` script is set correctly. If not, please correct. <br>
+1\.  Enter directory ```./tf_ops/3d_interpolation``` and check if the CUDA path in the ```tf_interpolate_compile.sh``` script is set correctly; if not, please correct: <br>
+<img src="https://user-images.githubusercontent.com/19209239/83693994-2704fc80-a5c5-11ea-8994-456ad90ed53f.png" alt="drawing" width="1000"/>
+
 2\.  Run ```sh tf_interpolate_compile.sh```.<br>
 3\.  Repeat 1-2 for ```./tf_ops/grouping``` and ```./tf_ops/sampling```. <br><br>
 Or, if the CUDA paths are already set correctly, run 
