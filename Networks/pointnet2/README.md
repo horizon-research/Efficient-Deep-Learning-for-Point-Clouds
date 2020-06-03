@@ -25,7 +25,7 @@ We highly recommend using virtual environment tools like Anaconda to set up the 
 
 ### 3. Compile:
 0\.  Suppose we are in the ```pointnet2``` directory: <br><br>
-<img src="https://user-images.githubusercontent.com/19209239/83691594-709f1880-a5c0-11ea-9356-4e2e8199d7ab.png" alt="drawing" width="600"/>
+<img src="https://user-images.githubusercontent.com/19209239/83693739-a7772d80-a5c4-11ea-8459-f0e6841f29e8.png" alt="drawing" width="600"/>
 
 1\.  Enter directory ```./tf_ops/3d_interpolation``` and check if the CUDA path in the ```tf_interpolate_compile.sh``` script is set correctly. If not, please correct. <br>
 2\.  Run ```sh tf_interpolate_compile.sh```.<br>
