@@ -52,10 +52,10 @@ To check out all the optional arguments for the inference, please run: <br>
 ```python evaluate.py -h```
 
 3\. Check the results. After running as in step 1 and 2, it will print out the accuracy and latency: <br>
-The original network: <br><br>
+The original network: <br>
 <img src="https://user-images.githubusercontent.com/19209239/83704360-ebc3f700-a5df-11ea-8dcb-b842e0a85f30.png" alt="drawing" width="580"/>
 
-The optimized network: <br><br>
+The optimized network: <br>
 <img src="https://user-images.githubusercontent.com/19209239/83761562-7cccb980-a644-11ea-976b-6438875ebc70.png" alt="drawing" width="620"/>
 
 ------------
