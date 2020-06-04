@@ -24,7 +24,7 @@ Compiler Toolchain:
 We highly recommend using virtual environment tools like Anaconda to set up the right environment. 
 
 ### 3. Compile:
-This step is to compile the [customized tf operators](https://github.com/charlesq34/pointnet2#compile-customized-tf-operators) (interpolation, grouping, sampling). Please follow the steps below.<br>
+This part is to compile the [customized tf operators](https://github.com/charlesq34/pointnet2#compile-customized-tf-operators) (interpolation, grouping, sampling). Please follow the steps below.<br>
 0\. Suppose we are in the ```pointnet2``` directory: <br>
 <img src="https://user-images.githubusercontent.com/19209239/83693739-a7772d80-a5c4-11ea-8459-f0e6841f29e8.png" alt="drawing" width="600"/>
 
@@ -37,7 +37,7 @@ Or, if the CUDA paths are already set correctly, run
 ```python compile.py``` in the ```pointnet2``` directory. 
 
 ### 4. Run:
-
+This part is to run the inference on both the original network and the optimized network. <br>
 0\. Switch to the ```pointnet2``` directory: <br>
 <img src="https://user-images.githubusercontent.com/19209239/83693739-a7772d80-a5c4-11ea-8459-f0e6841f29e8.png" alt="drawing" width="600"/>
 
