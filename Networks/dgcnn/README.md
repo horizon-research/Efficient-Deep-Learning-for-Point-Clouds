@@ -1,4 +1,4 @@
-### DGCNN
+### DGCNN (Classification)
 ------------
 
 ### Prerequisite
