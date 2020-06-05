@@ -3,8 +3,7 @@
 
 ### Prerequisite
 ### 1. Dataset
-Currently, we only support the ShapeNet benchmark used by the [original DGCNN project](https://github.com/WangYueFt/dgcnn/tree/master/tensorflow/part_seg). 
-If you only want to experiment on this dataset, please run: <br>
+Currently, we only support the ShapeNet benchmark used by the [original DGCNN project](https://github.com/WangYueFt/dgcnn/tree/master/tensorflow/part_seg). To download the dataset, please run: <br>
 ```
 sh +x download_data.sh
 ```
