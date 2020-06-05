@@ -101,7 +101,10 @@ def evaluate(num_votes):
            'pred': pred,
            'loss': total_loss}
 
+    s = time.time()
     eval_one_epoch(sess, ops, num_votes)
+    e = time.time()
+    print "time (secs) for 1 epoch:", (e - s)
 
 def eval_one_epoch(sess, ops, num_votes=1, topk=1):
 #    tf_profiler = model_analyzer.Profiler(graph=sess.graph)
@@ -169,9 +172,11 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     log_string('eval accuracy: %f'% (total_correct / float(total_seen)))
     log_string('eval avg class acc: %f' % (np.mean(np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float))))
 
+    '''
     class_accuracies = np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float)
     for i, name in enumerate(SHAPE_NAMES):
         log_string('%10s:\t%0.3f' % (name, class_accuracies[i]))
+    '''
 
 if __name__=='__main__':
     with tf.Graph().as_default():

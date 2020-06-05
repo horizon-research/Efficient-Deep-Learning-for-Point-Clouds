@@ -19,7 +19,7 @@ import pc_util
 parser = argparse.ArgumentParser()
 parser.add_argument('--gpu', type=int, default=1, help='GPU to use [default: GPU 0]')
 parser.add_argument('--model', default='dgcnn', help='Model name: dgcnn [default: dgcnn]')
-parser.add_argument('--batch_size', type=int, default=1, help='Batch Size during training [default: 1]')
+parser.add_argument('--batch_size', type=int, default=16, help='Batch Size [default: 16]')
 parser.add_argument('--num_point', type=int, default=1024, help='Point Number [256/512/1024/2048] [default: 1024]')
 parser.add_argument('--model_path', default='log/model-best-acc.ckpt', help='model checkpoint file path [default: log/model.ckpt]')
 parser.add_argument('--dump_dir', default='dump', help='dump folder path [dump]')
@@ -85,9 +85,11 @@ def evaluate(num_votes):
            'is_training_pl': is_training_pl,
            'pred': pred,
            'loss': loss}
-    print("eval_one_epoch")
+    #print("eval_one_epoch")
+    s = time.time()
     eval_one_epoch(sess, ops, num_votes)
-
+    e = time.time()
+    print("time (sec):", (e - s))
 
 def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     error_cnt = 0
@@ -122,15 +124,14 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
             batch_pred_sum = np.zeros((cur_batch_size, NUM_CLASSES)) # score for classes
             batch_pred_classes = np.zeros((cur_batch_size, NUM_CLASSES)) # 0/1 for classes
             for vote_idx in range(num_votes):
-                print("batch, vote index", batch_idx, vote_idx)
+                # print("batch, vote index", batch_idx, vote_idx)
                 rotated_data = provider.rotate_point_cloud_by_angle(current_data[start_idx:end_idx, :, :],
                                                   vote_idx/float(num_votes) * np.pi * 2)
                 feed_dict = {ops['pointclouds_pl']: rotated_data,
                              ops['labels_pl']: current_label[start_idx:end_idx],
                              ops['is_training_pl']: is_training}
                 
-                print("sess.run()")
-
+                # print("sess.run()")
 
                 writer = tf.compat.v1.summary.FileWriter('./tb_log/', sess.graph)
                 writer.add_graph(sess.graph)
@@ -177,11 +178,9 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     log_string('eval accuracy: %f' % (total_correct / float(total_seen)))
     log_string('eval avg class acc: %f' % (np.mean(np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float))))
     
-    class_accuracies = np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float)
-    for i, name in enumerate(SHAPE_NAMES):
-        log_string('%10s:\t%0.3f' % (name, class_accuracies[i]))
-    
-
+    # class_accuracies = np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float)
+    # for i, name in enumerate(SHAPE_NAMES):
+    #    log_string('%10s:\t%0.3f' % (name, class_accuracies[i]))
 
 if __name__=='__main__':
     with tf.Graph().as_default(): 

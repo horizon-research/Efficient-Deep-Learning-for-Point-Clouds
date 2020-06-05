@@ -101,8 +101,11 @@ def evaluate(num_votes):
            'is_training_pl': is_training_pl,
            'pred': pred,
            'loss': total_loss}
-
+    
+    s = time.time()
     eval_one_epoch(sess, ops, num_votes)
+    e = time.time()
+    print "time (secs) for 1 epoch: ", (e - s)
 
 def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     #tf_profiler = model_analyzer.Profiler(graph=sess.graph)
@@ -168,21 +171,17 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     log_string('eval avg class acc: %f' % (np.mean(np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float))))
 
     class_accuracies = np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float)
-    for i, name in enumerate(SHAPE_NAMES):
-        log_string('%10s:\t%0.3f' % (name, class_accuracies[i]))
+    #for i, name in enumerate(SHAPE_NAMES):
+    #    log_string('%10s:\t%0.3f' % (name, class_accuracies[i]))
 
     #code_view = 1
     #if (code_view):
     #    profile_code_opt_builder = option_builder.ProfileOptionBuilder()
-
     #    profile_code_opt_builder.with_max_depth(1000)
     #    profile_code_opt_builder.with_node_names(show_name_regexes=['pointnet2_cls_ssg.py.*', 'pointnet_util.py.*'])
-
     #    profile_code_opt_builder.with_min_execution_time(min_micros=1)
-
     #    profile_code_opt_builder.select(['micros'])
     #    profile_code_opt_builder.order_by('name')
-
     #    tf_profiler.profile_python(profile_code_opt_builder.build())
 
 if __name__=='__main__':
