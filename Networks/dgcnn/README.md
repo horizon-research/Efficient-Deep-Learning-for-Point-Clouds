@@ -16,6 +16,7 @@ Libraries:
 - Tensorflow 1.15.0 
 - numpy 1.18
 - cudnn 7.6.5
+- pillow 7.0.0
 
 We highly recommend using virtual environment tools like Anaconda to set up the right environment. 
 
@@ -35,8 +36,10 @@ To check out all the optional arguments for the inference, please run: <br>
 
 3\. Check the results. After running as in step 1 and 2, it will print out the accuracy and latency: <br>
 The original network: <br>
+<img src="https://user-images.githubusercontent.com/19209239/83911018-8be16380-a739-11ea-9495-6bf7dfd10a00.png" alt="drawing" width="420"/>
 
 The optimized network: <br>
+<img src="https://user-images.githubusercontent.com/19209239/83911312-0d38f600-a73a-11ea-967f-cabf5c7092f1.png" alt="drawing" width="420"/>
 
 ------------
 
