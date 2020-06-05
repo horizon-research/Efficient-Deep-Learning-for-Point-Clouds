@@ -7,8 +7,8 @@ This project is about designing efficient 3-d point cloud Deep Neural Networks w
 We have applied the optimizations to the networks below:
 
 - PointNet++: [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/pointnet2), Segmentation - Optimized Version
-- DGCNN: [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/dgcnn), Segmentation - Optimized Version
-- F-PointNet: [](), 
+- DGCNN: [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/dgcnn), [Segmentation - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/dgcnn/part_seg)
+- F-PointNet: []()
 
 ### Acknowledgement ###
 ------------------
