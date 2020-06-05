@@ -3,8 +3,13 @@
 
 ### Prerequisite
 ### 1. Dataset
-Currently, we only support the ModelNet40 benchmark used by the [original DGCNN project](https://github.com/WangYueFt/dgcnn). 
-If you only want to experiment on this dataset, the ```modelnet_dataset.py``` script will take care of it; otherwise, we suggest following the [instructions](https://github.com/charlesq34/pointnet2#prepare-your-own-data) provided by the PointNet++ project.
+Currently, we only support the ModelNet40 benchmark used by the [original DGCNN project](https://github.com/WangYueFt/dgcnn). To download the dataset, run: 
+```
+python modelnet_dataset.py
+``` 
+If you want to experiment on other datasets, we suggest following the [instructions](https://github.com/charlesq34/pointnet2#prepare-your-own-data) provided by the PointNet++ project.
+
+
 
 ### 2. Environment/Libraries:
 This is a tricky part. It is necessary to install the right versions of libraries to get the code running.
@@ -25,14 +30,23 @@ This part is to run the inference on both the original network and the optimized
 0\. Switch to the ```dgcnn``` directory: <br>
 
 1\. To run the **original version** of DGCNN (evaluation / inference): <br>
-```python evaluate-baseline.py ``` <br>
-To check out all the optional arguments for the inference, please run: <br>
-```python evaluate-baseline.py -h```
+```
+python evaluate-baseline.py 
+```
+
+To check out all the optional arguments, please run: <br>
+```
+python evaluate-baseline.py -h
+```
 
 2\. To run the **optimized version** of DGCNN (evaluation / inference): <br>
-```python evaluate.py ``` <br>
-To check out all the optional arguments for the inference, please run: <br>
-```python evaluate.py -h```
+```
+python evaluate.py 
+```
+To check out all the optional arguments, please run: <br>
+```
+python evaluate.py -h
+```
 
 3\. Check the results. After running as in step 1 and 2, it will print out the accuracy and latency: <br>
 The original network: <br>
