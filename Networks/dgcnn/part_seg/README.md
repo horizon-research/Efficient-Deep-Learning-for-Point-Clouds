@@ -28,7 +28,7 @@ This part is to run the inference on both the original network and the optimized
 
 1\. To run the **original version** of DGCNN (evaluation / inference): <br>
 ```
-python test-baseline.py 
+python test_baseline.py 
 ```
 
 2\. To run the **optimized version** of DGCNN (evaluation / inference): <br>
