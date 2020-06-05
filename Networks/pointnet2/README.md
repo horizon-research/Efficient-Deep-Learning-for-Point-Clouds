@@ -1,4 +1,4 @@
-### PointNet++
+### PointNet++ (Classification)
 ------------
 
 ### Prerequisite
