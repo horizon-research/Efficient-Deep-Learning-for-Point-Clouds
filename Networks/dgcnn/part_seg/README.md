@@ -31,19 +31,9 @@ This part is to run the inference on both the original network and the optimized
 python test-baseline.py 
 ```
 
-To check out all the optional arguments for the inference, please run: <br>
-```
-python test-baseline.py -h
-```
-
 2\. To run the **optimized version** of DGCNN (evaluation / inference): <br>
 ```
 python test.py 
-```
-
-To check out all the optional arguments for the inference, please run: <br>
-```
-python test.py -h
 ```
 
 3\. Check the results. After running as in step 1 and 2, it will print out the accuracy and latency: <br>
