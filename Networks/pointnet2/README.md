@@ -3,8 +3,12 @@
 
 ### Prerequisite
 ### 1. Dataset
-Currently, we only support the ModelNet benchmark used by the [original PointNet++ project](https://github.com/charlesq34/pointnet2). 
-If you only want to experiment on ModelNet, the ```modelnet_dataset.py``` script will take care of it; otherwise, we suggest following the instructions [here](https://github.com/charlesq34/pointnet2#prepare-your-own-data).
+Currently, we only support the ModelNet benchmark used by the [original PointNet++ project](https://github.com/charlesq34/pointnet2). To download the dataset, run: 
+```
+python modelnet_dataset.py
+``` 
+
+If you want to experiment on your own dataset, we suggest following the instructions [here](https://github.com/charlesq34/pointnet2#prepare-your-own-data).
 
 ### 2. Environment/Libraries:
 This is a tricky part. It is necessary to install the right versions of libraries to get the code running.
@@ -42,14 +46,24 @@ This part is to run the inference on both the original network and the optimized
 <img src="https://user-images.githubusercontent.com/19209239/83693739-a7772d80-a5c4-11ea-8459-f0e6841f29e8.png" alt="drawing" width="600"/>
 
 1\. To run the **original version** of PointNet++ (evaluation / inference): <br>
-```python evaluate-baseline.py ``` <br>
+```
+python evaluate-baseline.py 
+```
+
 To check out all the optional arguments for the inference, please run: <br>
-```python evaluate-baseline.py -h```
+```
+python evaluate-baseline.py -h
+```
 
 2\. To run the **optimized version** of PointNet++ (evaluation / inference): <br>
-```python evaluate.py ``` <br>
+```
+python evaluate.py 
+```
+
 To check out all the optional arguments for the inference, please run: <br>
-```python evaluate.py -h```
+```
+python evaluate.py -h
+```
 
 3\. Check the results. After running as in step 1 and 2, it will print out the accuracy and latency: <br>
 The original network: <br>
