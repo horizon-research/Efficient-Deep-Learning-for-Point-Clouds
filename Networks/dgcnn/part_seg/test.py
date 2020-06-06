@@ -4,6 +4,7 @@ import json
 import numpy as np
 import os
 import sys
+import time
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(BASE_DIR)
 sys.path.append(os.path.dirname(BASE_DIR))
@@ -166,6 +167,8 @@ def predict():
     labels = [line.split()[2] for line in lines]
     ffiles.close()
 
+    s = time.time()
+
     len_pts_files = len(pts_files)
     for shape_idx in range(len_pts_files):
       if shape_idx % 100 == 0:
@@ -243,6 +246,9 @@ def predict():
 
     printout(flog, 'Accuracy: %f' % (total_acc / total_seen))
     printout(flog, 'IoU: %f' % (total_acc_iou / total_seen))
+
+    e = time.time()
+    print("time (secs): ", (e - s))
 
     for cat_idx in range(NUM_OBJ_CATS):
       printout(flog, '\t ' + objcats[cat_idx] + ' Total Number: ' + str(total_per_cat_seen[cat_idx]))
