@@ -38,10 +38,10 @@ python test.py
 
 3\. Check the results. After running as in step 1 and 2, it will print out the accuracy and latency: <br>
 The original network: <br>
-<img src="" alt="drawing" width="420"/>
+<img src="https://user-images.githubusercontent.com/19209239/83949089-e63cfb80-a7ef-11ea-87ee-89f50b5a9c06.png" alt="drawing" width="520"/>
 
 The optimized network: <br>
-<img src="" alt="drawing" width="420"/>
+<img src="https://user-images.githubusercontent.com/19209239/83948972-1cc64680-a7ef-11ea-92dd-344788e006b1.png" alt="drawing" width="520"/>
 
 ------------
 
