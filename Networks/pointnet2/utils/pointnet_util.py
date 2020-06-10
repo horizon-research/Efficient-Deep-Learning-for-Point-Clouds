@@ -40,8 +40,14 @@ def sample_and_group(npoint, radius, nsample, xyz, points, knn=False, use_xyz=Tr
         grouped_xyz: (batch_size, npoint, nsample, 3) TF tensor, normalized point XYZs
             (subtracted by seed point XYZ) in local regions
     '''
+    point_cloud_shape = points.get_shape()
+    batch_size = point_cloud_shape[0].value
+    num_points = point_cloud_shape[1].value
+    num_dims = point_cloud_shape[-1].value
+    
     # get the index of sampled points
-    sampled_idx = farthest_point_sample(npoint, xyz)
+    # sampled_idx = farthest_point_sample(npoint, xyz)
+    sampled_idx = tf.random_uniform(shape=(batch_size, npoint),maxval=npoint-1,dtype=tf.int32)
 
     # new xyz for the sampled points
     new_xyz = gather_point(xyz, sampled_idx) # (batch_size, npoint, 3)
@@ -60,11 +66,6 @@ def sample_and_group(npoint, radius, nsample, xyz, points, knn=False, use_xyz=Tr
     # print("new_points:",new_points.shape)
 
     # grouping:
-    point_cloud_shape = points.get_shape()
-    batch_size = point_cloud_shape[0].value
-    num_points = point_cloud_shape[1].value
-    num_dims = point_cloud_shape[-1].value
-
     idx_ = tf.range(batch_size) * num_points
     idx_ = tf.reshape(idx_, [batch_size, 1, 1])
 

@@ -37,18 +37,21 @@ def sample_and_group(npoint, radius, nsample, xyz, points, knn=False, use_xyz=Tr
             (subtracted by seed point XYZ) in local regions
     '''
 
-    new_xyz = gather_point(xyz, farthest_point_sample(npoint, xyz)) # (batch_size, npoint, 3)
-    if knn:
-        _,idx = knn_point(nsample, xyz, new_xyz)
-    else:
-        idx, pts_cnt = query_ball_point(radius, nsample, xyz, new_xyz)
-    
+    # new_xyz = gather_point(xyz, farthest_point_sample(npoint, xyz)) # (batch_size, npoint, 3)
     xyz_shape = xyz.get_shape()
     batch_size = xyz_shape[0].value
     num_points = xyz_shape[1].value
     num_dims = xyz_shape[-1].value
     xyz_reshaped = tf.reshape(xyz, [-1, num_dims])
-
+    
+    sampled_idx = tf.random_uniform(shape=(batch_size, npoint), maxval=npoint-1,dtype=tf.int32)
+    new_xyz = gather_point(xyz, sampled_idx) # (batch_size, npoint, 3)
+    
+    if knn:
+        _,idx = knn_point(nsample, xyz, new_xyz)
+    else:
+        idx, pts_cnt = query_ball_point(radius, nsample, xyz, new_xyz)
+    
     idx_ = tf.range(batch_size) * num_points
     idx_ = tf.reshape(idx_, [batch_size, 1, 1])
 
