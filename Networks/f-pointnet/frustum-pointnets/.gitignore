@@ -1,0 +1,10 @@
+kitti/*
+dataset/*
+train/train/*
+train/test/*
+train/detection_results_v2/*
+*.pyc
+*.o
+*.so
+*.edu
+*.txt
