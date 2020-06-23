@@ -1,6 +1,6 @@
 ## Efficient Frustum PointNets for 3D Object Detection from RGB-D Data
-
-This repository is code release for applying delayed-aggregation method on  Frustum PointNets. The paper reference can be found in [here](https://arxiv.org/abs/1711.08488). 
+------------
+This repository is code release for applying delayed-aggregation method on Frustum PointNets. The paper reference can be found in [here](https://arxiv.org/abs/1711.08488). 
 For more detailed information please visit the github repository [here](https://github.com/charlesq34/frustum-pointnets). 
 
 
