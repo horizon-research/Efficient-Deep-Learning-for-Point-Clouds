@@ -23,7 +23,7 @@ common:
     input_channels: 0     # feature channels except (x, y, z)
     
     checkpoint: 'cls/cls_iter_30600_acc_0.920989.pth'
-    		#'cls/model_cls_L6_iter_36567_acc_0.923825_ori_bkup.pth'        # the model to start from
+    #'cls/model_cls_L6_iter_36567_acc_0.923825_ori_bkup.pth'        # the model to start from
     
     save_path: cls
     data_root: ../../../Dataset/ModelNet40 
