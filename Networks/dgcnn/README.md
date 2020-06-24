@@ -5,7 +5,7 @@
 ### 1. Dataset
 Currently, we only support the ModelNet40 benchmark used by the [original DGCNN project](https://github.com/WangYueFt/dgcnn). To download the dataset, run: 
 ```
-python modelnet_dataset.py
+python provider.py
 ``` 
 If you want to experiment on other datasets, we suggest following the [instructions](https://github.com/charlesq34/pointnet2#prepare-your-own-data) provided by the PointNet++ project.
 
