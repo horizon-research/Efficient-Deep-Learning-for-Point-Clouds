@@ -5,7 +5,7 @@
 ### 1. Dataset
 Currently, we only support the ModelNet benchmark used by the [original PointNet++ project](https://github.com/charlesq34/pointnet2). To download the dataset, run: 
 ```
-python modelnet_dataset.py
+python modelnet_h5_dataset.py
 ``` 
 
 If you want to experiment on your own dataset, we suggest following the instructions [here](https://github.com/charlesq34/pointnet2#prepare-your-own-data).
