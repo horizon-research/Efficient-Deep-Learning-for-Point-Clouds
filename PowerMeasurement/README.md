@@ -25,6 +25,17 @@ data produced by this repo is for vros research.
     ```
     $ nvpmodel -m 0
     ```
+## How to measure the power of execution time
+	
+To recreate some of measurements in our paper, you can create two windows from your terminals. One is used to launch
+the network. While the network model is launched, use the second windows to measure the power consumption on TX2. For
+example:
+```
+$ ./power gpu [NETWORK_NAME]
+```
+Then, Kill the `power` program while the network model is still running. The measured GPU power number will be stored in
+a file named `[NETWORK_NAME]_gpu.txt`. Average the number stored in the file, you will get the average power consumption 
+for one particular network.
 
 ### Reference
 https://devtalk.nvidia.com/default/topic/1000830/jetson-tx2/jetson-tx2-ina226-power-monitor-with-i2c-interface-/
