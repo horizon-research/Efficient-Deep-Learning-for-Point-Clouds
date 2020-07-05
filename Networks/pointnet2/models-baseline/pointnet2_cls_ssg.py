@@ -6,7 +6,7 @@ import os
 import sys
 BASE_DIR = os.path.dirname(__file__)
 sys.path.append(BASE_DIR)
-sys.path.append(os.path.join(BASE_DIR, '../utils'))
+sys.path.append(os.path.join(BASE_DIR, '../utils-baseline'))
 import tensorflow as tf
 import numpy as np
 import tf_util
