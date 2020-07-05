@@ -12,17 +12,18 @@ We have applied the optimizations to the networks below:
 - DGCNN: [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/dgcnn), [Segmentation - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/dgcnn/part_seg)
 - LDGCNN: [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/ldgcnn)
 - F-PointNet: [3D Detection](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/frustum-pointnets)
+- DensePoint [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/DensePoint)
 
 ### How to Run Networks
 We have create a simple PYTHON script to navigate the repository. Run:
 ```
-$ python launcher.py
+$ python launcher.py -h
 ```
 You will see:
-```
+```                    
 usage: launcher.py [-h] [--compile COMPILE] [--download DOWNLOAD]
                    [--list_models LIST_MODELS] [--run RUN] [--train TRAIN]
-                   [--use_baseline USE_BASELINE]
+                   [--use_baseline USE_BASELINE] [--use_limited USE_LIMITED]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -33,11 +34,16 @@ optional arguments:
                         download a dataset for a specific network, use:
                         --compile [NETWORK_NAME] or to copmpile all models
                         using, --compile all
+  --list_models LIST_MODELS
+                        List all model names.
   --run RUN             Launch the model with default settings.
+  --train TRAIN         Train the model with default settings.
   --use_baseline USE_BASELINE
                         Use baseline instead of efficient version.
+  --use_limited USE_LIMITED
+                        Use limited aggr. instead of efficient version.
 ```
-For most of networks, you don't have to compile any additional modules, most of them are native PYTHON code. But for `pointnet++` and `f-pointnet`, we need to compile some modules. To compile, you can run:
+Current PYTHON script works for most of networks,except for `DensePoint`. To compile and run `DensePoint`, please check out the [sub-repository](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/DensePoint) for details.  For most of networks, you don't have to compile any additional modules, most of them are native PYTHON code. But for `pointnet++` and `f-pointnet`, we need to compile some modules. To compile, you can run:
 ```
 $ python launcher.py --compile [NETWORK]
 ```
