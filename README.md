@@ -1,5 +1,7 @@
 ## Efficient-Deep-Learning-for-Point-Clouds
-This project is about designing efficient 3-d point cloud Deep Neural Networks with pure algorithm (software-level) optimizations. Our techniques 1). reduce redundant computation to achieve workload efficiency; 2). expose parallelism that can be easily captured by the underlying hardware.
+This project is about designing efficient 3-d point cloud Deep Neural Networks with pure algorithm (software-level) optimizations. Our techniques: 
+1. reduce redundant computation to achieve workload efficiency; 
+2. expose parallelism that can be easily captured by the underlying hardware.
 
 ------------------
 
@@ -8,6 +10,7 @@ We have applied the optimizations to the networks below:
 
 - PointNet++: [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/pointnet2), Segmentation - Optimized Version
 - DGCNN: [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/dgcnn), [Segmentation - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/dgcnn/part_seg)
+- LDGCNN: [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/ldgcnn)
 - F-PointNet: [3D Detection](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/frustum-pointnets)
 
 ### How to Run Networks
