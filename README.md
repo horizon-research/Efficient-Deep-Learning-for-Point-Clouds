@@ -3,6 +3,8 @@ This project is about designing efficient 3-d point cloud Deep Neural Networks w
 1. reduces redundant computation to achieve workload efficiency; 
 2. exposes parallelism that can be easily captured by the underlying hardware.
 
+We first provide some background on Point Cloud NNs, and introduce how **Delayed Aggregation** works: 
+
 ### Background on Point Cloud NNs
 In most Point Cloud neural networks, there are three major operations: **Neighbor Search**, **Aggregation**, and **Feature Computation**.
 Take the first layer of [PointNet++](https://github.com/charlesq34/pointnet2) as an example: 
@@ -20,6 +22,18 @@ In most networks, e.g., [PointNet++](https://github.com/charlesq34/pointnet2) an
 
 ### How does Delayed Aggregation work
 
+**Delayed Aggregation** does the Feature Computation first and does Aggregation after the entire Feature Computation is done. Meanwhile, Neighbor Search is done in parallel with Feature Computation. It is a form of approximation, but our experimental results indicate the accuracy does not drop (with fine-tuning). 
+- Why do we delay Aggregation? </br>
+It not only reduces the overall compute workload, but also introduces parallelism into the pipeline (now Neighbor Search can be done in parallel with MLPs). 
+
+- What is changed from the algorithm's perspective?</br> 
+Now the Feature Computation step computes the feature of individual points instead of neighborhoods.
+
+Below is how the first layer of PointNet++ looks like with Delayed Aggregation: 
+![image](https://user-images.githubusercontent.com/19209239/86542082-32a75400-bee0-11ea-82ce-dacac1fc8812.png) 
+
+**Limited Delayed Aggregation**
+- [ ] to-do
 ------------------
 
 ### Optimized Networks
