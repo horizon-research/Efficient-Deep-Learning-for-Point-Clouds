@@ -16,6 +16,7 @@ parser.add_argument('--list_models', help='List all model names.')
 parser.add_argument('--run', type=str, default=None, help='Launch the model with default settings.')
 parser.add_argument('--train', type=str, default=None, help='Train the model with default settings.')
 parser.add_argument('--use_baseline', type=bool, default=False, help='Use baseline instead of efficient version.')
+parser.add_argument('--use_limited', type=bool, default=False, help='Use limited aggr. instead of efficient version.')
 FLAGS = parser.parse_args()
 
 COMPILE_MODELS = ['pointnet2', 'frustum-pointnets']
@@ -84,6 +85,13 @@ RUN_BASELINES = {
     'dgcnn' : 'python evaluate-baseline.py'
 }
 
+RUN_LIMITED = {
+    'pointnet2' : 'python evaluate-limited.py',
+    'frustum-pointnets' : 'bash scripts/command_test_v2_limited.sh',
+    'ldgcnn' : 'python evaluate.py --log_dir log_new --model_cnn ldgcnn',
+    'dgcnn' : 'python evaluate.py'
+}
+
 dir_path = './Networks/%s' % FLAGS.run
 # Run some models
 if FLAGS.run in RUN_MODELS and os.path.exists(dir_path):
@@ -91,6 +99,9 @@ if FLAGS.run in RUN_MODELS and os.path.exists(dir_path):
     if FLAGS.use_baseline:
         print('launching %s baseline' % FLAGS.run)
         os.system('cd %s; %s' % (dir_path, RUN_BASELINES[FLAGS.run]))
+    elif FLAGS.use_limited:
+        print('launching %s limited-aggr.' % FLAGS.run)
+        os.system('cd %s; %s' % (dir_path, RUN_LIMITED[FLAGS.run]))
     else:
         print('launching %s efficient net' % FLAGS.run)
         os.system('cd %s; %s' % (dir_path, RUN_MODELS[FLAGS.run]))
