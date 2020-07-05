@@ -62,6 +62,10 @@ To run the corresponding baseline, you can use additional flag `--use_baseline`:
 ```
 $ python launcher.py --run [NETWORK] --use_baseline
 ```
+To run the corresponding limited aggregated version, you can use additional flag `--use_limited`:
+```
+$ python launcher.py --run [NETWORK] --use_limited
+```
 
 
 ### Acknowledgement ###
