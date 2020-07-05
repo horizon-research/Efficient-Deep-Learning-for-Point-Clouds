@@ -49,7 +49,7 @@ $ conda install torchvision h5py pyyaml scipy
 ### Preparing Dataset 
 The classification task is tested on the [ModelNet40](https://shapenet.cs.stanford.edu/media/modelnet40_ply_hdf5_2048.zip) (415M) benchmark. To download the dataset, change the directory to `Dataset` and run: 
 ```
-$ wget https://shapenet.cs.stanford.edu/media                /modelnet40_ply_hdf5_2048.zip
+$ wget https://shapenet.cs.stanford.edu/media/modelnet40_ply_hdf5_2048.zip
 ``` 
 Unzip the dataset and change the `$data_root$` in `cfgs/config_cls.yaml`.
 
