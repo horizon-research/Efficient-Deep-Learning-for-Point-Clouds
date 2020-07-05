@@ -1,11 +1,14 @@
 ## Efficient-Deep-Learning-for-Point-Clouds
-This project is about designing efficient 3-d point cloud Deep Neural Networks with pure algorithm (software-level) optimizations. Our techniques: 
-1. reduce redundant computation to achieve workload efficiency; 
-2. expose parallelism that can be easily captured by the underlying hardware.
-Such efficiency is achieved by a technique named *Delayed Aggregation*.
-- [ ] to-do: illustration
+This project is about designing efficient 3-d point cloud Deep Neural Networks with pure algorithm (software-level) optimizations. We propose a technique named **Delayed Aggregation** that:
+1. reduces redundant computation to achieve workload efficiency; 
+2. exposes parallelism that can be easily captured by the underlying hardware.
 
-Specifically, for a comprehensive evaluation, we have three versions of networks: 
+#### How does it work
+
+
+#### Evaluation
+
+Specifically, for a comprehensive evaluation, we have provided three versions of networks in this repo: 
 1. **Original**: the original implementation of the networks (baseline).
 2. **Limited Delayed-Aggregation**: the one with limited delayed aggregation optimization, which is used in GNNs' implementations.
 3. **Fully Delayed-Aggregation**: the one with full delayed aggregation optimization, our proposed technique.
@@ -61,15 +64,15 @@ After the compilation, you need to download the dataset for the networks. To do 
 $ python launcher.py --download [NETWORK]
 ```
 
-Now, if everything goes well, you can run our models by using:
+Now, if everything goes well, you can run our models (i.e., the Fully Delayed-Aggregation version) by using:
 ```
 $ python launcher.py --run [NETWORK]
 ```
-To run the corresponding baseline, you can use additional flag `--use_baseline`:
+To run the Original version (baseline), you can use additional flag `--use_baseline`:
 ```
 $ python launcher.py --run [NETWORK] --use_baseline
 ```
-To run the corresponding limited aggregated version, you can use additional flag `--use_limited`:
+To run the Limited Delayed-Aggregation version, you can use additional flag `--use_limited`:
 ```
 $ python launcher.py --run [NETWORK] --use_limited
 ```
