@@ -2,6 +2,13 @@
 This project is about designing efficient 3-d point cloud Deep Neural Networks with pure algorithm (software-level) optimizations. Our techniques: 
 1. reduce redundant computation to achieve workload efficiency; 
 2. expose parallelism that can be easily captured by the underlying hardware.
+Such efficiency is achieved by a technique named *Delayed Aggregation*.
+- [ ] to-do: illustration
+
+Specifically, for a comprehensive evaluation, we have three versions of networks: 
+1. **Original**: the original implementation of the networks (baseline).
+2. **Limited Delayed-Aggregation**: the one with limited delayed aggregation optimization, which is used in GNNs' implementations.
+3. **Fully Delayed-Aggregation**: the one with full delayed aggregation optimization, our proposed technique.
 
 ------------------
 
