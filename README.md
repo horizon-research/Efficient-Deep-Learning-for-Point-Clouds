@@ -3,6 +3,8 @@ This project is about designing efficient 3-d point cloud Deep Neural Networks w
 1. reduces redundant computation to achieve workload efficiency; 
 2. exposes parallelism that can be easily captured by the underlying hardware.
 
+For the background of point cloud neural networks and how our delayed-aggregation helps improves the execution efficiency, see the [wiki](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/wiki) page.
+
 ### Networks
 Delayed-aggregation applies to a wide range of different point cloud networks. This repo has the implementation for the following five networks:
 
@@ -12,10 +14,12 @@ Delayed-aggregation applies to a wide range of different point cloud networks. T
 - F-PointNet: [3D Detection](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/frustum-pointnets)
 - DensePoint: [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/DensePoint)
 
-Also, for a comprehensive evaluation, we have provided three versions of each network: 
+For each network, we have provided three versions of each network: 
 1. **Baseline**: the original implementation of the networks.
 2. **Limited Delayed-Aggregation**: the one with limited delayed-ggregation optimization, which is inspired by some GNNs implementations.
 3. **Fully Delayed-Aggregation**: the one with full delayed-aggregation optimization, i.e., our proposed technique.
+
+For the difference between the three versions, again see the [wiki](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/wiki) page.
 
 ### How to Run Networks
 We have create a simple PYTHON script to navigate the repository. Run:
