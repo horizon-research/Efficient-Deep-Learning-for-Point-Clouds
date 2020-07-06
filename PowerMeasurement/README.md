@@ -37,5 +37,16 @@ Then, Kill the `power` program while the network model is still running. The mea
 a file named `[NETWORK_NAME]_gpu.txt`. Average the number stored in the file, you will get the average power consumption 
 for one particular network.
 
+## Power Measurement Script
+
+We also provide a script to measure the average power consumption. Before proceeding, make sure you are able to run the `launcher.py` script
+at the root directory. 
+
+To measure the average power for one particular model, you can simply run:
+```
+$ python launcher.py --run [NETWORK]
+```
+To measure the power consumption for other version such as baseline or limited-aggregation. You can add flags like `--use_baseline` or `--use_limited`.
+
 ### Reference
 https://devtalk.nvidia.com/default/topic/1000830/jetson-tx2/jetson-tx2-ina226-power-monitor-with-i2c-interface-/
