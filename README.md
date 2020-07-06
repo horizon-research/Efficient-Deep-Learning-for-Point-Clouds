@@ -36,8 +36,8 @@ Below is how the first layer of PointNet++ looks like with Delayed Aggregation:
 - [ ] to-do
 ------------------
 
-### Optimized Networks
-We have applied the optimizations to the networks below:
+### Networks
+Delayed-aggregation applies to a wide range of different point cloud networks. This repo has the implementation for the following five networks:
 
 - PointNet++: [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/pointnet2), Segmentation - Optimized Version
 - DGCNN: [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/dgcnn), [Segmentation - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/dgcnn/part_seg)
@@ -46,11 +46,9 @@ We have applied the optimizations to the networks below:
 - DensePoint: [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/DensePoint)
 
 Also, for a comprehensive evaluation, we have provided three versions of each network: 
-1. **Original**: the original implementation of the networks (baseline).
-2. **Limited Delayed-Aggregation**: the one with limited delayed aggregation optimization, which is used in GNNs' implementations.
-3. **Fully Delayed-Aggregation**: the one with full delayed aggregation optimization, our proposed technique.
-
-See below on how to run on each of them. 
+1. **Baseline**: the original implementation of the networks.
+2. **Limited Delayed-Aggregation**: the one with limited delayed-ggregation optimization, which is inspired by some GNNs implementations.
+3. **Fully Delayed-Aggregation**: the one with full delayed-aggregation optimization, i.e., our proposed technique.
 
 ### How to Run Networks
 We have create a simple PYTHON script to navigate the repository. Run:
