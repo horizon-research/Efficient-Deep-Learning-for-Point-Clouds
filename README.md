@@ -52,6 +52,16 @@ optional arguments:
 ```
 Current Python script works for all the networks, except `DensePoint`. To run `DensePoint`, please check out the [sub-repository](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/DensePoint) for details.
 
+There is a slight naming difference between the actual model name and the name in the code. Make sure you use names in the second column in the `launcher.py`. 
+
+| Actual Model Name | Name in Our Code |
+|-------------------|------------------|
+| PointNet++        | pointnet2        |
+| DGCNN             | dgcnn            |
+| LDGCNN            | ldgcnn           |
+| F-PointNet        | frustum-pointnets|
+| DensePoint        | DensePoint       | 
+
 For most of the networks, you don't have to compile any additional modules, most of them are native Python code. But for `pointnet++` and `f-pointnet`, you need to compile some modules. To compile, you can run:
 ```
 $ python launcher.py --compile [NETWORK]
