@@ -1,4 +1,4 @@
-## Efficient-Deep-Learning-for-Point-Clouds
+## Efficient Deep Learning for Point Clouds
 This project is about designing efficient 3-d point cloud Deep Neural Networks with pure algorithm (software-level) optimizations. We propose a technique named **Delayed Aggregation** that:
 1. reduces redundant computation to achieve workload efficiency; 
 2. exposes parallelism that can be easily captured by the underlying hardware.
@@ -81,7 +81,9 @@ optional arguments:
   --use_limited USE_LIMITED
                         Use limited aggr. instead of efficient version.
 ```
-Current PYTHON script works for most of networks,except for `DensePoint`. To compile and run `DensePoint`, please check out the [sub-repository](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/DensePoint) for details.  For most of networks, you don't have to compile any additional modules, most of them are native PYTHON code. But for `pointnet++` and `f-pointnet`, we need to compile some modules. To compile, you can run:
+Current Python script works for all the networks, except `DensePoint`. To run `DensePoint`, please check out the [sub-repository](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/DensePoint) for details.
+
+For most of the networks, you don't have to compile any additional modules, most of them are native Python code. But for `pointnet++` and `f-pointnet`, you need to compile some modules. To compile, you can run:
 ```
 $ python launcher.py --compile [NETWORK]
 ```
@@ -92,19 +94,19 @@ After the compilation, you need to download the dataset for the networks. To do 
 $ python launcher.py --download [NETWORK]
 ```
 
-Now, if everything goes well, you can run our models (i.e., the Fully Delayed-Aggregation version) by using:
+Now, if everything goes well, you can run the full delayed-aggregation version of the models by:
 ```
 $ python launcher.py --run [NETWORK]
 ```
-To run the Original version (baseline), you can use additional flag `--use_baseline`:
+To run the baseline, you can use additional flag `--use_baseline`:
 ```
 $ python launcher.py --run [NETWORK] --use_baseline
 ```
-To run the Limited Delayed-Aggregation version, you can use additional flag `--use_limited`:
+To run the models with the limited delayed-aggregation, you can use additional flag `--use_limited`:
 ```
 $ python launcher.py --run [NETWORK] --use_limited
 ```
 
 
-### Acknowledgement ###
+### Publication ###
 ------------------
