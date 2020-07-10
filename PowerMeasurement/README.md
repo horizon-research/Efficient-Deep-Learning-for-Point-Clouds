@@ -44,9 +44,9 @@ at the root directory.
 
 To measure the average power for one particular model, you can simply run:
 ```
-$ python launcher.py --run [NETWORK]
+$ python power_measurement.py --run [NETWORK]
 ```
-To measure the power consumption for other version such as baseline or limited-aggregation. You can add flags like `--use_baseline` or `--use_limited`.
+The default model is our efficient model (delayed-aggregation version). To measure the power consumption for other version such as baseline or limited-aggregation. You can add flags like `--use_baseline` or `--use_limited`.
 
 ### Reference
 https://devtalk.nvidia.com/default/topic/1000830/jetson-tx2/jetson-tx2-ina226-power-monitor-with-i2c-interface-/
