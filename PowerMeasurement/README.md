@@ -1,6 +1,5 @@
 # TX2 power consumption
-This repository is for automated creating power consumption data from tx2. The
-data produced by this repo is for vros research.
+This repository is for automated creating power consumption data from Nvidia Jetson TX2.
 
 ## Usage
 - power.cpp
