@@ -1,3 +1,6 @@
+For PointNet++ (Segmentation), please check out the part_seg directory.
+
+
 ### PointNet++ (Classification)
 ------------
 
