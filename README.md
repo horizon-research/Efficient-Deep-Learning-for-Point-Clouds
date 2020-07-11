@@ -52,7 +52,7 @@ optional arguments:
 ```
 Current Python script works for all the networks, except `DensePoint`. To run `DensePoint`, please check out the [sub-repository](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/DensePoint) for details.
 
-There is a slight naming difference between the actual model name and the name in the code. Make sure you use names in the second column in the `launcher.py`. 
+There is a slight naming difference between the actual model name and the name in the code. Make sure you use names in the second column of this table to run the `launcher.py`. 
 
 | Actual Model Name | Name in Our Code |
 |-------------------|------------------|
