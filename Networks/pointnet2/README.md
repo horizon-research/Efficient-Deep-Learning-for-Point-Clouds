@@ -1,4 +1,4 @@
-For PointNet++ (Segmentation), please check out the part_seg directory.
+For PointNet++ (Segmentation), please check out the [part_seg](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/pointnet2/part_seg) directory.
 
 
 ### PointNet++ (Classification)
