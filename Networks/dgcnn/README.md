@@ -2,7 +2,7 @@
 
 ------------
 
-For DGCNN (Segmentation), please check out [here](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/dgcnn/part_seg).
+For DGCNN (Segmentation), please check out [the part_seg directory](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/dgcnn/part_seg).
 
 ### Prerequisite
 ### 1. Dataset
