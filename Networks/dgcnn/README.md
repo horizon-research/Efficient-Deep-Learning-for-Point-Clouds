@@ -1,5 +1,8 @@
 ### DGCNN (Classification)
+
 ------------
+
+For DGCNN (Segmentation), please check out [here](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/dgcnn/part_seg).
 
 ### Prerequisite
 ### 1. Dataset
