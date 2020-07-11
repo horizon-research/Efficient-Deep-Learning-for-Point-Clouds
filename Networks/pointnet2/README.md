@@ -46,7 +46,7 @@ This section is about how to run inferencing on the three versions of networks b
 
 #### Running Option 1: running under this directory
 
-0\. Switch to the ```pointnet2``` directory. <br>
+0\. Make sure you are under the ```pointnet2``` directory. <br>
 1\. To run the **Baseline** of PointNet++ (inference): <br>
 ```
 python evaluate-baseline.py 
