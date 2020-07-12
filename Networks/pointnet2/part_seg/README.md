@@ -7,7 +7,6 @@
 - [ ] retrain model with most updated version
 - [ ] update README
 
-### Prerequisite
 ### 1. Dataset
 Please follow instructions given by the original [PointNet++](https://github.com/charlesq34/pointnet2/blob/master/README.md#object-part-segmentation) project: <br>Preprocessed ShapeNetPart dataset (XYZ, normal and part labels) can be found <a href="https://shapenet.cs.stanford.edu/media/shapenetcore_partanno_segmentation_benchmark_v0_normal.zip">here (674MB)</a>. Move the uncompressed data folder to `data/shapenetcore_partanno_segmentation_benchmark_v0_normal`
 
@@ -41,9 +40,9 @@ Or, if the CUDA paths are already set correctly, run
 
 ### 4. Run:
 This section is about how to run inferencing on the three versions of PointNet++ (Seg) below: <br>
-**Baseline**: the original implementation of the PointNet++ (Seg).
-**Limited Delayed-Aggregation**: the one with limited delayed-ggregation optimization.
-**Delayed-Aggregation**: the one with full delayed-aggregation optimization, i.e., our proposed version. 
+**Baseline**: the original implementation of the PointNet++ (Seg). <br>
+**Limited Delayed-Aggregation**: the one with limited delayed-ggregation optimization. <br>
+**Delayed-Aggregation**: the one with full delayed-aggregation optimization, i.e., our proposed version. <br>
 
 #### Running Option 1: 
 
