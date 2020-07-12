@@ -19,12 +19,11 @@ import part_dataset_all_normal
 parser = argparse.ArgumentParser()
 parser.add_argument('--gpu', type=int, default=0, help='GPU to use [default: GPU 0]')
 parser.add_argument('--model', default='pointnet2_part_seg', help='Model name [default: pointnet2_part_seg]')
-parser.add_argument('--model_path', default='log/model.ckpt', help='model checkpoint file path [default: log/model.ckpt]')
+parser.add_argument('--model_path', default='log/model_best_acc.ckpt', help='model checkpoint file path [default: log/model_best_acc.ckpt]')
 parser.add_argument('--log_dir', default='log_eval', help='Log dir [default: log_eval]')
 parser.add_argument('--num_point', type=int, default=2048, help='Point Number [default: 2048]')
 parser.add_argument('--batch_size', type=int, default=32, help='Batch Size during training [default: 32]')
 FLAGS = parser.parse_args()
-
 
 VOTE_NUM = 12
 
@@ -47,7 +46,7 @@ LOG_FOUT.write(str(FLAGS)+'\n')
 NUM_CLASSES = 50
 
 # Shapenet official train/test split
-DATA_PATH = os.path.join(ROOT_DIR, 'data', 'shapenetcore_partanno_segmentation_benchmark_v0_normal')
+DATA_PATH = os.path.join(ROOT_DIR, '../../Dataset/', 'shapenetcore_partanno_segmentation_benchmark_v0_normal')
 TEST_DATASET = part_dataset_all_normal.PartNormalDataset(root=DATA_PATH, npoints=NUM_POINT, classification=False, split='test')
 
 def log_string(out_str):

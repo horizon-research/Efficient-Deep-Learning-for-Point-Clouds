@@ -4,7 +4,7 @@ This repository is code release for applying delayed-aggregation method on Frust
 For more detailed information please visit the github repository [here](https://github.com/charlesq34/frustum-pointnets). 
 
 
-### 2. Environment/Libraries:
+### Environment/Libraries:
 This is a tricky part. It is necessary to install the right versions of libraries to get the code running.
 We have been experimenting in the environment below:
 
