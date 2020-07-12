@@ -55,6 +55,8 @@ There are three versions of PointNet++ (cls): <br>
 **Limited Delayed-Aggregation**: the version with limited delayed-ggregation optimization. <br>
 **Delayed-Aggregation**: the version with full delayed-aggregation optimization, i.e., our proposed version. 
 
+Below shows how to evaluate different versions:
+
 #### Option 1:
 
 0\. Make sure you are under the ```pointnet2``` directory. <br>
