@@ -1,6 +1,5 @@
 # TX2 power consumption
-This repository is for automated creating power consumption data from tx2. The
-data produced by this repo is for vros research.
+This repository is for automated creating power consumption data from Nvidia Jetson TX2.
 
 ## Usage
 - power.cpp
@@ -36,6 +35,17 @@ $ ./power gpu [NETWORK_NAME]
 Then, Kill the `power` program while the network model is still running. The measured GPU power number will be stored in
 a file named `[NETWORK_NAME]_gpu.txt`. Average the number stored in the file, you will get the average power consumption 
 for one particular network.
+
+## Power Measurement Script
+
+We also provide a script to measure the average power consumption. Before proceeding, make sure you are able to run the `launcher.py` script
+at the root directory. 
+
+To measure the average power for one particular model, you can simply run:
+```
+$ python power_measurement.py --run [NETWORK]
+```
+The default model is our efficient model (delayed-aggregation version). To measure the power consumption for other version such as baseline or limited-aggregation. You can add flags like `--use_baseline` or `--use_limited`.
 
 ### Reference
 https://devtalk.nvidia.com/default/topic/1000830/jetson-tx2/jetson-tx2-ina226-power-monitor-with-i2c-interface-/

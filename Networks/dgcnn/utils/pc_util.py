@@ -16,8 +16,8 @@ from eulerangles import euler2mat
 import numpy as np
 from plyfile import PlyData, PlyElement
 
-def print(*args):
-    return
+#def print(args*):
+#    return
  
 # ----------------------------------------
 # Point Cloud/Volume Conversions

@@ -1,51 +1,66 @@
 ### PointNet++ (Classification)
 ------------
 
-### Prerequisite
-### 1. Dataset
+For PointNet++ (Segmentation), please check out the [part_seg](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/pointnet2/part_seg) directory.
+
+---
+
+### Dataset
 Currently, we only support the ModelNet benchmark used by the [original PointNet++ project](https://github.com/charlesq34/pointnet2). To download the dataset, run: 
 ```
 python modelnet_h5_dataset.py
 ``` 
-
 If you want to experiment on your own dataset, we suggest following the instructions [here](https://github.com/charlesq34/pointnet2#prepare-your-own-data).
 
-### 2. Environment/Libraries:
+---
+
+### Environment/Libraries:
 This is a tricky part. It is necessary to install the right versions of libraries to get the code running.
 We have been experimenting in the environment below:
 
 OS: Ubuntu 18.04.3 LTS <br>
 Python: 2.7 <br>
-Libraries:
-- Tensorflow 1.12.0 
-- numpy 1.14
-- CUDA 10.2
-- cudnn 7.6.5
+Libraries: Tensorflow 1.12.0, numpy 1.14, CUDA 10.2, cudnn 7.6.5
 
 Compiler Toolchain: 
 - gcc / gxx: 7.3.0 (to compile the tf ops)
 
 We highly recommend using virtual environment tools like Anaconda to set up the right environment. 
 
-### 3. Compile:
-This part is to compile the [customized tf operators](https://github.com/charlesq34/pointnet2#compile-customized-tf-operators) (interpolation, grouping, sampling). Please follow the steps below.<br>
+---
+
+### Installation
+Instructions on how to compile the [customized tf operators](https://github.com/charlesq34/pointnet2#compile-customized-tf-operators) (interpolation, grouping, sampling). Please follow the steps below.<br>
 0\. Suppose we are in the ```pointnet2``` directory: <br>
 <img src="https://user-images.githubusercontent.com/19209239/83693739-a7772d80-a5c4-11ea-8459-f0e6841f29e8.png" alt="drawing" width="600"/>
 
-1\. Enter directory ```./tf_ops/3d_interpolation``` and check if the CUDA path in the ```tf_interpolate_compile.sh``` script is set correctly; if not, please correct: <br>
-<img src="https://user-images.githubusercontent.com/19209239/83694347-d8a42d80-a5c5-11ea-850c-261019637fa2.png" alt="drawing" width="1000"/>
+1\. Enter directory ```./tf_ops/3d_interpolation``` and check if the CUDA path in the ```tf_interpolate_compile.sh``` script is set correctly; if not, please set that to the CUDA path on your machine (usually it's under /usr/local/). <br>
+<img src="https://user-images.githubusercontent.com/19209239/83694347-d8a42d80-a5c5-11ea-850c-261019637fa2.png" alt="drawing" width="800"/>
 
 2\. Run ```sh tf_interpolate_compile.sh```.<br>
-3\. Repeat 1-2 for ```./tf_ops/grouping``` and ```./tf_ops/sampling```. <br><br>
-Or, if the CUDA paths are already set correctly, run 
-```python compile.py``` in the ```pointnet2``` directory. 
+3\. Repeat 1-2 for ```./tf_ops/grouping``` and ```./tf_ops/sampling```. <br>
 
-### 4. Run:
-This part is to run the inference on both the original network and the optimized network. <br>
-0\. Switch to the ```pointnet2``` directory: <br>
-<img src="https://user-images.githubusercontent.com/19209239/83693739-a7772d80-a5c4-11ea-8459-f0e6841f29e8.png" alt="drawing" width="600"/>
+If the CUDA paths are already set correctly, you can run 
+```python compile.py``` in the ```pointnet2``` directory instead of following the 3 steps above.
 
-1\. To run the **original version** of PointNet++ (evaluation / inference): <br>
+---
+
+### Training
+
+---
+
+### Evaluation
+There are three versions of PointNet++ (cls): <br>
+**Baseline**: the original PointNet++ (cls) with implementation optimizations. <br>
+**Limited Delayed-Aggregation**: the version with limited delayed-ggregation optimization. <br>
+**Delayed-Aggregation**: the version with full delayed-aggregation optimization, i.e., our proposed version. 
+
+Below shows how to evaluate different versions:
+
+#### Option 1:
+
+0\. Make sure you are under the ```pointnet2``` directory. <br>
+1\. To run the **Baseline** version of PointNet++ (inference): <br>
 ```
 python evaluate-baseline.py 
 ```
@@ -55,24 +70,31 @@ To check out all the optional arguments for the inference, please run: <br>
 python evaluate-baseline.py -h
 ```
 
-2\. To run the **optimized version** of PointNet++ (evaluation / inference): <br>
+2\. To run the **Limited Delayed-Aggregation** version of PointNet++ (inference): <br>
+```
+python evaluate-limited.py
+```
+
+3\. To run the **Delayed-Aggregation** version of PointNet++ (inference): <br>
 ```
 python evaluate.py 
 ```
 
-To check out all the optional arguments for the inference, please run: <br>
-```
-python evaluate.py -h
-```
+4\. Check the results. It will print out the accuracy and latency after running: <br>
+The Baseline version: <br>
+<img src="https://user-images.githubusercontent.com/19209239/87248359-0ed79700-c427-11ea-9541-20864641752f.png" width="450"/>
 
-3\. Check the results. After running as in step 1 and 2, it will print out the accuracy and latency: <br>
-The original network: <br>
-<img src="https://user-images.githubusercontent.com/19209239/83704360-ebc3f700-a5df-11ea-8dcb-b842e0a85f30.png" alt="drawing" width="580"/>
+The Limited Delayed-Aggregation version: <br>
+<img src="https://user-images.githubusercontent.com/19209239/87255159-5de8f080-c456-11ea-8498-a97713b70b51.png" width="450"/>
 
-The optimized network: <br>
-<img src="https://user-images.githubusercontent.com/19209239/83761562-7cccb980-a644-11ea-976b-6438875ebc70.png" alt="drawing" width="620"/>
+The Delayed-Aggregation version: <br>
+<img src="https://user-images.githubusercontent.com/19209239/87254898-355ff700-c454-11ea-9b70-397c105c8c21.png" width="450"/>
+
+#### Option 2:
+Switch back to [the root directory](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds) and follow the instructions there.
 
 ------------
 
 ### About
 ------------
+

@@ -1,39 +1,50 @@
 ### LDGCNN (Classification)
 ------------
-This repository is code release for applying delayed-aggregation method on LDGCNN. The LDGCNN paper reference can be found in [here](https://arxiv.org/pdf/1904.10014.pdf). 
-For more detailed information please visit the github repository [here](https://github.com/KuangenZhang/ldgcnn). 
+This repository is code released for applying delayed-aggregation to [LDGCNN](https://arxiv.org/pdf/1904.10014.pdf). the original implementation is [here](https://github.com/KuangenZhang/ldgcnn). 
 
-### Prerequisite
-We tested our implementation on the environment listed below:
--   Ubuntu 18.04.3 LTS
--   Python: 2.7 <br>
-- gcc / gxx: 7.3.0 (to compile the tf ops)
--   Dependencies:
-    - Tensorflow 1.12.0 
-    - numpy 1.14
-    - CUDA 10.2
-    - cudnn 7.6.5
+---
 
-### Preparing Dataset 
+### Dataset 
 Currently, we tested our model on ModelNet40 benchmark. To download the dataset, run: 
 ```
 python download_modelnet.py
 ``` 
 
-### Run LDGCNN Model
+---
 
-We upload the pre-trained models of both our efficient version and original model to this repo. Our efficient version is stored in `log_new` directory and original version is stored in `log_baseline` directory. 
+### Environment/Libraries: 
+We tested our implementation in the environment below:
+-   Ubuntu 18.04.3 LTS
+-   Python: 2.7 <br>
+- gcc / gxx: 7.3.0 (to compile the tf ops)
+-   Dependencies: Tensorflow 1.12.0, numpy 1.14, scikit-learn, CUDA 10.2, cudnn 7.6.5
 
-To run the inference on both the original network and the optimized network, go to `ldgcnn` directory.
+---
 
-To run the **original version** of ldgcnn inference:
+### Evaluation
+
+There are two different versions of LDGCNN: <br>
+**Baseline**: the original LDGCNN network with implementation optimizations. <br>
+**Delayed-Aggregation**: the version with full delayed-aggregation optimization, i.e., our proposed version. <br>
+
+(In this special case, this Limited Delayed-Aggregation version is the same as the Delayed-Aggregation version.
+
+0\. Make sure you are at the `ldgcnn` directory. <br>
+1\. To run the **Baseline version** of LDGCNN (inference):
 ```
 python evaluate.py --log_dir log_baseline --model_cnn ldgcnn_baseline
 ```
-To run our **efficient version** of ldgcnn inference:
+
+2\. To run our **Delayed-Aggregation version** of LDGCNN (inference):
 ```
 python evaluate.py --log_dir log_new --model_cnn ldgcnn
 ```
 
-To check out both model archtectures, our **efficient version** is stored in `models/ldgcnn.py` and the **original version** is stored in `models/ldgcnn_baseline.py`.
+3\. To check out both model archtectures, our **Delayed-Aggregation version** is stored in `models/ldgcnn.py` and the **Baseline version** is stored in `models/ldgcnn_baseline.py`.
 
+4\. Check the results. <br>
+The **Baseline** version: <br>
+<img src="https://user-images.githubusercontent.com/19209239/87256024-87594a80-c45d-11ea-80f6-f340d178650b.png" width="400"> 
+
+The **Delayed-Aggregation** version: <br>
+<img src="https://user-images.githubusercontent.com/19209239/87256036-9b9d4780-c45d-11ea-99e9-ea67f92cee88.png" width="400">
