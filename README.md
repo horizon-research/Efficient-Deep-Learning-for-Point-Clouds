@@ -22,7 +22,7 @@ For each network, we have provided three versions of each network:
 For the difference between the three versions, again see the [wiki](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/wiki) page.
 
 ### How to Run Networks
-We have create a simple PYTHON script to navigate the repository. Run:
+We have created a simple PYTHON script to navigate the repository. Run:
 ```
 $ python launcher.py -h
 ```
