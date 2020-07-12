@@ -20,9 +20,9 @@ This section is about how to run (inferences on) the two different versions of L
 **Baseline**: the original implementation of the LDGCNN. <br>
 **Delayed-Aggregation**: the one with full delayed-aggregation optimization, i.e., our proposed version. <br>
 
-(In this special case, this Limited Delayed-Aggregation version is the same as the Delayed-Aggregation version._
+(In this special case, this Limited Delayed-Aggregation version is the same as the Delayed-Aggregation version.
 
-0\. To run both the original network and the optimized network, go to `ldgcnn` directory.
+0\. Make sure you are at the `ldgcnn` directory. <br>
 1\. To run the **Baseline version** of LDGCNN (inference):
 ```
 python evaluate.py --log_dir log_baseline --model_cnn ldgcnn_baseline
