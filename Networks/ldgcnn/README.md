@@ -2,23 +2,30 @@
 ------------
 This repository is code released for applying delayed-aggregation to [LDGCNN](https://arxiv.org/pdf/1904.10014.pdf). the original implementation is [here](https://github.com/KuangenZhang/ldgcnn). 
 
-### 1. Dataset 
+---
+
+### Dataset 
 Currently, we tested our model on ModelNet40 benchmark. To download the dataset, run: 
 ```
 python download_modelnet.py
 ``` 
-### 2. Environment/Libraries: 
+
+---
+
+### Environment/Libraries: 
 We tested our implementation in the environment below:
 -   Ubuntu 18.04.3 LTS
 -   Python: 2.7 <br>
 - gcc / gxx: 7.3.0 (to compile the tf ops)
 -   Dependencies: Tensorflow 1.12.0, numpy 1.14, CUDA 10.2, cudnn 7.6.5
 
-### 3. Run LDGCNN Model
+---
 
-This section is about how to run (inferences on) the two different versions of LDGCNN below: <br>
-**Baseline**: the original implementation of the LDGCNN. <br>
-**Delayed-Aggregation**: the one with full delayed-aggregation optimization, i.e., our proposed version. <br>
+### Evaluation
+
+There are two different versions of LDGCNN: <br>
+**Baseline**: the original LDGCNN network with implementation optimizations. <br>
+**Delayed-Aggregation**: the version with full delayed-aggregation optimization, i.e., our proposed version. <br>
 
 (In this special case, this Limited Delayed-Aggregation version is the same as the Delayed-Aggregation version.
 
