@@ -17,7 +17,7 @@ We tested our implementation in the environment below:
 -   Ubuntu 18.04.3 LTS
 -   Python: 2.7 <br>
 - gcc / gxx: 7.3.0 (to compile the tf ops)
--   Dependencies: Tensorflow 1.12.0, numpy 1.14, CUDA 10.2, cudnn 7.6.5
+-   Dependencies: Tensorflow 1.12.0, numpy 1.14, scikit-learn, CUDA 10.2, cudnn 7.6.5
 
 ---
 
