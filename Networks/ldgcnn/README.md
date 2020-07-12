@@ -42,3 +42,9 @@ python evaluate.py --log_dir log_new --model_cnn ldgcnn
 
 3\. To check out both model archtectures, our **Delayed-Aggregation version** is stored in `models/ldgcnn.py` and the **Baseline version** is stored in `models/ldgcnn_baseline.py`.
 
+4\. Check the results. <br>
+The **Baseline** version: <br>
+<img src="https://user-images.githubusercontent.com/19209239/87256024-87594a80-c45d-11ea-80f6-f340d178650b.png" width="400"> 
+
+The **Delayed-Aggregation** version: <br>
+<img src="https://user-images.githubusercontent.com/19209239/87256036-9b9d4780-c45d-11ea-99e9-ea67f92cee88.png" width="400">
