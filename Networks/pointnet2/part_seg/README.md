@@ -2,10 +2,10 @@
 ------------
 
 ### To-do
--[] add limited version
--[] update training script
--[] retrain model with most updated version
--[] update README
+- [ ] add limited version
+- [ ] update training script
+- [ ] retrain model with most updated version
+- [ ] update README
 
 ### Prerequisite
 ### 1. Dataset
