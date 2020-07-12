@@ -85,8 +85,10 @@ The Baseline version: <br>
 <img src="https://user-images.githubusercontent.com/19209239/87248359-0ed79700-c427-11ea-9541-20864641752f.png" width="450"/>
 
 The Limited Delayed-Aggregation version: <br>
+<img src="https://user-images.githubusercontent.com/19209239/87255159-5de8f080-c456-11ea-8498-a97713b70b51.png" width="450"/>
 
 The Delayed-Aggregation version: <br>
+<img src="https://user-images.githubusercontent.com/19209239/87254898-355ff700-c454-11ea-9b70-397c105c8c21.png" width="450"/>
 
 #### Option 2:
 Switch back to [the root directory](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds) and follow the instructions there.
