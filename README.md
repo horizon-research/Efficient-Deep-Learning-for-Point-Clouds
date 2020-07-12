@@ -15,7 +15,7 @@ Delayed-aggregation applies to a wide range of different point cloud networks. T
 - DensePoint: [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/DensePoint)
 
 For each network, we have provided three versions of each network: 
-1. **Baseline**: the original implementation of the networks.
+1. **Baseline**: the original networks with implementation optimizations.
 2. **Limited Delayed-Aggregation**: the one with limited delayed-ggregation optimization, which is inspired by some GNNs implementations.
 3. **Fully Delayed-Aggregation**: the one with full delayed-aggregation optimization, i.e., our proposed technique.
 
