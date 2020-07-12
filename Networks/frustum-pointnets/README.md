@@ -5,11 +5,11 @@ This repository contains code released for applying the Delayed-Aggregation meth
 ---
 
 ### Environment/Libraries:
-This is a tricky part. It is necessary to install the right versions of libraries to get the code running.
-We have been experimenting in the environment below:
+It is necessary to install the right version of libraries to get the code running. (The one that works on your machine is the right version.)
+We have been experimenting in the environment below: <br>
 
-OS: Ubuntu 18.04.3 LTS
-Python: 2.7
+OS: Ubuntu 18.04.3 LTS <br>
+Python: 2.7 <br>
 Dependencies: Tensorflow 1.12.0, numpy 1.14, CUDA 10.2, cudnn 7.6.5
 
 Compiler Toolchain: 
@@ -24,7 +24,7 @@ Suppose the root directory is at `frustum-pointnets`. Compile several custom Ten
 ```
  $ python compile.py
 ```
-Then, compile the evaluation code in `train/kitti_eval`, go to the directory, `train/kitti_eval` and run:
+Then, compile the evaluation code in `train/kitti_eval`, go to the directory `train/kitti_eval` and run:
 ```
 $ ./compile.sh
 ```
@@ -57,5 +57,8 @@ $ bash scripts/command_test_v2.sh
 ```
 or evaluate the original model:
 ```
-$ bash scripts/command_test_v2_baselline.sh
+$ bash scripts/command_test_v2_baseline.sh
 ```
+
+Check the results.
+- [ ]
