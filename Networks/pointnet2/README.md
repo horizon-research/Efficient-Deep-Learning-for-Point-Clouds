@@ -39,8 +39,8 @@ Or, if the CUDA paths are already set correctly, run
 ```python compile.py``` in the ```pointnet2``` directory. 
 
 ### 4. Run:
-This section is about how to run inferencing on the three versions of networks below: <br>
-**Baseline**: the original implementation of the PointNet++.
+This section is about how to run inferencing on the three versions of PointNet++ (cls) below: <br>
+**Baseline**: the original implementation of the PointNet++ (cls).
 **Limited Delayed-Aggregation**: the one with limited delayed-ggregation optimization.
 **Delayed-Aggregation**: the one with full delayed-aggregation optimization, i.e., our proposed version. 
 
@@ -67,7 +67,7 @@ python evaluate-limited.py
 python evaluate.py 
 ```
 
-3\. Check the results. It will print out the accuracy and latency after running: <br>
+4\. Check the results. It will print out the accuracy and latency after running: <br>
 The Baseline: <br>
 <img src="https://user-images.githubusercontent.com/19209239/87248359-0ed79700-c427-11ea-9541-20864641752f.png" width="450"/>
 
