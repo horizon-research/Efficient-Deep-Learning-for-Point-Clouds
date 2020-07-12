@@ -31,7 +31,7 @@ This part is to compile the [customized tf operators](https://github.com/charles
 <img src="https://user-images.githubusercontent.com/19209239/83693739-a7772d80-a5c4-11ea-8459-f0e6841f29e8.png" alt="drawing" width="600"/>
 
 1\. Enter directory ```./tf_ops/3d_interpolation``` and check if the CUDA path in the ```tf_interpolate_compile.sh``` script is set correctly; if not, please set that to the CUDA path on your machine (usually it's under /usr/local/). <br>
-<img src="https://user-images.githubusercontent.com/19209239/83694347-d8a42d80-a5c5-11ea-850c-261019637fa2.png" alt="drawing" width="1000"/>
+<img src="https://user-images.githubusercontent.com/19209239/83694347-d8a42d80-a5c5-11ea-850c-261019637fa2.png" alt="drawing" width="800"/>
 
 2\. Run ```sh tf_interpolate_compile.sh```.<br>
 3\. Repeat 1-2 for ```./tf_ops/grouping``` and ```./tf_ops/sampling```. <br><br>
@@ -44,7 +44,7 @@ This section is about how to run inferencing on the three versions of networks b
 **Limited Delayed-Aggregation**: the one with limited delayed-ggregation optimization.
 **Delayed-Aggregation**: the one with full delayed-aggregation optimization, i.e., our proposed version. 
 
-#### Running Option 1: running under this directory
+#### Running Option 1:
 
 0\. Make sure you are under the ```pointnet2``` directory. <br>
 1\. To run the **Baseline** of PointNet++ (inference): <br>
@@ -69,6 +69,7 @@ python evaluate.py
 
 3\. Check the results. It will print out the accuracy and latency after running: <br>
 The Baseline: <br>
+<img src="https://user-images.githubusercontent.com/19209239/87248359-0ed79700-c427-11ea-9541-20864641752f.png" width="450"/>
 
 The Limited Delayed-Aggregation version: <br>
 
