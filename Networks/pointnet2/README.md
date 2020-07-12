@@ -3,7 +3,6 @@
 
 For PointNet++ (Segmentation), please check out the [part_seg](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/pointnet2/part_seg) directory.
 
-### Prerequisite
 ### 1. Dataset
 Currently, we only support the ModelNet benchmark used by the [original PointNet++ project](https://github.com/charlesq34/pointnet2). To download the dataset, run: 
 ```
@@ -39,9 +38,9 @@ Or, if the CUDA paths are already set correctly, run
 ```python compile.py``` in the ```pointnet2``` directory. 
 
 ### 4. Run:
-This section is about how to run inferencing on the three versions of PointNet++ (cls) below: <br>
-**Baseline**: the original implementation of the PointNet++ (cls).
-**Limited Delayed-Aggregation**: the one with limited delayed-ggregation optimization.
+This section is about how to run the three different versions of PointNet++ (cls) below: <br>
+**Baseline**: the original implementation of the PointNet++ (cls). <br>
+**Limited Delayed-Aggregation**: the one with limited delayed-ggregation optimization. <br>
 **Delayed-Aggregation**: the one with full delayed-aggregation optimization, i.e., our proposed version. 
 
 #### Running Option 1:
