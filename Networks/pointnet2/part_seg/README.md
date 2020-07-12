@@ -1,6 +1,12 @@
 ### PointNet++ (Segmentation)
 ------------
 
+### To-do
+-[] add limited version
+-[] update training script
+-[] retrain model with most updated version
+-[] update README
+
 ### Prerequisite
 ### 1. Dataset
 Please follow instructions given by the original [PointNet++](https://github.com/charlesq34/pointnet2/blob/master/README.md#object-part-segmentation) project: <br>Preprocessed ShapeNetPart dataset (XYZ, normal and part labels) can be found <a href="https://shapenet.cs.stanford.edu/media/shapenetcore_partanno_segmentation_benchmark_v0_normal.zip">here (674MB)</a>. Move the uncompressed data folder to `data/shapenetcore_partanno_segmentation_benchmark_v0_normal`
