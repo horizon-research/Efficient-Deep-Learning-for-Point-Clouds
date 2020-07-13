@@ -27,7 +27,6 @@ FLAGS = parser.parse_args()
 
 VOTE_NUM = 12
 
-
 EPOCH_CNT = 0
 
 BATCH_SIZE = FLAGS.batch_size
@@ -46,7 +45,7 @@ LOG_FOUT.write(str(FLAGS)+'\n')
 NUM_CLASSES = 50
 
 # Shapenet official train/test split
-DATA_PATH = os.path.join(ROOT_DIR, '../../Dataset/', 'shapenetcore_partanno_segmentation_benchmark_v0_normal')
+DATA_PATH = os.path.join(ROOT_DIR, '../../Datasets/', 'shapenetcore_partanno_segmentation_benchmark_v0_normal')
 TEST_DATASET = part_dataset_all_normal.PartNormalDataset(root=DATA_PATH, npoints=NUM_POINT, classification=False, split='test')
 
 def log_string(out_str):
