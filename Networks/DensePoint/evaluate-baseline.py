@@ -7,10 +7,10 @@ import torch.nn.functional as F
 import numpy as np
 import os
 from torchvision import transforms
-from models import DensePointCls_L6 as DensePoint
+from models-baseline import DensePointCls_L6 as DensePoint
 from data import ModelNet40Cls
-import utils.pytorch_utils as pt_utils
-import utils.pointnet2_utils as pointnet2_utils
+import utils-baseline.pytorch_utils as pt_utils
+import utils-baseline.pointnet2_utils as pointnet2_utils
 import data.data_utils as d_utils
 import argparse
 import random
@@ -28,7 +28,7 @@ torch.cuda.manual_seed(seed)
 torch.cuda.manual_seed_all(seed)   
 
 parser = argparse.ArgumentParser(description='DensePoint Shape Classification Voting Evaluate')
-parser.add_argument('--config', default='cfgs/config_cls.yaml', type=str)
+parser.add_argument('--config', default='cfgs-baseline/config_cls.yaml', type=str)
 
 NUM_REPEAT = 300
 NUM_VOTE = 10
