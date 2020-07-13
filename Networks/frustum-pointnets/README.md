@@ -32,7 +32,7 @@ Check `train/kitti_eval/README.md` for details.
 
 Next, download the prepared data files <a href="https://shapenet.cs.stanford.edu/media/frustum_data.zip" target="_blank">HERE (960MB)</a> and just unzip the file and move the `*.pickle` files to the `kitti` folder.
 
-After the command executes, you should see three newly generated data files under the `kitti` folder. You can run `python train/provider.py` to visualize the training data (frustum point clouds and 3D bounding box labels, in rect camera coordinate).
+You can run `python train/provider.py` to visualize the training data (frustum point clouds and 3D bounding box labels, in rect camera coordinate).
 
 ---
 
@@ -60,5 +60,4 @@ or evaluate the original model:
 $ bash scripts/command_test_v2_baseline.sh
 ```
 
-Check the results.
-- [ ]
+It should be noticed that the accuracy results are from the Eval set. 
