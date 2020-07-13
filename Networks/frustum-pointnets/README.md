@@ -60,4 +60,4 @@ or evaluate the original model:
 $ bash scripts/command_test_v2_baseline.sh
 ```
 
-**NOTE**: In our paper, we report the accuracy from the `Eval` set. To reproduce the accuracy (BEV accuracy), please use the commands in [**Training**](### Training). We use [**Evaluation**](### Evaluation) for performance measurement.
+**NOTE**: In our paper, we report the accuracy from the `Eval` set. To reproduce the accuracy (BEV accuracy), please use the commands in [**Training**](#Training). We use [**Evaluation**](#Evaluation) for performance measurement.
