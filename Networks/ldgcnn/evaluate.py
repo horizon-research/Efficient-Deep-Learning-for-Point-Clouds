@@ -191,18 +191,3 @@ with tf.Session(config=config) as sess:
         class_accuracies = np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float)
         for i, name in enumerate(SHAPE_NAMES):
             log_string('%10s:\t%0.3f' % (name, class_accuracies[i]))
-#%%
-#calculate confusion matrix
-from sklearn.metrics import confusion_matrix
-from sklearn.utils.multiclass import unique_labels
-import re
-f = open("dump/pred_label.txt", "r")
-str_data = f.read()
-data = re.findall(r"[-+]?\d*\.\d+|\d+", str_data)
-data = np.array(list(map(int, data)))
-data = np.reshape(data, (-1, 2))
-f = open("dump/shape_names.txt", "r")
-class_names = np.array(f.read().split())
-# Plot the confusion matrix
-cm,ax = PlotClass.plot_confusion_matrix(data[:,1], data[:,0], classes=class_names, normalize=True,
-                      title='Normalized confusion matrix')
