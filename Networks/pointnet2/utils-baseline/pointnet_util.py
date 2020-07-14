@@ -36,8 +36,11 @@ def sample_and_group(npoint, radius, nsample, xyz, points, knn=False, use_xyz=Tr
         grouped_xyz: (batch_size, npoint, nsample, 3) TF tensor, normalized point XYZs
             (subtracted by seed point XYZ) in local regions
     '''
-
+    
+    # original operation
     # new_xyz = gather_point(xyz, farthest_point_sample(npoint, xyz)) # (batch_size, npoint, 3)
+
+    # efficient version
     xyz_shape = xyz.get_shape()
     batch_size = xyz_shape[0].value
     num_points = xyz_shape[1].value
@@ -55,18 +58,18 @@ def sample_and_group(npoint, radius, nsample, xyz, points, knn=False, use_xyz=Tr
     idx_ = tf.range(batch_size) * num_points
     idx_ = tf.reshape(idx_, [batch_size, 1, 1])
 
-    print("tf.gather")
-    grouped_xyz = tf.gather(xyz_reshaped, idx + idx_)
+    # original operation
     # grouped_xyz = group_point(xyz, idx) # (batch_size, npoint, nsample, 3)
-    
+   
+    # efficient version
+    grouped_xyz = tf.gather(xyz_reshaped, idx + idx_)
+
     grouped_xyz -= tf.tile(tf.expand_dims(new_xyz, 2), [1,1,nsample,1]) # translation normalization
     if points is not None:
-        # original:
-        #grouped_points = group_point(points, idx) # (batch_size, npoint, nsample, channel)
-        #print("group points:", grouped_points.shape)
+        # original operation
+        # grouped_points = group_point(points, idx) # (batch_size, npoint, nsample, channel)
         
-        # new:
-        print("use tf.gather:")
+        # efficient version
         point_cloud_shape = points.get_shape()
         batch_size = point_cloud_shape[0].value
         num_points = point_cloud_shape[1].value
@@ -77,7 +80,6 @@ def sample_and_group(npoint, radius, nsample, xyz, points, knn=False, use_xyz=Tr
         idx_ = tf.reshape(idx_, [batch_size, 1, 1])
         
         grouped_points = tf.gather(points, idx + idx_)
-        print("group points:", grouped_points.shape)
         
         if use_xyz:
             new_points = tf.concat([grouped_xyz, grouped_points], axis=-1) # (batch_size, npoint, nample, 3+channel)
