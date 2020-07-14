@@ -1,5 +1,4 @@
 """ PointNet++ Layers
-
 Author: Charles R. Qi
 Date: November 2017
 """
@@ -8,7 +7,7 @@ import os
 import sys
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.dirname(BASE_DIR)
-sys.path.append(os.path.join(ROOT_DIR, 'utils'))
+sys.path.append(os.path.join(ROOT_DIR, 'utils-baseline'))
 sys.path.append(os.path.join(ROOT_DIR, 'tf_ops/sampling'))
 sys.path.append(os.path.join(ROOT_DIR, 'tf_ops/grouping'))
 sys.path.append(os.path.join(ROOT_DIR, 'tf_ops/3d_interpolation'))
@@ -36,8 +35,11 @@ def sample_and_group(npoint, radius, nsample, xyz, points, knn=False, use_xyz=Tr
         grouped_xyz: (batch_size, npoint, nsample, 3) TF tensor, normalized point XYZs
             (subtracted by seed point XYZ) in local regions
     '''
-
+    
+    # original operation
     # new_xyz = gather_point(xyz, farthest_point_sample(npoint, xyz)) # (batch_size, npoint, 3)
+
+    # efficient version
     xyz_shape = xyz.get_shape()
     batch_size = xyz_shape[0].value
     num_points = xyz_shape[1].value
@@ -55,18 +57,18 @@ def sample_and_group(npoint, radius, nsample, xyz, points, knn=False, use_xyz=Tr
     idx_ = tf.range(batch_size) * num_points
     idx_ = tf.reshape(idx_, [batch_size, 1, 1])
 
-    print("tf.gather")
-    grouped_xyz = tf.gather(xyz_reshaped, idx + idx_)
+    # original operation
     # grouped_xyz = group_point(xyz, idx) # (batch_size, npoint, nsample, 3)
-    
+   
+    # efficient version
+    grouped_xyz = tf.gather(xyz_reshaped, idx + idx_)
+
     grouped_xyz -= tf.tile(tf.expand_dims(new_xyz, 2), [1,1,nsample,1]) # translation normalization
     if points is not None:
-        # original:
-        #grouped_points = group_point(points, idx) # (batch_size, npoint, nsample, channel)
-        #print("group points:", grouped_points.shape)
+        # original operation
+        # grouped_points = group_point(points, idx) # (batch_size, npoint, nsample, channel)
         
-        # new:
-        print("use tf.gather:")
+        # efficient version
         point_cloud_shape = points.get_shape()
         batch_size = point_cloud_shape[0].value
         num_points = point_cloud_shape[1].value
@@ -77,7 +79,6 @@ def sample_and_group(npoint, radius, nsample, xyz, points, knn=False, use_xyz=Tr
         idx_ = tf.reshape(idx_, [batch_size, 1, 1])
         
         grouped_points = tf.gather(points, idx + idx_)
-        print("group points:", grouped_points.shape)
         
         if use_xyz:
             new_points = tf.concat([grouped_xyz, grouped_points], axis=-1) # (batch_size, npoint, nample, 3+channel)
@@ -87,6 +88,7 @@ def sample_and_group(npoint, radius, nsample, xyz, points, knn=False, use_xyz=Tr
         new_points = grouped_xyz
 
     return new_xyz, new_points, idx, grouped_xyz
+
 
 def sample_and_group_all(xyz, points, use_xyz=True):
     '''
@@ -116,88 +118,7 @@ def sample_and_group_all(xyz, points, use_xyz=True):
     return new_xyz, new_points, idx, grouped_xyz
 
 
-# def pointnet_sa_module_simple_delay_aggr(xyz, points, npoint, radius, nsample, mlp, mlp2, group_all, is_training, bn_decay, scope, bn=True, pooling='max', knn=False, use_xyz=True, use_nchw=False):
 def pointnet_sa_module(xyz, points, npoint, radius, nsample, mlp, mlp2, group_all, is_training, bn_decay, scope, bn=True, pooling='max', knn=False, use_xyz=True, use_nchw=False):
-    
-    data_format = 'NCHW' if use_nchw else 'NHWC'
-    with tf.variable_scope(scope) as sc:
-        input_points = xyz
-
-        if points is not None:
-            if use_xyz:
-                input_points = tf.concat([input_points, points], axis=-1)
-            else:
-                input_points = points
-
-        # fit for mlp
-        input_points = tf.expand_dims(input_points, -2)
-        print("(input points) shape:", input_points.shape, use_nchw)
-        # Point Feature Embedding
-        if use_nchw: input_points = tf.transpose(input_points, [0,3,1,2])
-        for i, num_out_channel in enumerate(mlp[0:1]):
-            print("(input points) shape:", input_points.shape, use_nchw)
-            input_points = tf_util.conv2d(input_points, num_out_channel, [1,1],
-                                        padding='VALID', stride=[1,1],
-                                        bn=bn, is_training=is_training,
-                                        scope='conv%d'%(i), bn_decay=bn_decay,
-                                        data_format=data_format) 
-        if use_nchw: input_points = tf.transpose(input_points, [0,2,3,1])
-
-        print("(input points) shape:", input_points.shape)
-        # Sample and Grouping
-        if group_all:
-            nsample = xyz.get_shape()[1].value
-            new_xyz, new_points, idx, grouped_xyz = sample_and_group_all(xyz, points, use_xyz)
-            new_points = tf.transpose(input_points, [0, 2, 1, 3])
-        else:
-            input_points = tf.squeeze(input_points, -2)
-            new_xyz, new_points, idx, grouped_xyz = sample_and_group(npoint, radius, nsample, xyz, 
-                                    input_points, knn, False)
-
-        print("(MLP) shape:", mlp[1:])
-        # Point Feature Embedding
-        if use_nchw: new_points = tf.transpose(new_points, [0,3,1,2])
-        for i, num_out_channel in enumerate(mlp[1:]):
-            print(i, "(new points) shape:", new_points.shape)
-            new_points = tf_util.conv2d(new_points, num_out_channel, [1,1],
-                                        padding='VALID', stride=[1,1],
-                                        bn=bn, is_training=is_training,
-                                        scope='conv%d'%(i+1), bn_decay=bn_decay,
-                                        data_format=data_format) 
-        if use_nchw: new_points = tf.transpose(new_points, [0,2,3,1])
-
-        # Pooling in Local Regions
-        if pooling=='max':
-            new_points = tf.reduce_max(new_points, axis=[2], keep_dims=True, name='maxpool')
-        elif pooling=='avg':
-            new_points = tf.reduce_mean(new_points, axis=[2], keep_dims=True, name='avgpool')
-        elif pooling=='weighted_avg':
-            with tf.variable_scope('weighted_avg'):
-                dists = tf.norm(grouped_xyz,axis=-1,ord=2,keep_dims=True)
-                exp_dists = tf.exp(-dists * 5)
-                weights = exp_dists/tf.reduce_sum(exp_dists,axis=2,keep_dims=True) # (batch_size, npoint, nsample, 1)
-                new_points *= weights # (batch_size, npoint, nsample, mlp[-1])
-                new_points = tf.reduce_sum(new_points, axis=2, keep_dims=True)
-        elif pooling=='max_and_avg':
-            max_points = tf.reduce_max(new_points, axis=[2], keep_dims=True, name='maxpool')
-            avg_points = tf.reduce_mean(new_points, axis=[2], keep_dims=True, name='avgpool')
-            new_points = tf.concat([avg_points, max_points], axis=-1)
-
-        # [Optional] Further Processing 
-        if mlp2 is not None:
-            if use_nchw: new_points = tf.transpose(new_points, [0,3,1,2])
-            for i, num_out_channel in enumerate(mlp2):
-                new_points = tf_util.conv2d(new_points, num_out_channel, [1,1],
-                                            padding='VALID', stride=[1,1],
-                                            bn=bn, is_training=is_training,
-                                            scope='conv_post_%d'%(i), bn_decay=bn_decay,
-                                            data_format=data_format) 
-            if use_nchw: new_points = tf.transpose(new_points, [0,2,3,1])
-
-        new_points = tf.squeeze(new_points, [2]) # (batch_size, npoints, mlp2[-1])
-        return new_xyz, new_points, idx
-
-def pointnet_sa_module_bkup(xyz, points, npoint, radius, nsample, mlp, mlp2, group_all, is_training, bn_decay, scope, bn=True, pooling='max', knn=False, use_xyz=True, use_nchw=False):
     ''' PointNet Set Abstraction (SA) Module
         Input:
             xyz: (batch_size, ndataset, 3) TF tensor
@@ -218,26 +139,46 @@ def pointnet_sa_module_bkup(xyz, points, npoint, radius, nsample, mlp, mlp2, gro
     '''
     data_format = 'NCHW' if use_nchw else 'NHWC'
     with tf.variable_scope(scope) as sc:
-        # Sample and Grouping
-        if group_all:
-            nsample = xyz.get_shape()[1].value
-            new_xyz, new_points, idx, grouped_xyz = sample_and_group_all(xyz, points, use_xyz)
-        else:
-            new_xyz, new_points, idx, grouped_xyz = sample_and_group(npoint, radius, nsample, xyz, points, knn, use_xyz)
+        input_points = xyz
 
-        print("(new points) shape:", new_points.shape, use_nchw)  
+        if points is not None:
+            if use_xyz:
+                input_points = tf.concat([input_points, points], axis=-1)
+            else:
+                input_points = points
+
+        # fit for mlp
+        input_points = tf.expand_dims(input_points, -2)
+
         # Point Feature Embedding
-        if use_nchw: new_points = tf.transpose(new_points, [0,3,1,2])
-        for i, num_out_channel in enumerate(mlp):
-            print("(new points) shape:", new_points.shape)
-            new_points = tf_util.conv2d(new_points, num_out_channel, [1,1],
+        if use_nchw: input_points = tf.transpose(input_points, [0,3,1,2])
+        for i, num_out_channel in enumerate(mlp[0:1]):
+            input_points = tf_util.conv2d(input_points, num_out_channel, [1,1],
                                         padding='VALID', stride=[1,1],
                                         bn=bn, is_training=is_training,
                                         scope='conv%d'%(i), bn_decay=bn_decay,
                                         data_format=data_format) 
+        if use_nchw: input_points = tf.transpose(input_points, [0,2,3,1])
+
+        # Sample and Grouping
+        if group_all:
+            nsample = xyz.get_shape()[1].value
+            new_xyz, new_points, idx, grouped_xyz = sample_and_group_all(xyz, points, use_xyz)
+            new_points = tf.transpose(input_points, [0, 2, 1, 3])
+        else:
+            input_points = tf.squeeze(input_points, -2)
+            new_xyz, new_points, idx, grouped_xyz = sample_and_group(npoint, radius, nsample, xyz, input_points, knn, False)
+
+        # Point Feature Embedding
+        if use_nchw: new_points = tf.transpose(new_points, [0,3,1,2])
+        for i, num_out_channel in enumerate(mlp[1:]):
+            new_points = tf_util.conv2d(new_points, num_out_channel, [1,1],
+                                        padding='VALID', stride=[1,1],
+                                        bn=bn, is_training=is_training,
+                                        scope='conv%d'%(i+1), bn_decay=bn_decay,
+                                        data_format=data_format) 
         if use_nchw: new_points = tf.transpose(new_points, [0,2,3,1])
 
-        exit()
         # Pooling in Local Regions
         if pooling=='max':
             new_points = tf.reduce_max(new_points, axis=[2], keep_dims=True, name='maxpool')
