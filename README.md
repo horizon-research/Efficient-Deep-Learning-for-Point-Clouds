@@ -8,7 +8,7 @@ For the background of point cloud neural networks and how our delayed-aggregatio
 ### Networks
 Delayed-aggregation applies to a wide range of different point cloud networks. This repo has the implementation for the following five networks:
 
-- PointNet++: [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/pointnet2), Segmentation - Optimized Version
+- PointNet++: [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/pointnet2), [Segmentation - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/pointnet2/part_seg)
 - DGCNN: [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/dgcnn), [Segmentation - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/dgcnn/part_seg)
 - LDGCNN: [Classification - Optimized Version](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/ldgcnn)
 - F-PointNet: [3D Detection](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/frustum-pointnets)
@@ -16,7 +16,7 @@ Delayed-aggregation applies to a wide range of different point cloud networks. T
 
 For each network, we have provided three versions of each network: 
 1. **Baseline**: the original networks with implementation optimizations.
-2. **Limited Delayed-Aggregation**: the one with limited delayed-ggregation optimization, which is inspired by some GNNs implementations.
+2. **Limited Delayed-Aggregation**: the one with limited delayed-aggregation optimization, which is inspired by some GNNs implementations.
 3. **Fully Delayed-Aggregation**: the one with full delayed-aggregation optimization, i.e., our proposed technique.
 
 For the difference between the three versions, again see the [wiki](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/wiki) page.
@@ -35,22 +35,21 @@ usage: launcher.py [-h] [--compile COMPILE] [--download DOWNLOAD]
 optional arguments:
   -h, --help            show this help message and exit
   --compile COMPILE     Compile libraries in the models, to compile a specific
-                        network, use: --compile [NETWORK_NAME] or to copmpile
+                        network, use: --compile [NETWORK_NAME] or to compile
                         all models using, --compile all
   --download DOWNLOAD   Download the specific dataset for the models, to
                         download a dataset for a specific network, use:
-                        --compile [NETWORK_NAME] or to copmpile all models
+                        --compile [NETWORK_NAME] or to compile all models
                         using, --compile all
   --list_models LIST_MODELS
                         List all model names.
   --run RUN             Launch the model with default settings.
   --train TRAIN         Train the model with default settings.
   --use_baseline USE_BASELINE
-                        Use baseline instead of efficient version.
+                        Use baseline instead of the efficient version.
   --use_limited USE_LIMITED
-                        Use limited aggr. instead of efficient version.
+                        Use limited aggregation instead of the efficient version.
 ```
-Current Python script works for all the networks, except `DensePoint`. To run `DensePoint`, please check out the [sub-repository](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/DensePoint) for details.
 
 There is a slight naming difference between the actual model name and the name in the code. Make sure you use names in the second column of this table to run the `launcher.py`. 
 
@@ -89,3 +88,4 @@ $ python launcher.py --run [NETWORK] --use_limited
 
 ### Publication ###
 ------------------
+
