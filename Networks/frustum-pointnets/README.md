@@ -55,12 +55,12 @@ To evaluate a trained model on the validation set using our **Delayed-Aggregatio
 ```
 $ bash scripts/command_test_v2.sh
 ```
-or evaluate the original model:
+or evaluate the original **Baseline version** model:
 ```
 $ bash scripts/command_test_v2_baseline.sh
 ```
 
-**NOTE**: In our paper, we report the accuracy from the `Eval` set. Here, we show the screenshot of both baseline result and our **Delayed-Aggregation version** .
+**NOTE**: In our paper, we report the accuracy from the `Eval` set. Here, we show the screenshot of both **Baseline version** result and our **Delayed-Aggregation version** .
 
 **Delayed-Aggregation version**:
 <img src=https://user-images.githubusercontent.com/21286132/87450294-53e8fe00-c5cc-11ea-9d24-722eb30ca289.png" width="400"> 
