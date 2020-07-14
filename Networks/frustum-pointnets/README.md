@@ -1,6 +1,6 @@
 ## Efficient Frustum PointNets for 3D Object Detection from RGB-D Data
 ------------
-This repository contains code released for applying the Delayed-Aggregation method to [Frustum PointNets](https://arxiv.org/abs/1711.08488). The original implementation is [here](https://github.com/charlesq34/frustum-pointnets). 
+This repository contains code released for applying the **Delayed-Aggregation** method to [Frustum PointNets](https://arxiv.org/abs/1711.08488). The original implementation is [here](https://github.com/charlesq34/frustum-pointnets). 
 
 ---
 
@@ -38,7 +38,7 @@ You can run `python train/provider.py` to visualize the training data (frustum p
 
 ### Training
 
-To start training our Efficient Frustum PointNets model, just run the following script:
+To start training our **Delayed-Aggregation version**, just run the following script:
 ```
 $ bash scripts/command_train_v2.sh
 ```
@@ -51,7 +51,7 @@ Run `python train/train.py -h` to see more options of training.
 ---
 
 ### Evaluation
-To evaluate a trained model on the validation set using our Efficient Frustum PointNets model, just run:
+To evaluate a trained model on the validation set using our **Delayed-Aggregation version**, just run:
 ```
 $ bash scripts/command_test_v2.sh
 ```
@@ -60,4 +60,9 @@ or evaluate the original model:
 $ bash scripts/command_test_v2_baseline.sh
 ```
 
-**NOTE**: In our paper, we report the accuracy from the `Eval` set. To reproduce the accuracy (BEV accuracy), please use the commands in [**Training**](#Training). We use [**Evaluation**](#Evaluation) for performance measurement.
+**NOTE**: In our paper, we report the accuracy from the `Eval` set. Here, we show the screenshot of both baseline result and our **Delayed-Aggregation version** .
+
+**Delayed-Aggregation version**:
+<img src=https://user-images.githubusercontent.com/21286132/87450294-53e8fe00-c5cc-11ea-9d24-722eb30ca289.png" width="400"> 
+
+To reproduce the accuracy (BEV accuracy), please use the commands in [**Evaluation**](#Evaluation).
