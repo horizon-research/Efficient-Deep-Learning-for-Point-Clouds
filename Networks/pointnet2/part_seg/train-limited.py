@@ -153,12 +153,25 @@ def train():
                'end_points': end_points}
 
         best_acc = -1
+        best_acc_avg = -1
         for epoch in range(MAX_EPOCH):
             log_string('**** EPOCH %03d ****' % (epoch))
             sys.stdout.flush()
-             
+
             train_one_epoch(sess, ops, train_writer)
-            eval_one_epoch(sess, ops, test_writer)
+            acc, acc_avg = eval_one_epoch(sess, ops, test_writer)
+
+            if acc > best_acc:
+                best_acc = acc
+                save_path = saver.save(sess, os.path.join(LOG_DIR, "model_best_acc.ckpt"))
+                log_string("Model saved in file: %s" % save_path)
+                log_string("Best category accuracy: %f" % best_acc)
+
+            if acc_avg > best_acc_avg:
+                best_acc_avg = acc_avg
+                save_path = saver.save(sess, os.path.join(LOG_DIR, "model_best_acc_avg.ckpt"))
+                log_string("Model saved in file: %s" % save_path)
+                log_string("Best instance accuracy: %f" % best_acc_avg)
 
             # Save the variables to disk.
             if epoch % 10 == 0:
@@ -314,7 +327,7 @@ def eval_one_epoch(sess, ops, test_writer):
     log_string('eval mean mIoU (all shapes): %f' % (np.mean(all_shape_ious)))
          
     EPOCH_CNT += 1
-    return total_correct/float(total_seen)
+    return total_correct/float(total_seen), np.mean(np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float))
 
 
 if __name__ == "__main__":
