@@ -48,3 +48,15 @@ The **Baseline** version: <br>
 
 The **Delayed-Aggregation** version: <br>
 <img src="https://user-images.githubusercontent.com/19209239/87256036-9b9d4780-c45d-11ea-99e9-ea67f92cee88.png" width="400">
+
+### Training
+
+1\. To run the **Baseline version** of LDGCNN (training):
+```
+python train.py --log_dir [MODEL_DIR] --model_cnn ldgcnn_baseline
+```
+
+2\. To run our **Delayed-Aggregation version** of LDGCNN (traning):
+```
+python train.py --log_dir [MODEL_DIR] --model_cnn ldgcnn
+
