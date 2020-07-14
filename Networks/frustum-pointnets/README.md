@@ -63,6 +63,6 @@ $ bash scripts/command_test_v2_baseline.sh
 **NOTE**: In our paper, we report the accuracy from the `Eval` set. Here, we show the screenshot of both **Baseline version** result and our **Delayed-Aggregation version** .
 
 **Delayed-Aggregation version**:
-<img src=https://user-images.githubusercontent.com/21286132/87450294-53e8fe00-c5cc-11ea-9d24-722eb30ca289.png" width="400"> 
+![our_DA_result](our_DA_result.png)
 
 To reproduce the accuracy (BEV accuracy), please use the commands in [**Evaluation**](#Evaluation).
