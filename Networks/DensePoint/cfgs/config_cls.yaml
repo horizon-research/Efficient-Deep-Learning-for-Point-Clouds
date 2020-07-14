@@ -7,7 +7,7 @@ common:
     
     base_lr: 0.001
     lr_clip: 0.00001
-    lr_decay: 0.7
+    lr_decay: 0.8     #0.7
     decay_step: 21
     epochs: 200
 
@@ -22,8 +22,6 @@ common:
     
     input_channels: 0     # feature channels except (x, y, z)
     
-    checkpoint: 'cls/cls_iter_30600_acc_0.920989.pth'
-    #'cls/model_cls_L6_iter_36567_acc_0.923825_ori_bkup.pth'        # the model to start from
-    
-    save_path: cls
-    data_root: ../../../Dataset/ModelNet40 
+    checkpoint: 'log/cls_iter_48042_acc_0.924635.pth' # the model to start from
+    save_path: log
+    data_root: ../../../Datasets/ModelNet40 
