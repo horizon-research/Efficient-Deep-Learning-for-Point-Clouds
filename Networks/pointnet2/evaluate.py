@@ -29,7 +29,7 @@ parser.add_argument('--gpu', type=int, default=0, help='GPU to use [default: GPU
 parser.add_argument('--model', default='pointnet2_cls_ssg', help='Model name. [default: pointnet2_cls_ssg]')
 parser.add_argument('--batch_size', type=int, default=16, help='Batch Size during training [default: 16]')
 parser.add_argument('--num_point', type=int, default=1024, help='Point Number [256/512/1024/2048] [default: 1024]')
-parser.add_argument('--model_path', default='./log/model_best_acc.ckpt', help='model checkpoint file path [default: log/model.ckpt]')
+parser.add_argument('--model_path', default='./log/model_best_acc.ckpt', help='model checkpoint file path [default: log/model_best_acc.ckpt]')
 parser.add_argument('--dump_dir', default='dump', help='dump folder path [dump]')
 parser.add_argument('--normal', action='store_true', help='Whether to use normal information')
 parser.add_argument('--num_votes', type=int, default=1, help='Aggregate classification scores from multiple rotations [default: 1]')
