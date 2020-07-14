@@ -19,7 +19,7 @@ import numpy as np
 import tf_util
 
 def sample_and_group(npoint, radius, nsample, xyz, points, knn=False, use_xyz=True):
-    '''
+    ''' New sample_and_group with Limited Delayed-Aggregation
     Input:
         npoint: int32
         radius: float32
@@ -119,7 +119,7 @@ def sample_and_group_all(xyz, points, use_xyz=True):
 
 
 def pointnet_sa_module(xyz, points, npoint, radius, nsample, mlp, mlp2, group_all, is_training, bn_decay, scope, bn=True, pooling='max', knn=False, use_xyz=True, use_nchw=False):
-    ''' PointNet Set Abstraction (SA) Module
+    ''' New PointNet Set Abstraction (SA) Module with Limited Delayed-Aggregation
         Input:
             xyz: (batch_size, ndataset, 3) TF tensor
             points: (batch_size, ndataset, channel) TF tensor
