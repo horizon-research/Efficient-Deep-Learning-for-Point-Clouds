@@ -3,6 +3,7 @@ Training process of linked dynamic graph CNN. We borrow the training code
 from the DGCNN, and add the code of retraining classifier. 
 Reference code: https://github.com/WangYueFt/dgcnn
 @author: Kuangen Zhang
+@modified by: Yu Feng
 
 """
 import argparse
