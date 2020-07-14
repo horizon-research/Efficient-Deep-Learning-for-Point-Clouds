@@ -159,11 +159,6 @@ def train():
         init = tf.global_variables_initializer()
         sess.run(init)
         
-        # finetune
-        # pretrained-modelpath= './log/model.ckpt'
-        # saver.restore(sess, pretrained-modelpath) 
-        # print("finetuning: models loaded")
-
         ops = {'pointclouds_pl': pointclouds_pl,
                'labels_pl': labels_pl,
                'is_training_pl': is_training_pl,
