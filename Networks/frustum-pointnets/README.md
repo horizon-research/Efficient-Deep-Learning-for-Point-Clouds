@@ -66,4 +66,8 @@ $ bash scripts/command_test_v2_baseline.sh
 
 ![our_DA_result](our_result_DA.png)
 
+**Baseline version**:
+
+![baseline](baseline.png)
+
 To reproduce the accuracy (BEV accuracy), please use the commands in [**Evaluation**](#Evaluation).
