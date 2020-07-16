@@ -82,13 +82,13 @@ python evaluate.py
 
 4\. Check the results. It will print out the accuracy and latency after running: <br>
 The Baseline version: <br>
-<img src="https://user-images.githubusercontent.com/19209239/87248359-0ed79700-c427-11ea-9541-20864641752f.png" width="450"/>
+<img src="https://user-images.githubusercontent.com/18485088/87615576-06aa8080-c6e1-11ea-9a57-ab195c70ecef.jpg">
 
 The Limited Delayed-Aggregation version: <br>
-<img src="https://user-images.githubusercontent.com/19209239/87255159-5de8f080-c456-11ea-8498-a97713b70b51.png" width="450"/>
+<img src="https://user-images.githubusercontent.com/18485088/87615422-b3383280-c6e0-11ea-82a6-31be5e953cde.jpg">
 
 The Delayed-Aggregation version: <br>
-<img src="https://user-images.githubusercontent.com/19209239/87254898-355ff700-c454-11ea-9b70-397c105c8c21.png" width="450"/>
+<img src="https://user-images.githubusercontent.com/18485088/87615646-2cd02080-c6e1-11ea-881f-238d5d17e52a.jpg">
 
 #### Option 2:
 Switch back to [the root directory](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds) and follow the instructions there.
@@ -97,4 +97,5 @@ Switch back to [the root directory](https://github.com/horizon-research/Efficien
 
 ### About
 ------------
+
 
