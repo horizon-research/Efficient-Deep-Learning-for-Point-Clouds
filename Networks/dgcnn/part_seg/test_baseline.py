@@ -12,7 +12,7 @@ import provider
 import part_seg_model_baseline as model
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--model_path', default='train_results_baseline/trained_models/epoch_300.ckpt', help='Model checkpoint path')
+parser.add_argument('--model_path', default='train_results_baseline/trained_models/model.ckpt', help='Model checkpoint path')
 FLAGS = parser.parse_args()
 
 # DEFAULT SETTINGS
