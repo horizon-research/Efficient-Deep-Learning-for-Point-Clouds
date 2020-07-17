@@ -40,10 +40,6 @@ If the CUDA paths are already set correctly, you can run
 ```python compile.py``` in the ```pointnet2``` directory instead of following the 3 steps above.
 
 ### Training
-There are three versions of PointNet++ (cls): <br>
-**Baseline**: the original PointNet++ (cls) with implementation optimizations. <br>
-**Limited Delayed-Aggregation**: the version with limited delayed-ggregation optimization. <br>
-**Delayed-Aggregation**: the version with full delayed-aggregation optimization, i.e., our proposed version. 
 
 Below shows how to train different versions of PointNet++:
 
