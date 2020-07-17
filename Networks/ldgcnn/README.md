@@ -16,14 +16,21 @@ We tested our implementation in the environment below:
 - gcc / gxx: 7.3.0 (to compile the tf ops)
 -   Dependencies: Tensorflow 1.12.0, numpy 1.14, scikit-learn, CUDA 10.2, cudnn 7.6.5
 
+### Training
+
+In this particular network, Limited Delayed-Aggregation is the same as the full Delayed-Aggregation because each module has only one MLP layer.
+
+1\. To run the **Baseline version** of LDGCNN (training):
+```
+python train.py --log_dir [MODEL_DIR] --model_cnn ldgcnn_baseline
+```
+
+2\. To run our **Delayed-Aggregation version** of LDGCNN (traning):
+```
+python train.py --log_dir [MODEL_DIR] --model_cnn ldgcnn
+```
 
 ### Evaluation
-
-There are two different versions of LDGCNN: <br>
-**Baseline**: the original LDGCNN network with implementation optimizations. <br>
-**Delayed-Aggregation**: the version with full delayed-aggregation optimization, i.e., our proposed version. <br>
-
-(In this particular network, Limited Delayed-Aggregation is the same as the full Delayed-Aggregation because each module has only one MLP layer.)
 
 0\. Make sure you are at the `ldgcnn` directory. <br>
 1\. To run the **Baseline version** of LDGCNN (inference):
@@ -44,15 +51,3 @@ The **Baseline** version: <br>
 
 The **Delayed-Aggregation** version: <br>
 <img src="https://user-images.githubusercontent.com/19209239/87256036-9b9d4780-c45d-11ea-99e9-ea67f92cee88.png" width="400">
-
-### Training
-
-1\. To run the **Baseline version** of LDGCNN (training):
-```
-python train.py --log_dir [MODEL_DIR] --model_cnn ldgcnn_baseline
-```
-
-2\. To run our **Delayed-Aggregation version** of LDGCNN (traning):
-```
-python train.py --log_dir [MODEL_DIR] --model_cnn ldgcnn
-
