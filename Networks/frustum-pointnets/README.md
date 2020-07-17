@@ -31,7 +31,6 @@ Next, download the prepared data files <a href="https://shapenet.cs.stanford.edu
 
 You can run `python train/provider.py` to visualize the training data (frustum point clouds and 3D bounding box labels, in rect camera coordinate).
 
----
 
 ### Training
 
