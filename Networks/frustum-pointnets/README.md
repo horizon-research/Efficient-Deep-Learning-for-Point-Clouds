@@ -13,8 +13,7 @@ Dependencies: Tensorflow 1.12.0, numpy 1.14, CUDA 10.2, cudnn 7.6.5
 Compiler Toolchain: 
 - gcc / gxx: 7.3.0 (to compile the tf ops)
 
-
-## Installation
+### Installation
 Install <a href="https://www.tensorflow.org/install/">TensorFlow</a>.There are also some dependencies for a few Python libraries for data processing and visualizations like `cv2`, `mayavi`  etc. It's highly recommended that you have access to GPUs.
 
 Suppose the root directory is at `frustum-pointnets`. Compile several custom Tensorflow operators from PointNet++. The TF operators are included under `models/tf_ops`, you need to compile them (check `tf_xxx_compile.sh` under each ops subfolder) first. Update `cuda` and `python` path if necessary. Assuming the paths are all correct. you can use the script `compile.py` to compile those modules.
@@ -38,7 +37,7 @@ To start training our **Delayed-Aggregation version**, just run the following sc
 ```
 $ bash scripts/command_train_v2.sh
 ```
-ro train the original Frustum PointNets model, just run the following script:
+To train the original Frustum PointNets model, just run the following script:
 ```
 $ bash scripts/command_train_v2_baselline.sh
 ```
