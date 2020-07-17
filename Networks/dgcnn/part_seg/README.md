@@ -22,9 +22,8 @@ Libraries: Tensorflow 1.15.0, numpy 1.18, cudnn 7.6.5, pillow 7.0.0
 We highly recommend using virtual environment tools like Anaconda to set up the right environment. 
 
 ### Training:
-In this particular network, Limited Delayed-Aggregation is the same as the full Delayed-Aggregation because each module has only one MLP layer.
-0\. Make sure you are at the ```dgcnn/part_seg``` directory. <br>
-
+In this particular network, Limited Delayed-Aggregation is the same as the full Delayed-Aggregation because each module has only one MLP layer. <br>
+0\. Make sure you are at the ```dgcnn/part_seg``` directory. <br> 
 1\. To train the **Baseline version** of DGCNN (seg): <br>
 ``` 
 python train_baseline.py
@@ -38,7 +37,6 @@ python train.py
 ### Evaluation:
 
 0\. Make sure you are at the ```dgcnn/part_seg``` directory. <br>
-
 1\. To run the **Baseline version** of DGCNN (inference): <br>
 ```
 python test_baseline.py 
