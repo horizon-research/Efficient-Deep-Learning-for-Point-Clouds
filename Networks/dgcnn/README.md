@@ -1,6 +1,4 @@
-### DGCNN (Classification)
-
-------------
+## DGCNN (Classification)
 
 For DGCNN (Segmentation), please check out [the part_seg directory](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/dgcnn/part_seg).
 
@@ -50,8 +48,3 @@ The **Baseline version**: <br>
 
 The **Delayed-Aggregation version**: <br>
 <img src="https://user-images.githubusercontent.com/19209239/83911312-0d38f600-a73a-11ea-967f-cabf5c7092f1.png" alt="drawing" width="420"/>
-
-------------
-
-### About
-------------
