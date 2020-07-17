@@ -1,5 +1,4 @@
-### PointNet++ (Segmentation)
-------------
+## PointNet++ (Segmentation)
 
 ### To-do
 - [ ] add limited version
@@ -7,12 +6,10 @@
 - [ ] retrain model with most updated version
 - [ ] update README
 
----
 
 ### Dataset
 Please follow instructions given by the original [PointNet++](https://github.com/charlesq34/pointnet2/blob/master/README.md#object-part-segmentation) project: <br>Preprocessed ShapeNetPart dataset (XYZ, normal and part labels) can be found <a href="https://shapenet.cs.stanford.edu/media/shapenetcore_partanno_segmentation_benchmark_v0_normal.zip">here (674MB)</a>. Move the uncompressed data folder to `data/shapenetcore_partanno_segmentation_benchmark_v0_normal`
 
----
 
 ### Environment/Libraries:
 This is a tricky part. It is necessary to install the right versions of libraries to get the code running.
@@ -27,7 +24,6 @@ Compiler Toolchain:
 
 We highly recommend using virtual environment tools like Anaconda to set up the right environment. 
 
----
 
 ### Installation:
 If you have done the compile step for the cls version, there is no need to do so again.
@@ -44,10 +40,8 @@ Instructions on how to compile the [customized tf operators](https://github.com/
 Or, if the CUDA paths are already set correctly, run 
 ```python compile.py``` in the ```pointnet2``` directory. 
 
---- 
 ### Evaluation
 
---- 
 
 ### Evaluation
 There are three versions of PointNet++ (Seg): <br>
@@ -89,8 +83,3 @@ The Delayed-Aggregation version: <br>
 
 #### Option 2:
 Switch back to [the root directory](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds) and follow the instructions there.
-
-------------
-
-### About
-------------
