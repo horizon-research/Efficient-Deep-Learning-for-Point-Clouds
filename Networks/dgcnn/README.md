@@ -19,11 +19,10 @@ Libraries: Tensorflow 1.15.0, numpy 1.18, cudnn 7.6.5, pillow 7.0.0
 
 We highly recommend using virtual environment tools like Anaconda to set up the right environment. 
 
-### 3. Run: 
-This section is about how to run the 2 different versions of DGCNN (cls) below: <br>
-**Baseline**: the original implementation of the DGCNN (cls). <br>
-**Delayed-Aggregation**: the one with full delayed-aggregation optimization, i.e., our proposed version. <br>
-(In this particular network, Limited Delayed-Aggregation is the same as the full Delayed-Aggregation because each module has only one MLP layer.)
+### 3. Evaluaation: 
+
+In this particular network, Limited Delayed-Aggregation is the same as the full Delayed-Aggregation because each module has only one MLP layer.
+
 0\. Make sure you are at the ```dgcnn``` directory: <br>
 
 1\. To run the **Baseline version** of DGCNN (inference): <br>
