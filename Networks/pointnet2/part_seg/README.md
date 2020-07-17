@@ -41,12 +41,8 @@ Or, if the CUDA paths are already set correctly, run
 ```python compile.py``` in the ```pointnet2``` directory. 
 
 ### Evaluation
-There are three versions of PointNet++ (Seg): <br>
-**Baseline**: the original PointNet++ (Seg) with implementation optimizations. <br>
-**Limited Delayed-Aggregation**: the one with limited delayed-ggregation optimization. <br>
-**Delayed-Aggregation**: the one with full delayed-aggregation optimization, i.e., our proposed version. <br>
 
-Below shows how to evaluate different versions:
+Below shows how to evaluate the three versions:
 
 #### Option 1: 
 
