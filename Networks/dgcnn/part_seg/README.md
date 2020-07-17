@@ -23,6 +23,7 @@ We highly recommend using virtual environment tools like Anaconda to set up the 
 
 ### Training:
 In this particular network, Limited Delayed-Aggregation is the same as the full Delayed-Aggregation because each module has only one MLP layer. <br>
+
 0\. Make sure you are at the ```dgcnn/part_seg``` directory. <br> 
 1\. To train the **Baseline version** of DGCNN (seg): <br>
 ``` 
