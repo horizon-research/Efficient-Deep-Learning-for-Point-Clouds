@@ -6,7 +6,7 @@ Currently, we only support the ShapeNet benchmark used by the [original DGCNN pr
 sh +x download_data.sh
 ```
 
-, then run: <br>
+then run: <br>
 ```
 unzip shapenetcore_partanno_v0.zip
 ```
