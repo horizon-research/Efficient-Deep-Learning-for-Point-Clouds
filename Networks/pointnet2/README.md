@@ -3,7 +3,6 @@
 
 For PointNet++ (Segmentation), please check out the [part_seg](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/pointnet2/part_seg) directory.
 
----
 
 ### Dataset
 Currently, we only support the ModelNet benchmark used by the [original PointNet++ project](https://github.com/charlesq34/pointnet2). To download the dataset, run: 
@@ -12,7 +11,6 @@ python modelnet_h5_dataset.py
 ``` 
 If you want to experiment on your own dataset, we suggest following the instructions [here](https://github.com/charlesq34/pointnet2#prepare-your-own-data).
 
----
 
 ### Environment/Libraries:
 This is a tricky part. It is necessary to install the right versions of libraries to get the code running.
@@ -27,7 +25,6 @@ Compiler Toolchain:
 
 We highly recommend using virtual environment tools like Anaconda to set up the right environment. 
 
----
 
 ### Installation
 Instructions on how to compile the [customized tf operators](https://github.com/charlesq34/pointnet2#compile-customized-tf-operators) (interpolation, grouping, sampling). Please follow the steps below.<br>
@@ -43,11 +40,9 @@ Instructions on how to compile the [customized tf operators](https://github.com/
 If the CUDA paths are already set correctly, you can run 
 ```python compile.py``` in the ```pointnet2``` directory instead of following the 3 steps above.
 
----
 
 ### Training
 
----
 
 ### Evaluation
 There are three versions of PointNet++ (cls): <br>
@@ -92,10 +87,5 @@ The Delayed-Aggregation version: <br>
 
 #### Option 2:
 Switch back to [the root directory](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds) and follow the instructions there.
-
-------------
-
-### About
-------------
 
 
