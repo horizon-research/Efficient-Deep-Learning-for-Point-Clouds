@@ -11,7 +11,7 @@ import tensorflow as tf
 # import tensorflow.compat.v1 as tf
 # tf.disable_v2_behavior() 
 
-def print(*args):
+def print(arg, arg2=None, arg3=None, arg4=None):
     return
 
 def _variable_on_cpu(name, shape, initializer, use_fp16=False, trainable=True):

@@ -7,6 +7,9 @@ sys.path.append(BASE_DIR)
 sys.path.append(os.path.join(BASE_DIR, '../utils'))
 import tf_util
 
+def print(arg, arg2=None):
+    return
+
 def input_transform_net(edge_feature, nn_idx, k, is_training, bn_decay=None, K=3, is_dist=False):
   """ Input (XYZ) Transform Net, input is BxNx3 gray image
     Return:

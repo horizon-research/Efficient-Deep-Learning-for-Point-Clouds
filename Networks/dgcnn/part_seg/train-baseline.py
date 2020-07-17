@@ -10,7 +10,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(BASE_DIR)
 sys.path.append(os.path.dirname(BASE_DIR))
 import provider
-import part_seg_model as model
+import part_seg_model_baseline as model
 
 TOWER_NAME = 'tower'
 
@@ -20,7 +20,7 @@ parser.add_argument('--num_gpu', type=int, default=2, help='The number of GPUs t
 parser.add_argument('--batch', type=int, default=8, help='Batch Size per GPU during training [default: 32]')
 parser.add_argument('--epoch', type=int, default=301, help='Epoch to run [default: 50]')
 parser.add_argument('--point_num', type=int, default=2048, help='Point Number [256/512/1024/2048]')
-parser.add_argument('--output_dir', type=str, default='train_results', help='Directory that stores all training logs and trained models')
+parser.add_argument('--output_dir', type=str, default='train_results_baseline', help='Directory that stores all training logs and trained models')
 parser.add_argument('--wd', type=float, default=0, help='Weight Decay [Default: 0.0]')
 FLAGS = parser.parse_args()
 
@@ -164,7 +164,7 @@ def train():
     is_training_phs =[]
 
     with tf.variable_scope(tf.get_variable_scope()):
-      for i in xrange(FLAGS.num_gpu):
+      for i in range(FLAGS.num_gpu):
         with tf.device('/gpu:%d' % i):
           with tf.name_scope('%s_%d' % (TOWER_NAME, i)) as scope:
             pointclouds_phs.append(tf.placeholder(tf.float32, shape=(batch_size, point_num, 3))) # for points
@@ -213,7 +213,6 @@ def train():
     sess = tf.Session(config=config)
 
     # pretrained:
-    # pretrained_model_path = "train_results/trained_models/epoch_300.ckpt"
     # saver.restore(sess, pretrained_model_path)
 
     
