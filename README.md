@@ -88,7 +88,7 @@ $ python launcher.py --run [NETWORK] --use_limited
 
 ### Publication ###
 ------------------
-This project implements the idea in our paper, "[Mesorasi: Enabling Efficient Point Cloud Analytics via Delayed-Aggregation]()", please kindly consider cite our paper.
+This project contains the artifact for our paper [Mesorasi: Enabling Efficient Point Cloud Analytics via Delayed-Aggregation]() (MICRO 2020).
 
 ```
 @inproceedings{feng2020mesorasi,
