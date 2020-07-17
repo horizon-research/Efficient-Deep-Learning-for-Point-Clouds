@@ -1,8 +1,6 @@
-### LDGCNN (Classification)
-------------
+## LDGCNN (Classification)
 This repository is code released for applying delayed-aggregation to [LDGCNN](https://arxiv.org/pdf/1904.10014.pdf). the original implementation is [here](https://github.com/KuangenZhang/ldgcnn). 
 
----
 
 ### Dataset 
 Currently, we tested our model on ModelNet40 benchmark. To download the dataset, run: 
@@ -10,7 +8,6 @@ Currently, we tested our model on ModelNet40 benchmark. To download the dataset,
 python download_modelnet.py
 ``` 
 
----
 
 ### Environment/Libraries: 
 We tested our implementation in the environment below:
@@ -19,7 +16,6 @@ We tested our implementation in the environment below:
 - gcc / gxx: 7.3.0 (to compile the tf ops)
 -   Dependencies: Tensorflow 1.12.0, numpy 1.14, scikit-learn, CUDA 10.2, cudnn 7.6.5
 
----
 
 ### Evaluation
 
