@@ -39,17 +39,33 @@ Instructions on how to compile the [customized tf operators](https://github.com/
 If the CUDA paths are already set correctly, you can run 
 ```python compile.py``` in the ```pointnet2``` directory instead of following the 3 steps above.
 
+### Train & Evaluate
 
-### Training
-
-
-### Evaluation
 There are three versions of PointNet++ (cls): <br>
 **Baseline**: the original PointNet++ (cls) with implementation optimizations. <br>
 **Limited Delayed-Aggregation**: the version with limited delayed-ggregation optimization. <br>
 **Delayed-Aggregation**: the version with full delayed-aggregation optimization, i.e., our proposed version. 
 
-Below shows how to evaluate different versions:
+### Training
+Below shows how to train different versions of PointNet++:
+0\. Make sure you are under the ```pointnet2``` directory. <br>
+1\. To train the **Baseline** version of PointNet++: <br>
+```
+python train-baseline.py 
+```
+
+2\. To train the **Limited Delayed-Aggregation** version of PointNet++: <br>
+```
+python train-limited.py
+```
+
+3\. To train the **Delayed-Aggregation** version of PointNet++: <br>
+```
+python train.py 
+```
+
+### Evaluation
+Below shows how to evaluate different versions of PointNet++:
 
 #### Option 1:
 
