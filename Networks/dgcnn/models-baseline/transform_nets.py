@@ -4,7 +4,7 @@ import sys
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(BASE_DIR)
-sys.path.append(os.path.join(BASE_DIR, '../utils'))
+sys.path.append(os.path.join(BASE_DIR, '../utils-baseline'))
 import tf_util
 
 def input_transform_net(edge_feature, is_training, bn_decay=None, K=3, is_dist=False):
