@@ -1,8 +1,6 @@
 ## Efficient Frustum PointNets for 3D Object Detection from RGB-D Data
-------------
-This repository contains code released for applying the **Delayed-Aggregation** method to [Frustum PointNets](https://arxiv.org/abs/1711.08488). The original implementation is [here](https://github.com/charlesq34/frustum-pointnets). 
 
----
+This repository contains code released for applying the **Delayed-Aggregation** method to [Frustum PointNets](https://arxiv.org/abs/1711.08488). The original implementation is [here](https://github.com/charlesq34/frustum-pointnets). 
 
 ### Environment/Libraries:
 It is necessary to install the right version of libraries to get the code running. (The one that works on your machine is the right version.)
@@ -15,7 +13,6 @@ Dependencies: Tensorflow 1.12.0, numpy 1.14, CUDA 10.2, cudnn 7.6.5
 Compiler Toolchain: 
 - gcc / gxx: 7.3.0 (to compile the tf ops)
 
----
 
 ## Installation
 Install <a href="https://www.tensorflow.org/install/">TensorFlow</a>.There are also some dependencies for a few Python libraries for data processing and visualizations like `cv2`, `mayavi`  etc. It's highly recommended that you have access to GPUs.
@@ -48,7 +45,6 @@ $ bash scripts/command_train_v2_baselline.sh
 ```
 Run `python train/train.py -h` to see more options of training. 
 
----
 
 ### Evaluation
 To evaluate a trained model on the validation set using our **Delayed-Aggregation version**, just run:
