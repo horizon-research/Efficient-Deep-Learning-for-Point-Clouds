@@ -23,7 +23,7 @@ There are two different versions of LDGCNN: <br>
 **Baseline**: the original LDGCNN network with implementation optimizations. <br>
 **Delayed-Aggregation**: the version with full delayed-aggregation optimization, i.e., our proposed version. <br>
 
-(In this special case, this Limited Delayed-Aggregation version is the same as the Delayed-Aggregation version.
+(In this particular network, Limited Delayed-Aggregation is the same as the full Delayed-Aggregation because each module has only one MLP layer.)
 
 0\. Make sure you are at the `ldgcnn` directory. <br>
 1\. To run the **Baseline version** of LDGCNN (inference):
