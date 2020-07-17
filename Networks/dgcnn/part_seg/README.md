@@ -1,12 +1,17 @@
 ## DGCNN (Segmentation)
 
-### 1. Dataset
+### Dataset
 Currently, we only support the ShapeNet benchmark used by the [original DGCNN project](https://github.com/WangYueFt/dgcnn/tree/master/tensorflow/part_seg). To download the dataset, please run: <br>
 ```
 sh +x download_data.sh
 ```
 
-### 2. Environment/Libraries:
+, then run: <br>
+```
+unzip shapenetcore_partanno_v0.zip
+```
+
+### Environment/Libraries:
 This is a tricky part. It is necessary to install the right versions of libraries to get the code running.
 We have been experimenting in the environment below:
 
@@ -16,9 +21,21 @@ Libraries: Tensorflow 1.15.0, numpy 1.18, cudnn 7.6.5, pillow 7.0.0
 
 We highly recommend using virtual environment tools like Anaconda to set up the right environment. 
 
-### 3. Evaluation:
-
+### Training:
 In this particular network, Limited Delayed-Aggregation is the same as the full Delayed-Aggregation because each module has only one MLP layer.
+0\. Make sure you are at the ```dgcnn/part_seg``` directory. <br>
+
+1\. To train the **Baseline version** of DGCNN (seg): <br>
+``` 
+python train_baseline.py
+```
+
+2\. To train the **Delayed-Aggregation version** of DGCNN (seg): <br>
+``` 
+python train.py
+```
+
+### Evaluation:
 
 0\. Make sure you are at the ```dgcnn/part_seg``` directory. <br>
 
