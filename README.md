@@ -88,4 +88,15 @@ $ python launcher.py --run [NETWORK] --use_limited
 
 ### Publication ###
 ------------------
+This project implements the idea in our paper, "[Mesorasi: Enabling Efficient Point Cloud Analytics via Delayed-Aggregation]()", please kindly consider cite our paper.
+
+```
+@inproceedings{feng2020mesorasi,
+  title={Mesorasi: Enabling Efficient Point Cloud Analytics via Delayed-Aggregation},
+  author={Feng, Yu and Xu, Tiancheng and Tian, Boyuan and Whatmough, Paul and Zhu, Yuhao},
+  booktitle={Proceedings of the 53th International Symposium on Microarchitecture},
+  year={2020},
+  organization={ACM}
+}
+```
 
