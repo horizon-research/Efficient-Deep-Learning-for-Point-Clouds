@@ -1,5 +1,4 @@
-### DGCNN (Segmentation)
-------------
+## DGCNN (Segmentation)
 
 ### 1. Dataset
 Currently, we only support the ShapeNet benchmark used by the [original DGCNN project](https://github.com/WangYueFt/dgcnn/tree/master/tensorflow/part_seg). To download the dataset, please run: <br>
@@ -21,7 +20,7 @@ We highly recommend using virtual environment tools like Anaconda to set up the 
 This section is about how to run the 2 different versions of DGCNN (seg) below: <br>
 **Baseline**: the original implementation of the DGCNN (seg). <br>
 **Delayed-Aggregation**: the one with full delayed-aggregation optimization, i.e., our proposed version. <br>
-(In this special case, the Limited Delayed-Aggregation is the same as the Delayed-Aggregation version.)
+(In this particular network, Limited Delayed-Aggregation is the same as the full Delayed-Aggregation because each module has only one MLP layer.)
 
 0\. Make sure you are at the ```dgcnn/part_seg``` directory. <br>
 
@@ -42,7 +41,3 @@ The **Baseline** version: <br>
 The **Delayed-Aggregation** version: <br>
 <img src="https://user-images.githubusercontent.com/19209239/83948972-1cc64680-a7ef-11ea-92dd-344788e006b1.png" alt="drawing" width="520"/>
 
-------------
-
-### About
-------------
