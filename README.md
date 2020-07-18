@@ -1,5 +1,5 @@
 ## Efficient Deep Learning for Point Clouds
-This project is about designing efficient point cloud Deep Neural Networks with pure algorithm (software-level) optimizations. We propose a technique named **Delayed Aggregation** that:
+This project is about designing efficient point cloud Deep Neural Networks with pure algorithm (software-level) optimizations. We propose a technique named **Delayed Aggregation**, which:
 1. reduces redundant computation to achieve workload efficiency; 
 2. exposes parallelism that can be easily captured by the underlying hardware.
 
