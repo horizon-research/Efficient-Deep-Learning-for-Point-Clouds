@@ -12,7 +12,7 @@ If you want to experiment on your own dataset, we suggest following the instruct
 
 
 ### Environment/Libraries:
-This is a tricky part. It is necessary to install the right versions of libraries to get the code running.
+We highly recommend using virtual environment tools like Anaconda to set up an environment identical to the one we tested. <br>
 We have been experimenting in the environment below:
 
 OS: Ubuntu 18.04.3 LTS <br>
@@ -44,55 +44,60 @@ If the CUDA paths are already set correctly, you can run
 Below shows how to train different versions of PointNet++:
 
 0\. Make sure you are under the ```pointnet2``` directory. <br>
-1\. To train the **Baseline** version of PointNet++: <br>
+1\. To train the **Baseline** version: <br>
 ```
 python train-baseline.py 
 ```
 
-2\. To train the **Limited Delayed-Aggregation** version of PointNet++: <br>
+2\. To train the **Limited Delayed-Aggregation** version: <br>
 ```
 python train-limited.py
 ```
 
-3\. To train the **Delayed-Aggregation** version of PointNet++: <br>
+3\. To train the **Fully Delayed-Aggregation** version: <br>
 ```
 python train.py 
+```
+
+4\. Add ``` -h``` after the above commands to check out all the optional arguments, e.g.: <br>
+```
+python train.py -h
 ```
 
 ### Evaluation
 Below shows how to evaluate different versions of PointNet++:
 
-#### Option 1:
+#### Option 1: 
 
 0\. Make sure you are under the ```pointnet2``` directory. <br>
-1\. To run the **Baseline** version of PointNet++ (inference): <br>
+1\. To evaluate the **Baseline** version: <br>
 ```
 python evaluate-baseline.py 
 ```
 
-To check out all the optional arguments for the inference, please run: <br>
-```
-python evaluate-baseline.py -h
-```
-
-2\. To run the **Limited Delayed-Aggregation** version of PointNet++ (inference): <br>
+2\. To evaluate the **Limited Delayed-Aggregation** version: <br>
 ```
 python evaluate-limited.py
 ```
 
-3\. To run the **Delayed-Aggregation** version of PointNet++ (inference): <br>
+3\. To evaluate the **Fully Delayed-Aggregation** version: <br>
 ```
 python evaluate.py 
 ```
 
-4\. Check the results. It will print out the accuracy and latency after running: <br>
-The Baseline version: <br>
+4\. Add ``` -h``` after the above commands to check out all the optional arguments, e.g.: <br>
+```
+python evaluate.py -h
+```
+
+5\. Check the results. Below shows the example accuracies and latency for different versions: <br>
+The **Baseline** version: <br>
 <img src="https://user-images.githubusercontent.com/18485088/87615576-06aa8080-c6e1-11ea-9a57-ab195c70ecef.jpg">
 
-The Limited Delayed-Aggregation version: <br>
+The **Limited Delayed-Aggregation** version: <br>
 <img src="https://user-images.githubusercontent.com/18485088/87615422-b3383280-c6e0-11ea-82a6-31be5e953cde.jpg">
 
-The Delayed-Aggregation version: <br>
+The **Fully Delayed-Aggregation** version: <br>
 <img src="https://user-images.githubusercontent.com/18485088/87615646-2cd02080-c6e1-11ea-881f-238d5d17e52a.jpg">
 
 #### Option 2:
