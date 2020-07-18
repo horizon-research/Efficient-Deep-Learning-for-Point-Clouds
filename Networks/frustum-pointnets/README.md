@@ -33,14 +33,19 @@ You can run `python train/provider.py` to visualize the training data (frustum p
 
 ### Training
 
-To start training our **Delayed-Aggregation version**, just run the following script:
+To start training our **full Delayed-Aggregation version**, just run the following script:
 ```
 $ bash scripts/command_train_v2.sh
 ```
-To train the original Frustum PointNets model, just run the following script:
+To train the original Frustum PointNets **baseline version**, just run the following script:
 ```
 $ bash scripts/command_train_v2_baselline.sh
 ```
+To train the **limited Delayed-Aggregation version**, just run the following script:
+```
+$ bash scripts/command_train_v2_limited.sh
+```
+
 Run `python train/train.py -h` to see more options of training. 
 
 
@@ -52,6 +57,10 @@ $ bash scripts/command_test_v2.sh
 or evaluate the original **Baseline version** model:
 ```
 $ bash scripts/command_test_v2_baseline.sh
+```
+or evaluation the **limited Delayed-Aggregation version** model:
+```
+$ bash scripts/command_test_v2_limited.sh
 ```
 
 **NOTE**: In our paper, we report the accuracy from the `Eval` set. Here, we show the screenshot of both **Baseline version** result and our **Delayed-Aggregation version** .
