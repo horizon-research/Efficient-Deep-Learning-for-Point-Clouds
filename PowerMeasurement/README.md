@@ -24,7 +24,7 @@ This repository is for automated creating power consumption data from Nvidia Jet
     ```
     $ nvpmodel -m 0
     ```
-## How to measure the power of execution time
+## How to measure the power of a model during its execution
 	
 To recreate some of measurements in our paper, you can create two windows from your terminals. One is used to launch
 the network. While the network model is launched, use the second windows to measure the power consumption on TX2. For
