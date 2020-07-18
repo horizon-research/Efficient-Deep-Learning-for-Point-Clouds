@@ -1,18 +1,11 @@
 ## PointNet++ (Segmentation)
 
-### To-do
-- [ ] add limited version
-- [ ] update training script
-- [ ] retrain model with most updated version
-- [ ] update README
-
-
 ### Dataset
-Please follow instructions given by the original [PointNet++](https://github.com/charlesq34/pointnet2/blob/master/README.md#object-part-segmentation) project: <br>Preprocessed ShapeNetPart dataset (XYZ, normal and part labels) can be found <a href="https://shapenet.cs.stanford.edu/media/shapenetcore_partanno_segmentation_benchmark_v0_normal.zip">here (674MB)</a>. Move the uncompressed data folder to `data/shapenetcore_partanno_segmentation_benchmark_v0_normal`
-
+Pointnet++ object part segmentation uses the preprocessed <a href="https://shapenet.cs.stanford.edu/media/shapenetcore_partanno_segmentation_benchmark_v0_normal.zip"> ShapeNetPart (674 MB)</a> dataset. <br>
+To prepare the dataset, use the script in [```Datasets```](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Datasets) directory to download and unzip ```ShapeNet``` if this step was skipped.
 
 ### Environment/Libraries:
-This is a tricky part. It is necessary to install the right versions of libraries to get the code running.
+We highly recommend using virtual environment tools like Anaconda to set up an environment identical to the one we tested. <br>
 We have been experimenting in the environment below:
 
 OS: Ubuntu 18.04.3 LTS <br>
@@ -40,39 +33,69 @@ Instructions on how to compile the [customized tf operators](https://github.com/
 Or, if the CUDA paths are already set correctly, run 
 ```python compile.py``` in the ```pointnet2``` directory. 
 
-### Evaluation
+### Training
 
-Below shows how to evaluate the three versions:
+Below shows how to train different versions of PointNet++:
+
+0\. Make sure you are under the ```pointnet2/part_seg``` directory. <br>
+1\. To train the **Baseline** version: <br>
+```
+python train-baseline.py 
+```
+
+2\. To train the **Limited Delayed-Aggregation** version: <br>
+```
+python train-limited.py
+```
+
+3\. To train the **Fully Delayed-Aggregation** version: <br>
+```
+python train.py 
+```
+
+4\. Add ``` -h``` after the above commands to check out all the optional arguments, e.g.: <br>
+```
+python train.py -h
+```
+
+### Evaluation
+Below shows how to evaluate different versions of PointNet++:
 
 #### Option 1: 
 
-0\. Make sure you are at the ```pointnet2/part_seg``` directory. <br>
-1\. To run the **Baseline** version of PointNet++ (inference): <br>
+0\. Make sure you are under the ```pointnet2/part_seg``` directory. <br>
+1\. To evaluate the **Baseline** version: <br>
 ```
 python evaluate-baseline.py 
 ```
 
-To check out all the optional arguments for the inference, please run: <br>
-```
-python evaluate-baseline.py -h
-```
 
-2\. To run the **Limited Delayed-Aggregation** version of PointNet++ (inference): <br>
+2\. To evaluate the **Limited Delayed-Aggregation** version: <br>
 ```
 python evaluate-limited.py
 ```
 
-3\. To run the **Delayed-Aggregation** version of PointNet++ (inference): <br>
+3\. To evaluate the **Fully Delayed-Aggregation** version: <br>
 ```
 python evaluate.py 
 ```
 
-4\. Check the results. It will print out the accuracy and latency after running: <br>
-The Baseline: <br>
+4\. Add ``` -h``` after the above commands to check out all the optional arguments, e.g.: <br>
+```
+python evaluate.py -h
+```
 
-The Limited Delayed-Aggregation version: <br>
+5\. Check the results. Below shows the example accuracies and latency for different versions: <br>
+The **Baseline** version: <br>
+<img src="https://user-images.githubusercontent.com/18485088/87848703-a9fdc000-c8b0-11ea-956d-cc5769c0c760.jpg">
 
-The Delayed-Aggregation version: <br> 
+The **Limited Delayed-Aggregation** version: <br>
+<img src="https://user-images.githubusercontent.com/18485088/87848710-bda92680-c8b0-11ea-98f6-63df764464dd.jpg">
+
+The **Fully Delayed-Aggregation** version: <br>
+<img src="https://user-images.githubusercontent.com/18485088/87848713-c7cb2500-c8b0-11ea-91bd-b2a674caf0db.jpg">
 
 #### Option 2:
 Switch back to [the root directory](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds) and follow the instructions there.
+
+
