@@ -94,8 +94,8 @@ def sample_and_group_all(xyz, points, use_xyz=True):
     '''
     batch_size = xyz.get_shape()[0].value
     nsample = xyz.get_shape()[1].value
-    new_xyz = tf.constant(np.array([0,0,0]).reshape((1,1,3)),dtype=tf.float32) # (batch_size, 1, 3)
-    idx = tf.constant(np.array(range(nsample)).reshape((1,1,nsample)), dtype=tf.int32)
+    new_xyz = tf.constant(np.tile(np.array([0,0,0]).reshape((1,1,3)), (batch_size,1,1)),dtype=tf.float32) # (batch_size, 1, 3)
+    idx = tf.constant(np.tile(np.array(range(nsample)).reshape((1,1,nsample)), (batch_size,1,1)), dtype=tf.int32)
     grouped_xyz = tf.reshape(xyz, (batch_size, 1, nsample, 3)) # (batch_size, npoint=1, nsample, 3)
     if points is not None:
         if use_xyz:
