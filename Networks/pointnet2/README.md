@@ -59,7 +59,7 @@ python train-limited.py
 python train.py 
 ```
 
-4\. Add ``` -h``` after the above commands to check out all the optional arguments, e.g.: <br>
+Add ``` -h``` after the above commands to check out all the optional arguments, e.g.: <br>
 ```
 python train.py -h
 ```
@@ -85,7 +85,7 @@ python evaluate-limited.py
 python evaluate.py 
 ```
 
-4\. Add ``` -h``` after the above commands to check out all the optional arguments, e.g.: <br>
+Add ``` -h``` after the above commands to check out all the optional arguments, e.g.: <br>
 ```
 python evaluate.py -h
 ```
