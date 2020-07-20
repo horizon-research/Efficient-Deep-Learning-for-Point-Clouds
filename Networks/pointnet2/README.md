@@ -95,7 +95,7 @@ The **Baseline** version: <br>
 <img src="https://user-images.githubusercontent.com/18485088/87615576-06aa8080-c6e1-11ea-9a57-ab195c70ecef.jpg">
 
 The **Limited Delayed-Aggregation** version: <br>
-<img src="https://user-images.githubusercontent.com/18485088/87615422-b3383280-c6e0-11ea-82a6-31be5e953cde.jpg">
+<img src="https://user-images.githubusercontent.com/18485088/87957882-d830fa80-ca7e-11ea-9263-0d9d728b287e.jpg">
 
 The **Fully Delayed-Aggregation** version: <br>
 <img src="https://user-images.githubusercontent.com/18485088/87615646-2cd02080-c6e1-11ea-881f-238d5d17e52a.jpg">
