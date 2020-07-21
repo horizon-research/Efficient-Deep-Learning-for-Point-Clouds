@@ -1,4 +1,0 @@
-model_checkpoint_path: "model.ckpt"
-all_model_checkpoint_paths: "model_best_acc.ckpt"
-all_model_checkpoint_paths: "model_best_acc_avg.ckpt"
-all_model_checkpoint_paths: "model.ckpt"
