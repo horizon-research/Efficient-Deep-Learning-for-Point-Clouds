@@ -23,13 +23,12 @@ import modelnet_h5_dataset
 from tensorflow.python.profiler import model_analyzer
 from tensorflow.python.profiler import option_builder
 
-#os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 parser = argparse.ArgumentParser()
 parser.add_argument('--gpu', type=int, default=0, help='GPU to use [default: GPU 0]')
 parser.add_argument('--model', default='pointnet2_cls_ssg', help='Model name. [default: pointnet2_cls_ssg]')
 parser.add_argument('--batch_size', type=int, default=16, help='Batch Size during training [default: 16]')
 parser.add_argument('--num_point', type=int, default=1024, help='Point Number [256/512/1024/2048] [default: 1024]')
-parser.add_argument('--model_path', default='./log/model_best_acc.ckpt', help='model checkpoint file path [default: log/model.ckpt]')
+parser.add_argument('--model_path', default='log/model_best_acc.ckpt', help='model checkpoint file path [default: log/model_best_acc.ckpt]')
 parser.add_argument('--dump_dir', default='dump', help='dump folder path [dump]')
 parser.add_argument('--normal', action='store_true', help='Whether to use normal information')
 parser.add_argument('--num_votes', type=int, default=1, help='Aggregate classification scores from multiple rotations [default: 1]')
@@ -104,15 +103,9 @@ def evaluate(num_votes):
     s = time.time()
     eval_one_epoch(sess, ops, num_votes)
     e = time.time()
-    print "time (secs) for 1 epoch:", (e - s)
+    print "time (secs) for 1 epoch: ", (e - s)
 
-def eval_one_epoch(sess, ops, num_votes=1, topk=1):
-#    tf_profiler = model_analyzer.Profiler(graph=sess.graph)
-#    run_options = tf.RunOptions(trace_level = tf.RunOptions.FULL_TRACE)
-#    run_metadata = tf.RunMetadata()
-#
-    step = 0
- 
+def eval_one_epoch(sess, ops, num_votes=1, topk=1): 
     is_training = False
 
     # Make sure batch data is of same size
@@ -149,13 +142,7 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
             feed_dict = {ops['pointclouds_pl']: rotated_data,
                          ops['labels_pl']: cur_batch_label,
                          ops['is_training_pl']: is_training}
-            loss_val, pred_val = sess.run([ops['loss'], ops['pred']], feed_dict=feed_dict) 
-            #options=run_options, run_metadata=run_metadata)
-            #tf_profiler.add_step(step=step, run_meta=run_metadata)
-            #step += 1
-
-
-            #loss_val, pred_val = sess.run([ops['loss'], ops['pred']], feed_dict=feed_dict)
+            loss_val, pred_val = sess.run([ops['loss'], ops['pred']], feed_dict=feed_dict)
             batch_pred_sum += pred_val
         pred_val = np.argmax(batch_pred_sum, 1)
         correct = np.sum(pred_val[0:bsize] == batch_label[0:bsize])

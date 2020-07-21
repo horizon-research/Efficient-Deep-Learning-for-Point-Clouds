@@ -1,8 +1,6 @@
-### LDGCNN (Classification)
-------------
+## LDGCNN (Classification)
 This repository is code released for applying delayed-aggregation to [LDGCNN](https://arxiv.org/pdf/1904.10014.pdf). the original implementation is [here](https://github.com/KuangenZhang/ldgcnn). 
 
----
 
 ### Dataset 
 Currently, we tested our model on ModelNet40 benchmark. To download the dataset, run: 
@@ -10,7 +8,6 @@ Currently, we tested our model on ModelNet40 benchmark. To download the dataset,
 python download_modelnet.py
 ``` 
 
----
 
 ### Environment/Libraries: 
 We tested our implementation in the environment below:
@@ -19,15 +16,21 @@ We tested our implementation in the environment below:
 - gcc / gxx: 7.3.0 (to compile the tf ops)
 -   Dependencies: Tensorflow 1.12.0, numpy 1.14, scikit-learn, CUDA 10.2, cudnn 7.6.5
 
----
+### Training
+
+In this particular network, Limited Delayed-Aggregation is the same as the full Delayed-Aggregation because each module has only one MLP layer.
+
+1\. To run the **Baseline version** of LDGCNN (training):
+```
+python train.py --log_dir [MODEL_DIR] --model_cnn ldgcnn_baseline
+```
+
+2\. To run our **Delayed-Aggregation version** of LDGCNN (traning):
+```
+python train.py --log_dir [MODEL_DIR] --model_cnn ldgcnn
+```
 
 ### Evaluation
-
-There are two different versions of LDGCNN: <br>
-**Baseline**: the original LDGCNN network with implementation optimizations. <br>
-**Delayed-Aggregation**: the version with full delayed-aggregation optimization, i.e., our proposed version. <br>
-
-(In this special case, this Limited Delayed-Aggregation version is the same as the Delayed-Aggregation version.
 
 0\. Make sure you are at the `ldgcnn` directory. <br>
 1\. To run the **Baseline version** of LDGCNN (inference):

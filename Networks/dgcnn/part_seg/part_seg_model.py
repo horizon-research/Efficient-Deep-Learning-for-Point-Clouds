@@ -11,7 +11,7 @@ sys.path.append(os.path.join(BASE_DIR, '../'))
 import tf_util
 from transform_nets import input_transform_net
 
-def print(*args):
+def print(arg, arg2=None):
     return
 
 def get_model(point_cloud, input_label, is_training, cat_num, part_num, \

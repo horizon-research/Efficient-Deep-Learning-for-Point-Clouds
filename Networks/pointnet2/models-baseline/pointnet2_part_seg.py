@@ -1,3 +1,7 @@
+"""
+    PointNet++ Model for part segmentation
+"""
+
 import os
 import sys
 BASE_DIR = os.path.dirname(__file__)

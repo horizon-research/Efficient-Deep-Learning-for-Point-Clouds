@@ -7,6 +7,6 @@ python2 train/test.py --gpu 1 --num_point 1024 \
         --use_baseline True\
         --idx_path kitti/image_sets/val.txt
 
-train/kitti_eval/evaluate_object_3d_offline \
-                dataset/training/label_2/ \
-                detection_results_v2
+#train/kitti_eval/evaluate_object_3d_offline \
+#                dataset/training/label_2/ \
+#                detection_results_v2

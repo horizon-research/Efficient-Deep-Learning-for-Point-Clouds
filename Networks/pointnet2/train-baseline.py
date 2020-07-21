@@ -25,7 +25,7 @@ import modelnet_h5_dataset
 parser = argparse.ArgumentParser()
 parser.add_argument('--gpu', type=int, default=0, help='GPU to use [default: GPU 0]')
 parser.add_argument('--model', default='pointnet2_cls_ssg', help='Model name [default: pointnet2_cls_ssg]')
-parser.add_argument('--log_dir', default='log-baseline', help='Log dir [default: log]')
+parser.add_argument('--log_dir', default='log-baseline', help='Log dir [default: log-baseline]')
 parser.add_argument('--num_point', type=int, default=1024, help='Point Number [default: 1024]')
 parser.add_argument('--max_epoch', type=int, default=251, help='Epoch to run [default: 251]')
 parser.add_argument('--batch_size', type=int, default=16, help='Batch Size during training [default: 16]')
@@ -159,11 +159,6 @@ def train():
         init = tf.global_variables_initializer()
         sess.run(init)
         
-        # finetune
-        #modelpath= './log-250/model.ckpt'
-        #saver.restore(sess, modelpath) 
-        #print("finetuning: models loaded")
-
         ops = {'pointclouds_pl': pointclouds_pl,
                'labels_pl': labels_pl,
                'is_training_pl': is_training_pl,
@@ -183,7 +178,7 @@ def train():
             eval_one_epoch(sess, ops, test_writer)
             
             # Save the variables to disk.
-            if epoch % 20 == 0:
+            if epoch % 10 == 0:
                 save_path = saver.save(sess, os.path.join(LOG_DIR, "model-%d.ckpt" % epoch))
                 log_string("Model saved in file: %s" % save_path)
 

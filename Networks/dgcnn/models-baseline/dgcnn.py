@@ -5,8 +5,7 @@ import sys
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(BASE_DIR)
-sys.path.append(os.path.join(BASE_DIR, '../utils'))
-sys.path.append(os.path.join(BASE_DIR, '../../utils'))
+sys.path.append(os.path.join(BASE_DIR, '../utils-baseline'))
 import tf_util
 from transform_nets import input_transform_net
 
@@ -23,7 +22,7 @@ def get_model(point_cloud, is_training, bn_decay=None):
   num_point = point_cloud.get_shape()[1].value
   end_points = {}
   k = 20
-
+  
   adj_matrix = tf_util.pairwise_distance(point_cloud)
   nn_idx = tf_util.knn(adj_matrix, k=k)
   edge_feature = tf_util.get_edge_feature(point_cloud, nn_idx=nn_idx, k=k)
