@@ -63,7 +63,7 @@ or evaluation the **limited Delayed-Aggregation version** model:
 $ bash scripts/command_test_v2_limited.sh
 ```
 
-**NOTE**: In our paper, we report the accuracy from the `Eval` set.
+**NOTE**: In our paper, we report the accuracy from the `Eval` set. Here we show the sample accuracy of Brid Eye View (BEV) accuracy.
 
 **Delayed-Aggregation version**:
 
