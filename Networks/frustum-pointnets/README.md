@@ -76,5 +76,3 @@ $ bash scripts/command_test_v2_limited.sh
 **Limited elayed-Aggregation version**:
 
 ![limited-DA](limited-DA.png)
-
-To reproduce the accuracy (BEV accuracy), please use the commands in [**Evaluation**](#Evaluation).
