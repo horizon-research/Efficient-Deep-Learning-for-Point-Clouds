@@ -55,8 +55,8 @@ def sample_and_group(npoint, radius, nsample, xyz, points, knn=False, use_xyz=Tr
 
     point_cloud_shape = points.get_shape()
     batch_size = point_cloud_shape[0].value
-    # sampled_idx = farthest_point_sample(npoint, xyz)
-    sampled_idx = tf.random_uniform(shape=(batch_size,npoint),maxval=npoint-1,dtype=tf.int32)
+    sampled_idx = farthest_point_sample(npoint, xyz)
+    # sampled_idx = tf.random_uniform(shape=(batch_size,npoint),maxval=npoint-1,dtype=tf.int32)
 
     new_xyz = gather_point(xyz, sampled_idx) # (batch_size, npoint, 3)
     if knn:
@@ -119,8 +119,6 @@ def pointnet_sa_module(xyz, points, npoint, radius, nsample, mlp, mlp2, group_al
         input_points = xyz
 
         if points is not None:
-            #  input_points = points
-            
             if use_xyz:
                 input_points = tf.concat([input_points, points], axis=-1)
             else:
@@ -128,9 +126,10 @@ def pointnet_sa_module(xyz, points, npoint, radius, nsample, mlp, mlp2, group_al
             
         # fit for mlp
         input_points = tf.expand_dims(input_points, -2)
+
         print("[SSG-MLP] input points:",input_points.shape)
         if use_nchw: input_points = tf.transpose(input_points, [0,3,1,2])
-        for i, num_out_channel in enumerate(mlp):
+        for i, num_out_channel in enumerate(mlp[0:1]):
             input_points = tf_util.conv2d(input_points, num_out_channel, [1,1],
                                         padding='VALID', stride=[1,1],
                                         bn=bn, is_training=is_training,
@@ -147,6 +146,15 @@ def pointnet_sa_module(xyz, points, npoint, radius, nsample, mlp, mlp2, group_al
         else:
             new_xyz, new_points, idx, grouped_xyz = \
                         sample_and_group(npoint, radius, nsample, xyz, input_points, knn, use_xyz)
+
+        if use_nchw: new_points = tf.transpose(new_points, [0,3,1,2])
+        for i, num_out_channel in enumerate(mlp[1:]):
+            new_points = tf_util.conv2d(new_points, num_out_channel, [1,1],
+                                        padding='VALID', stride=[1,1],
+                                        bn=bn, is_training=is_training,
+                                        scope='conv%d'%(i+1), bn_decay=bn_decay,
+                                        data_format=data_format) 
+        if use_nchw: new_points = tf.transpose(new_points, [0,2,3,1])
 
         # Pooling in Local Regions
         if pooling=='max':
@@ -262,8 +270,8 @@ def pointnet_sa_module_msg(xyz, points, npoint, radius_list, nsample_list, mlp_l
         input_points = xyz
         point_cloud_shape = points.get_shape()
         batch_size = point_cloud_shape[0].value
-        sampled_idx = tf.random_uniform(shape=(batch_size,npoint),maxval=npoint-1,dtype=tf.int32) 
-        # sampled_idx = farthest_point_sample(npoint, xyz)
+        # sampled_idx = tf.random_uniform(shape=(batch_size,npoint),maxval=npoint-1,dtype=tf.int32) 
+        sampled_idx = farthest_point_sample(npoint, xyz)
         new_xyz = gather_point(xyz, sampled_idx)
 
         sampled_idx = tf.expand_dims(sampled_idx, -1)
@@ -282,7 +290,7 @@ def pointnet_sa_module_msg(xyz, points, npoint, radius_list, nsample_list, mlp_l
             input_points = tf.expand_dims(input_points, -2)
             print("[MSG-MLP]",input_points.shape, input_points.dtype)
             if use_nchw: input_points = tf.transpose(input_points, [0,3,1,2])
-            for j,num_out_channel in enumerate(mlp_list[i]):
+            for j,num_out_channel in enumerate(mlp_list[i][0:1]):
                 input_points = tf_util.conv2d(input_points, num_out_channel, [1,1],
                                                 padding='VALID', stride=[1,1], bn=bn, 
                                                 is_training=is_training,
@@ -297,11 +305,21 @@ def pointnet_sa_module_msg(xyz, points, npoint, radius_list, nsample_list, mlp_l
             input_points = tf.squeeze(input_points, -2)
             sampled_points = new_group_point(input_points, sampled_idx)
             new_points = new_group_point(input_points, idx)
+            
+            new_points -= sampled_points
+
+            if use_nchw: new_points = tf.transpose(new_points, [0,3,1,2])
+            for j,num_out_channel in enumerate(mlp_list[i][1:]):
+                new_points = tf_util.conv2d(new_points, num_out_channel, [1,1],
+                                                padding='VALID', stride=[1,1], bn=bn, 
+                                                is_training=is_training,
+                                                scope='conv%d_%d'%(i,j+1), bn_decay=bn_decay)
+            if use_nchw: new_points = tf.transpose(new_points, [0,2,3,1])
 
             # sampled_points = tf.squeeze(sampled_points, -2)
             # new_points -= sampled_points
             new_points = tf.reduce_max(new_points, axis=[2])
-            new_points -= tf.squeeze(sampled_points, -2)
+
             # print(tf.shape(input_points), tf.shape(new_points))
             # sampled_points = gather_point(input_points, sampled_idx)
             new_points_list.append(new_points)

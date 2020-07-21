@@ -55,8 +55,8 @@ def sample_and_group(npoint, radius, nsample, xyz, points, knn=False, use_xyz=Tr
 
     point_cloud_shape = points.get_shape()
     batch_size = point_cloud_shape[0].value
-    # sampled_idx = farthest_point_sample(npoint, xyz)
-    sampled_idx = tf.random_uniform(shape=(batch_size,npoint),maxval=npoint-1,dtype=tf.int32)
+    sampled_idx = farthest_point_sample(npoint, xyz)
+    # sampled_idx = tf.random_uniform(shape=(batch_size,npoint),maxval=npoint-1,dtype=tf.int32)
 
     new_xyz = gather_point(xyz, sampled_idx) # (batch_size, npoint, 3)
     if knn:
@@ -262,8 +262,8 @@ def pointnet_sa_module_msg(xyz, points, npoint, radius_list, nsample_list, mlp_l
         input_points = xyz
         point_cloud_shape = points.get_shape()
         batch_size = point_cloud_shape[0].value
-        sampled_idx = tf.random_uniform(shape=(batch_size,npoint),maxval=npoint-1,dtype=tf.int32) 
-        # sampled_idx = farthest_point_sample(npoint, xyz)
+        # sampled_idx = tf.random_uniform(shape=(batch_size,npoint),maxval=npoint-1,dtype=tf.int32) 
+        sampled_idx = farthest_point_sample(npoint, xyz)
         new_xyz = gather_point(xyz, sampled_idx)
 
         sampled_idx = tf.expand_dims(sampled_idx, -1)

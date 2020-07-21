@@ -23,6 +23,7 @@ parser.add_argument('--gpu', type=int, default=0, help='GPU to use [default: GPU
 parser.add_argument('--num_point', type=int, default=1024, help='Point Number [default: 1024]')
 parser.add_argument('--model', default='frustum_pointnets_v1', help='Model name [default: frustum_pointnets_v1]')
 parser.add_argument('--use_baseline', type=bool, default=False, help='Use Baseline Model.') 
+parser.add_argument('--use_limited', type=bool, default=False, help='Train on Limited-Aggr. Model.')
 parser.add_argument('--model_path', default='log/model.ckpt', help='model checkpoint file path [default: log/model.ckpt]')
 parser.add_argument('--batch_size', type=int, default=32, help='batch size for inference [default: 32]')
 parser.add_argument('--output', default='test_results', help='output file/folder name [default: test_results]')
@@ -36,6 +37,9 @@ MODEL_PATH = None
 if FLAGS.use_baseline:  
     MODEL_PATH = 'baseline_model'
     import provider_baseline as provider
+elif FLAGS.use_limited:
+    MODEL_PATH = 'models_limited'
+    import provider_limited as provider
 else:
     MODEL_PATH = 'models' 
     import provider

@@ -20,6 +20,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--gpu', type=int, default=0, help='GPU to use [default: GPU 0]')
 parser.add_argument('--model', default='frustum_pointnets_v1', help='Model name [default: frustum_pointnets_v1]')
 parser.add_argument('--use_baseline', type=bool, default=False, help='Train on Baseline Model.')
+parser.add_argument('--use_limited', type=bool, default=False, help='Train on Limited-Aggr. Model.')
 parser.add_argument('--log_dir', default='log', help='Log dir [default: log]')
 parser.add_argument('--num_point', type=int, default=2048, help='Point Number [default: 2048]')
 parser.add_argument('--max_epoch', type=int, default=101, help='Epoch to run [default: 201]')
@@ -35,8 +36,11 @@ FLAGS = parser.parse_args()
 
 MODEL_PATH = None
 if FLAGS.use_baseline:
-    MODEL_PATH = 'baseline_model'
+    MODEL_PATH = 'models_baseline'
     import provider_baseline as provider
+elif FLAGS.use_limited:
+    MODEL_PATH = 'models_limited'
+    import provider_limited as provider
 else:
     MODEL_PATH = 'models'
     import provider

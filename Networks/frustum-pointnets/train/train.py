@@ -36,10 +36,10 @@ FLAGS = parser.parse_args()
 
 MODEL_PATH = None
 if FLAGS.use_baseline:
-    MODEL_PATH = 'model_baseline'
+    MODEL_PATH = 'models_baseline'
     import provider_baseline as provider
 elif FLAGS.use_limited:
-    MODEL_PATH = 'model_limited'
+    MODEL_PATH = 'models_limited'
     import provider_limited as provider
 else:
     MODEL_PATH = 'models'
