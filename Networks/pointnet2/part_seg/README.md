@@ -87,13 +87,13 @@ python evaluate.py -h
 
 5\. Check the results. Below shows the example accuracies and latency for different versions: <br>
 The **Baseline** version: <br>
-<img src="https://user-images.githubusercontent.com/18485088/87848703-a9fdc000-c8b0-11ea-956d-cc5769c0c760.jpg">
+<img src="https://user-images.githubusercontent.com/18485088/88263087-726b8b00-cc97-11ea-97ee-5f8b4ec312c8.jpg">
 
 The **Limited Delayed-Aggregation** version: <br>
-<img src="https://user-images.githubusercontent.com/18485088/87848710-bda92680-c8b0-11ea-98f6-63df764464dd.jpg">
+<img src="https://user-images.githubusercontent.com/18485088/88263117-81ead400-cc97-11ea-9747-dc6e7b358fc4.jpg">
 
 The **Fully Delayed-Aggregation** version: <br>
-<img src="https://user-images.githubusercontent.com/18485088/87848713-c7cb2500-c8b0-11ea-91bd-b2a674caf0db.jpg">
+<img src="https://user-images.githubusercontent.com/18485088/88263149-8e6f2c80-cc97-11ea-80f8-b26c915d1294.jpg">
 
 #### Option 2:
 Switch back to [the root directory](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds) and follow the instructions there.
