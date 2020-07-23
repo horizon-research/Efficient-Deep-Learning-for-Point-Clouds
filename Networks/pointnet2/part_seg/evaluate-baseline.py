@@ -8,6 +8,7 @@ import socket
 import importlib
 import os
 import sys
+import time
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.dirname(BASE_DIR)
 sys.path.append(BASE_DIR)
@@ -23,6 +24,7 @@ parser.add_argument('--model_path', default='log-baseline/model_best_acc.ckpt', 
 parser.add_argument('--log_dir', default='log_eval', help='Log dir [default: log_eval]')
 parser.add_argument('--num_point', type=int, default=2048, help='Point Number [default: 2048]')
 parser.add_argument('--batch_size', type=int, default=32, help='Batch Size during training [default: 32]')
+parser.add_argument('--evaluate_epoch', type=int, default=200, help='Num of epoches to evaluate [default: 200]')
 FLAGS = parser.parse_args()
 
 VOTE_NUM = 12
@@ -78,7 +80,23 @@ def evaluate():
                'pred': pred,
                'loss': loss}
 
-        eval_one_epoch(sess, ops)
+        best_acc = -1
+        best_iou = -1
+        for i in range(FLAGS.evaluate_epoch):
+            s = time.time()
+            cur_acc, cur_iou = eval_one_epoch(sess, ops, i)
+	    e = time.time()
+
+            if cur_acc > best_acc:
+                best_acc = cur_acc
+                log_string('BEST ACC: %f' %(best_acc))
+
+            if cur_iou > best_iou:
+                best_iou = cur_iou
+                log_string('BEST IOU: %f' %(best_iou))
+
+	    log_string('time (secs) for 1 epoch: %f' %(e - s))
+
 
 def get_batch(dataset, idxs, start_idx, end_idx):
     bsize = end_idx-start_idx
@@ -91,7 +109,7 @@ def get_batch(dataset, idxs, start_idx, end_idx):
         batch_label[i,:] = seg
     return batch_data, batch_label
 
-def eval_one_epoch(sess, ops):
+def eval_one_epoch(sess, ops, EPOCH_CNT):
     """ ops: dict mapping from string to tf ops """
     is_training = False
     test_idxs = np.arange(0, len(TEST_DATASET))
@@ -187,7 +205,9 @@ def eval_one_epoch(sess, ops):
         log_string('eval mIoU of %s:\t %f'%(cat, shape_ious[cat]))
     log_string('eval mean mIoU: %f' % (mean_shape_ious))
     log_string('eval mean mIoU (all shapes): %f' % (np.mean(all_shape_ious)))
-         
+
+    return (total_correct / float(total_seen)), np.mean(all_shape_ious)
+
 if __name__ == "__main__":
     log_string('pid: %s'%(str(os.getpid())))
     evaluate()
