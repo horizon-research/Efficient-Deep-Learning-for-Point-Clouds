@@ -37,6 +37,7 @@ parser.add_argument('--decay_rate', type=float, default=0.7, help='Decay rate fo
 parser.add_argument('--normal', action='store_true', help='Whether to use normal information')
 FLAGS = parser.parse_args()
 
+DATASET_DIR = "../../Datasets/"
 EPOCH_CNT = 0
 
 BATCH_SIZE = FLAGS.batch_size
@@ -67,16 +68,16 @@ HOSTNAME = socket.gethostname()
 
 NUM_CLASSES = 40
 
-# Shapenet official train/test split
+# ModelNet official train/test split
 if FLAGS.normal:
     assert(NUM_POINT<=10000)
-    DATA_PATH = os.path.join(ROOT_DIR, 'data/modelnet40_normal_resampled')
+    DATA_PATH = os.path.join(ROOT_DIR, DATASET_DIR, 'modelnet40_normal_resampled')
     TRAIN_DATASET = modelnet_dataset.ModelNetDataset(root=DATA_PATH, npoints=NUM_POINT, split='train', normal_channel=FLAGS.normal, batch_size=BATCH_SIZE)
     TEST_DATASET = modelnet_dataset.ModelNetDataset(root=DATA_PATH, npoints=NUM_POINT, split='test', normal_channel=FLAGS.normal, batch_size=BATCH_SIZE)
 else:
     assert(NUM_POINT<=2048)
-    TRAIN_DATASET = modelnet_h5_dataset.ModelNetH5Dataset(os.path.join(BASE_DIR, 'data/modelnet40_ply_hdf5_2048/train_files.txt'), batch_size=BATCH_SIZE, npoints=NUM_POINT, shuffle=True)
-    TEST_DATASET = modelnet_h5_dataset.ModelNetH5Dataset(os.path.join(BASE_DIR, 'data/modelnet40_ply_hdf5_2048/test_files.txt'), batch_size=BATCH_SIZE, npoints=NUM_POINT, shuffle=False)
+    TRAIN_DATASET = modelnet_h5_dataset.ModelNetH5Dataset(os.path.join(BASE_DIR, DATASET_DIR, 'modelnet40_ply_hdf5_2048/train_files.txt'), batch_size=BATCH_SIZE, npoints=NUM_POINT, shuffle=True)
+    TEST_DATASET = modelnet_h5_dataset.ModelNetH5Dataset(os.path.join(BASE_DIR, DATASET_DIR, 'modelnet40_ply_hdf5_2048/test_files.txt'), batch_size=BATCH_SIZE, npoints=NUM_POINT, shuffle=False)
 
 def log_string(out_str):
     LOG_FOUT.write(out_str+'\n')
@@ -158,7 +159,7 @@ def train():
         # Init variables
         init = tf.global_variables_initializer()
         sess.run(init)
-        
+
         ops = {'pointclouds_pl': pointclouds_pl,
                'labels_pl': labels_pl,
                'is_training_pl': is_training_pl,
@@ -170,16 +171,29 @@ def train():
                'end_points': end_points}
 
         best_acc = -1
+        best_acc_avg = -1
         for epoch in range(MAX_EPOCH):
             log_string('**** EPOCH %03d ****' % (epoch))
             sys.stdout.flush()
-             
+
             train_one_epoch(sess, ops, train_writer)
-            eval_one_epoch(sess, ops, test_writer)
-            
+            acc, acc_avg = eval_one_epoch(sess, ops, test_writer)
+
+            if acc > best_acc:
+                best_acc = acc
+                save_path = saver.save(sess, os.path.join(LOG_DIR, "model_best_acc.ckpt"))
+                log_string("Model saved in file: %s" % save_path)
+                log_string("Best category accuracy: %f" % best_acc)
+
+            if acc_avg > best_acc_avg:
+                best_acc_avg = acc_avg
+                save_path = saver.save(sess, os.path.join(LOG_DIR, "model_best_acc_avg.ckpt"))
+                log_string("Model saved in file: %s" % save_path)
+                log_string("Best instance accuracy: %f" % best_acc_avg)
+
             # Save the variables to disk.
             if epoch % 10 == 0:
-                save_path = saver.save(sess, os.path.join(LOG_DIR, "model-%d.ckpt" % epoch))
+                save_path = saver.save(sess, os.path.join(LOG_DIR, "model.ckpt"))
                 log_string("Model saved in file: %s" % save_path)
 
 
@@ -276,8 +290,7 @@ def eval_one_epoch(sess, ops, test_writer):
     EPOCH_CNT += 1
 
     TEST_DATASET.reset()
-    return total_correct/float(total_seen)
-
+    return total_correct/float(total_seen), np.mean(np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float))
 
 if __name__ == "__main__":
     log_string('pid: %s'%(str(os.getpid())))

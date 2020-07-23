@@ -28,13 +28,14 @@ parser.add_argument('--gpu', type=int, default=0, help='GPU to use [default: GPU
 parser.add_argument('--model', default='pointnet2_cls_ssg', help='Model name. [default: pointnet2_cls_ssg]')
 parser.add_argument('--batch_size', type=int, default=16, help='Batch Size during training [default: 16]')
 parser.add_argument('--num_point', type=int, default=1024, help='Point Number [256/512/1024/2048] [default: 1024]')
-parser.add_argument('--model_path', default='log-limited/model.ckpt', help='model checkpoint file path [default: log-limited/model_best_acc.ckpt]')
+parser.add_argument('--model_path', default='log-limited/model_best_acc.ckpt', help='model checkpoint file path [default: log-limited/model_best_acc.ckpt]')
 parser.add_argument('--dump_dir', default='dump', help='dump folder path [dump]')
 parser.add_argument('--normal', action='store_true', help='Whether to use normal information')
 parser.add_argument('--num_votes', type=int, default=1, help='Aggregate classification scores from multiple rotations [default: 1]')
+parser.add_argument('--evaluate_epoch', type=int, default=200, help='Num of epoches to evaluate [default: 200]')
 FLAGS = parser.parse_args()
 
-
+DATASET_DIR = "../../Datasets/"
 BATCH_SIZE = FLAGS.batch_size
 NUM_POINT = FLAGS.num_point
 MODEL_PATH = FLAGS.model_path
@@ -47,20 +48,20 @@ LOG_FOUT.write(str(FLAGS)+'\n')
 
 NUM_CLASSES = 40
 SHAPE_NAMES = [line.rstrip() for line in \
-    open(os.path.join(ROOT_DIR, 'data/modelnet40_ply_hdf5_2048/shape_names.txt'))] 
+    open(os.path.join(ROOT_DIR, DATASET_DIR, 'modelnet40_ply_hdf5_2048/shape_names.txt'))]
 
 HOSTNAME = socket.gethostname()
 
-# Shapenet official train/test split
+# ModelNet official train/test split
 if FLAGS.normal:
     assert(NUM_POINT<=10000)
-    DATA_PATH = os.path.join(ROOT_DIR, 'data/modelnet40_normal_resampled')
+    DATA_PATH = os.path.join(ROOT_DIR, DATASET_DIR, 'modelnet40_normal_resampled')
     TRAIN_DATASET = modelnet_dataset.ModelNetDataset(root=DATA_PATH, npoints=NUM_POINT, split='train', normal_channel=FLAGS.normal, batch_size=BATCH_SIZE)
     TEST_DATASET = modelnet_dataset.ModelNetDataset(root=DATA_PATH, npoints=NUM_POINT, split='test', normal_channel=FLAGS.normal, batch_size=BATCH_SIZE)
 else:
     assert(NUM_POINT<=2048)
-    TRAIN_DATASET = modelnet_h5_dataset.ModelNetH5Dataset(os.path.join(BASE_DIR, 'data/modelnet40_ply_hdf5_2048/train_files.txt'), batch_size=BATCH_SIZE, npoints=NUM_POINT, shuffle=True)
-    TEST_DATASET = modelnet_h5_dataset.ModelNetH5Dataset(os.path.join(BASE_DIR, 'data/modelnet40_ply_hdf5_2048/test_files.txt'), batch_size=BATCH_SIZE, npoints=NUM_POINT, shuffle=False)
+    TRAIN_DATASET = modelnet_h5_dataset.ModelNetH5Dataset(os.path.join(BASE_DIR, DATASET_DIR, 'modelnet40_ply_hdf5_2048/train_files.txt'), batch_size=BATCH_SIZE, npoints=NUM_POINT, shuffle=True)
+    TEST_DATASET = modelnet_h5_dataset.ModelNetH5Dataset(os.path.join(BASE_DIR, DATASET_DIR, 'modelnet40_ply_hdf5_2048/test_files.txt'), batch_size=BATCH_SIZE, npoints=NUM_POINT, shuffle=False)
 
 def log_string(out_str):
     LOG_FOUT.write(out_str+'\n')
@@ -100,13 +101,29 @@ def evaluate(num_votes):
            'pred': pred,
            'loss': total_loss}
 
-    s = time.time()
-    eval_one_epoch(sess, ops, num_votes)
-    e = time.time()
-    print "time (secs) for 1 epoch: ", (e - s)
+    best_acc = -1
+    best_acc_class = -1
+    for i in range(FLAGS.evaluate_epoch):
+        s = time.time()
+        cur_acc, cur_acc_class = eval_one_epoch(sess, ops, num_votes)
+        e = time.time()
+
+	log_string('EVALUATE EPOCH: %d' %(i))
+
+	if cur_acc > best_acc:
+            best_acc = cur_acc
+	    log_string('BEST ACC: %f' %(best_acc))
+
+	if cur_acc_class > best_acc_class:
+            best_acc_class = cur_acc_class
+	    log_string('BEST ACC CLASS: %f' %(best_acc_class))
+
+	log_string('time (secs) for 1 epoch: %f' %(e - s))
 
 def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     is_training = False
+
+    TEST_DATASET = modelnet_h5_dataset.ModelNetH5Dataset(os.path.join(BASE_DIR, DATASET_DIR, 'modelnet40_ply_hdf5_2048/test_files.txt'), batch_size=BATCH_SIZE, npoints=NUM_POINT, shuffle=False)
 
     # Make sure batch data is of same size
     cur_batch_data = np.zeros((BATCH_SIZE,NUM_POINT,TEST_DATASET.num_channel()))
@@ -164,6 +181,8 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     for i, name in enumerate(SHAPE_NAMES):
         log_string('%10s:\t%0.3f' % (name, class_accuracies[i]))
     '''
+
+    return total_correct / float(total_seen), np.mean(np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float))
 
 if __name__=='__main__':
     with tf.Graph().as_default():
