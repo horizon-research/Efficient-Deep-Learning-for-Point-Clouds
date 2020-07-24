@@ -15,6 +15,7 @@ import data.data_utils as d_utils
 import argparse
 import random
 import yaml
+import time
 
 torch.backends.cudnn.enabled = True
 torch.backends.cudnn.benchmark = True
@@ -67,13 +68,21 @@ def main():
     for i in range(NUM_REPEAT):
         preds = []
         labels = []
+
+        s = time.time()
         for j, data in enumerate(test_dataloader, 0):
             points, target = data
             points, target = points.cuda(), target.cuda()
             points, target = Variable(points, volatile=True), Variable(target, volatile=True)
-            
-            # fastest point sampling
-            fps_idx = pointnet2_utils.furthest_point_sample(points, 1200)  # (B, npoint)
+            # points [batch_size, num_points, dimensions], e.g., [256, 2048, 3]
+
+            # furthest point sampling
+            # fps_idx = pointnet2_utils.furthest_point_sample(points, 1200)  # (B, npoint)
+
+            # random sampling
+            fps_idx = np.random.randint(0, points.shape[1]-1, size=[points.shape[0], 1200])
+            fps_idx = torch.from_numpy(fps_idx).type(torch.IntTensor).cuda()
+
             pred = 0
             for v in range(NUM_VOTE):
                 new_fps_idx = fps_idx[:, np.random.choice(1200, args.num_points, False)]
@@ -84,16 +93,18 @@ def main():
             pred /= NUM_VOTE
             target = target.view(-1)
             _, pred_choice = torch.max(pred.data, -1)
-            
+
             preds.append(pred_choice)
             labels.append(target.data)
-    
+        e = time.time()
+
         preds = torch.cat(preds, 0)
         labels = torch.cat(labels, 0)
         acc = (preds == labels).sum() / labels.numel()
         if acc > global_acc:
             global_acc = acc
         print('Repeat %3d \t Acc: %0.6f' % (i + 1, acc))
+        print('time (secs) for 1 epoch: ', (e - s))
     print('\nBest voting acc: %0.6f' % (global_acc))
         
 if __name__ == '__main__':

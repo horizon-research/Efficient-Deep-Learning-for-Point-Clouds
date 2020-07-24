@@ -108,7 +108,12 @@ def train(train_dataloader, test_dataloader, model, criterion, optimizer, lr_sch
             points, target = Variable(points), Variable(target)
             
             # farthest point sampling
-            fps_idx = pointnet2_utils.furthest_point_sample(points, 1200)  # (B, npoint)
+            # fps_idx = pointnet2_utils.furthest_point_sample(points, 1200)  # (B, npoint)
+
+            # random sampling
+            fps_idx = np.random.randint(0, points.shape[1]-1, size=[points.shape[0], 1200])
+            fps_idx = torch.from_numpy(fps_idx).type(torch.IntTensor).cuda()
+
             fps_idx = fps_idx[:, np.random.choice(1200, args.num_points, False)]
             points = pointnet2_utils.gather_operation(points.transpose(1, 2).contiguous(), fps_idx).transpose(1, 2).contiguous()  # (B, N, 3)
             
@@ -141,7 +146,12 @@ def validate(test_dataloader, model, criterion, args, iter):
         points, target = Variable(points, volatile=True), Variable(target, volatile=True)
         
         # farthest point sampling
-        fps_idx = pointnet2_utils.furthest_point_sample(points, args.num_points)  # (B, npoint)
+        # fps_idx = pointnet2_utils.furthest_point_sample(points, args.num_points)  # (B, npoint)
+
+        # random sampling
+        fps_idx = np.random.randint(0, points.shape[1]-1, size=[points.shape[0], args.num_points])
+        fps_idx = torch.from_numpy(fps_idx).type(torch.IntTensor).cuda()
+
         # fps_idx = fps_idx[:, np.random.choice(1200, args.num_points, False)]
         points = pointnet2_utils.gather_operation(points.transpose(1, 2).contiguous(), fps_idx).transpose(1, 2).contiguous()
 

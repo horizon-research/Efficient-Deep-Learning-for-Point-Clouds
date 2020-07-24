@@ -6,11 +6,18 @@ from torch.utils.data import DataLoader
 from torch.autograd import Variable
 import numpy as np
 import os
+import sys
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = BASE_DIR
+sys.path.append(BASE_DIR)
+sys.path.append(os.path.join(ROOT_DIR, 'models-baseline'))
+sys.path.append(os.path.join(ROOT_DIR, 'utils-baseline'))
+from densepoint_cls_L6_k24_g2 import DensePoint as DensePoint
+from pytorch_utils import pytorch_utils as pt_utils
+import pointnet2_utils
 from torchvision import transforms
-from models-baseline import DensePointCls_L6 as DensePoint
 from data import ModelNet40Cls
-import utils-baseline.pytorch_utils as pt_utils
-import utils-baseline.pointnet2_utils as pointnet2_utils
 import data.data_utils as d_utils
 import argparse
 import random
@@ -108,7 +115,12 @@ def train(train_dataloader, test_dataloader, model, criterion, optimizer, lr_sch
             points, target = Variable(points), Variable(target)
             
             # farthest point sampling
-            fps_idx = pointnet2_utils.furthest_point_sample(points, 1200)  # (B, npoint)
+            # fps_idx = pointnet2_utils.furthest_point_sample(points, 1200)  # (B, npoint)
+
+            # random sampling
+            fps_idx = np.random.randint(0, points.shape[1]-1, size=[points.shape[0], 1200])
+            fps_idx = torch.from_numpy(fps_idx).type(torch.IntTensor).cuda()
+
             fps_idx = fps_idx[:, np.random.choice(1200, args.num_points, False)]
             points = pointnet2_utils.gather_operation(points.transpose(1, 2).contiguous(), fps_idx).transpose(1, 2).contiguous()  # (B, N, 3)
             
@@ -141,7 +153,12 @@ def validate(test_dataloader, model, criterion, args, iter):
         points, target = Variable(points, volatile=True), Variable(target, volatile=True)
         
         # farthest point sampling
-        fps_idx = pointnet2_utils.furthest_point_sample(points, args.num_points)  # (B, npoint)
+        # fps_idx = pointnet2_utils.furthest_point_sample(points, args.num_points)  # (B, npoint)
+
+        # random sampling
+        fps_idx = np.random.randint(0, points.shape[1]-1, size=[points.shape[0], args.num_points])
+        fps_idx = torch.from_numpy(fps_idx).type(torch.IntTensor).cuda()
+
         # fps_idx = fps_idx[:, np.random.choice(1200, args.num_points, False)]
         points = pointnet2_utils.gather_operation(points.transpose(1, 2).contiguous(), fps_idx).transpose(1, 2).contiguous()
 

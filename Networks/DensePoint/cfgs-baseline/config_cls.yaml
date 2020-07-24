@@ -22,8 +22,8 @@ common:
     
     input_channels: 0     # feature channels except (x, y, z)
     
-    checkpoint: 'log-baseline/cls_iter_30600_acc_0.920989.pth'
+    checkpoint: 'log-baseline/cls_iter_48042_acc_0.921799.pth'
     #'log-baseline/model_cls_L6_iter_36567_acc_0.923825_ori_bkup.pth'        # the model to start from
     
     save_path: log-baseline
-    data_root: ../../../Datasets/ModelNet40 
+    data_root: ../../Datasets

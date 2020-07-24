@@ -22,6 +22,6 @@ common:
     
     input_channels: 0     # feature channels except (x, y, z)
     
-    checkpoint: 'log/cls_iter_48042_acc_0.924635.pth' # the model to start from
+    checkpoint: 'log/cls_iter_48042_acc_0.918152.pth' # the model to start from
     save_path: log
-    data_root: ../../../Datasets/ModelNet40 
+    data_root: ../../Datasets

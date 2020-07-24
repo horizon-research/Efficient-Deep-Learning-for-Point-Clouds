@@ -1,0 +1,603 @@
+Load model successfully: log-baseline/cls_iter_48042_acc_0.921799.pth
+Repeat   1 	 Acc: 0.920178
+time (secs) for 1 epoch:  130.7659568786621
+Repeat   2 	 Acc: 0.918558
+time (secs) for 1 epoch:  39.25489592552185
+Repeat   3 	 Acc: 0.921799
+time (secs) for 1 epoch:  33.00495743751526
+Repeat   4 	 Acc: 0.921394
+time (secs) for 1 epoch:  88.59859085083008
+Repeat   5 	 Acc: 0.914911
+time (secs) for 1 epoch:  93.92578482627869
+Repeat   6 	 Acc: 0.918963
+time (secs) for 1 epoch:  32.90286302566528
+Repeat   7 	 Acc: 0.918152
+time (secs) for 1 epoch:  32.93157362937927
+Repeat   8 	 Acc: 0.917342
+time (secs) for 1 epoch:  107.96957468986511
+Repeat   9 	 Acc: 0.919368
+time (secs) for 1 epoch:  74.89214015007019
+Repeat  10 	 Acc: 0.920178
+time (secs) for 1 epoch:  32.97238802909851
+Repeat  11 	 Acc: 0.918558
+time (secs) for 1 epoch:  39.131994009017944
+Repeat  12 	 Acc: 0.920178
+time (secs) for 1 epoch:  124.63947033882141
+Repeat  13 	 Acc: 0.922204
+time (secs) for 1 epoch:  51.96268606185913
+Repeat  14 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.34400272369385
+Repeat  15 	 Acc: 0.916937
+time (secs) for 1 epoch:  33.25677132606506
+Repeat  16 	 Acc: 0.922204
+time (secs) for 1 epoch:  33.29448628425598
+Repeat  17 	 Acc: 0.916532
+time (secs) for 1 epoch:  33.31182408332825
+Repeat  18 	 Acc: 0.917342
+time (secs) for 1 epoch:  33.310296058654785
+Repeat  19 	 Acc: 0.916937
+time (secs) for 1 epoch:  33.30468440055847
+Repeat  20 	 Acc: 0.919773
+time (secs) for 1 epoch:  33.35474443435669
+Repeat  21 	 Acc: 0.918963
+time (secs) for 1 epoch:  33.371360063552856
+Repeat  22 	 Acc: 0.918558
+time (secs) for 1 epoch:  42.18174886703491
+Repeat  23 	 Acc: 0.919368
+time (secs) for 1 epoch:  124.26516485214233
+Repeat  24 	 Acc: 0.919368
+time (secs) for 1 epoch:  49.30303883552551
+Repeat  25 	 Acc: 0.921799
+time (secs) for 1 epoch:  33.11954402923584
+Repeat  26 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.29041600227356
+Repeat  27 	 Acc: 0.916937
+time (secs) for 1 epoch:  33.28053545951843
+Repeat  28 	 Acc: 0.915316
+time (secs) for 1 epoch:  33.35829734802246
+Repeat  29 	 Acc: 0.918963
+time (secs) for 1 epoch:  33.37343907356262
+Repeat  30 	 Acc: 0.916532
+time (secs) for 1 epoch:  33.348310470581055
+Repeat  31 	 Acc: 0.920583
+time (secs) for 1 epoch:  33.34621834754944
+Repeat  32 	 Acc: 0.919368
+time (secs) for 1 epoch:  47.691537618637085
+Repeat  33 	 Acc: 0.923420
+time (secs) for 1 epoch:  124.54940700531006
+Repeat  34 	 Acc: 0.919368
+time (secs) for 1 epoch:  43.45830821990967
+Repeat  35 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.2360725402832
+Repeat  36 	 Acc: 0.922609
+time (secs) for 1 epoch:  33.212568521499634
+Repeat  37 	 Acc: 0.915721
+time (secs) for 1 epoch:  33.306575775146484
+Repeat  38 	 Acc: 0.918963
+time (secs) for 1 epoch:  33.315046548843384
+Repeat  39 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.34264945983887
+Repeat  40 	 Acc: 0.915721
+time (secs) for 1 epoch:  33.34028100967407
+Repeat  41 	 Acc: 0.915721
+time (secs) for 1 epoch:  33.32524013519287
+Repeat  42 	 Acc: 0.917342
+time (secs) for 1 epoch:  33.372960567474365
+Repeat  43 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.36394667625427
+Repeat  44 	 Acc: 0.917342
+time (secs) for 1 epoch:  51.9187593460083
+Repeat  45 	 Acc: 0.919773
+time (secs) for 1 epoch:  112.22835302352905
+Repeat  46 	 Acc: 0.919773
+time (secs) for 1 epoch:  50.94654417037964
+Repeat  47 	 Acc: 0.917747
+time (secs) for 1 epoch:  32.98709177970886
+Repeat  48 	 Acc: 0.918963
+time (secs) for 1 epoch:  116.7657790184021
+Repeat  49 	 Acc: 0.921799
+time (secs) for 1 epoch:  65.2340784072876
+Repeat  50 	 Acc: 0.920178
+time (secs) for 1 epoch:  33.22380352020264
+Repeat  51 	 Acc: 0.920989
+time (secs) for 1 epoch:  33.16067361831665
+Repeat  52 	 Acc: 0.922204
+time (secs) for 1 epoch:  33.19018054008484
+Repeat  53 	 Acc: 0.917342
+time (secs) for 1 epoch:  33.19878888130188
+Repeat  54 	 Acc: 0.917747
+time (secs) for 1 epoch:  33.2264609336853
+Repeat  55 	 Acc: 0.917342
+time (secs) for 1 epoch:  33.26464772224426
+Repeat  56 	 Acc: 0.919773
+time (secs) for 1 epoch:  33.2994019985199
+Repeat  57 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.37175464630127
+Repeat  58 	 Acc: 0.917342
+time (secs) for 1 epoch:  33.33573865890503
+Repeat  59 	 Acc: 0.920583
+time (secs) for 1 epoch:  33.33053159713745
+Repeat  60 	 Acc: 0.919773
+time (secs) for 1 epoch:  60.56430768966675
+Repeat  61 	 Acc: 0.919368
+time (secs) for 1 epoch:  121.2467577457428
+Repeat  62 	 Acc: 0.916937
+time (secs) for 1 epoch:  32.77485918998718
+Repeat  63 	 Acc: 0.916532
+time (secs) for 1 epoch:  32.772818088531494
+Repeat  64 	 Acc: 0.920989
+time (secs) for 1 epoch:  32.76670241355896
+Repeat  65 	 Acc: 0.914100
+time (secs) for 1 epoch:  32.86328959465027
+Repeat  66 	 Acc: 0.920989
+time (secs) for 1 epoch:  32.88035702705383
+Repeat  67 	 Acc: 0.919773
+time (secs) for 1 epoch:  92.6250467300415
+Repeat  68 	 Acc: 0.918152
+time (secs) for 1 epoch:  33.006155490875244
+Repeat  69 	 Acc: 0.916532
+time (secs) for 1 epoch:  35.15736484527588
+Repeat  70 	 Acc: 0.920989
+time (secs) for 1 epoch:  90.5931887626648
+Repeat  71 	 Acc: 0.918152
+time (secs) for 1 epoch:  33.08637094497681
+Repeat  72 	 Acc: 0.919368
+time (secs) for 1 epoch:  85.16293263435364
+Repeat  73 	 Acc: 0.916937
+time (secs) for 1 epoch:  33.04634952545166
+Repeat  74 	 Acc: 0.921394
+time (secs) for 1 epoch:  33.09007382392883
+Repeat  75 	 Acc: 0.922204
+time (secs) for 1 epoch:  33.13974571228027
+Repeat  76 	 Acc: 0.922609
+time (secs) for 1 epoch:  33.198246717453
+Repeat  77 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.23567056655884
+Repeat  78 	 Acc: 0.918152
+time (secs) for 1 epoch:  33.240851163864136
+Repeat  79 	 Acc: 0.917342
+time (secs) for 1 epoch:  33.156697511672974
+Repeat  80 	 Acc: 0.920989
+time (secs) for 1 epoch:  33.20783185958862
+Repeat  81 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.257211685180664
+Repeat  82 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.246153831481934
+Repeat  83 	 Acc: 0.917342
+time (secs) for 1 epoch:  33.30232286453247
+Repeat  84 	 Acc: 0.921799
+time (secs) for 1 epoch:  33.25632429122925
+Repeat  85 	 Acc: 0.921394
+time (secs) for 1 epoch:  33.26252746582031
+Repeat  86 	 Acc: 0.920583
+time (secs) for 1 epoch:  93.1014256477356
+Repeat  87 	 Acc: 0.923015
+time (secs) for 1 epoch:  33.137003660202026
+Repeat  88 	 Acc: 0.923015
+time (secs) for 1 epoch:  33.15836715698242
+Repeat  89 	 Acc: 0.920178
+time (secs) for 1 epoch:  33.17605948448181
+Repeat  90 	 Acc: 0.919773
+time (secs) for 1 epoch:  33.22106218338013
+Repeat  91 	 Acc: 0.917342
+time (secs) for 1 epoch:  33.22469091415405
+Repeat  92 	 Acc: 0.916937
+time (secs) for 1 epoch:  33.18966579437256
+Repeat  93 	 Acc: 0.916532
+time (secs) for 1 epoch:  33.258108615875244
+Repeat  94 	 Acc: 0.925446
+time (secs) for 1 epoch:  33.30564904212952
+Repeat  95 	 Acc: 0.922609
+time (secs) for 1 epoch:  33.32707142829895
+Repeat  96 	 Acc: 0.918963
+time (secs) for 1 epoch:  33.418068408966064
+Repeat  97 	 Acc: 0.919773
+time (secs) for 1 epoch:  33.33957290649414
+Repeat  98 	 Acc: 0.918963
+time (secs) for 1 epoch:  36.0427942276001
+Repeat  99 	 Acc: 0.921394
+time (secs) for 1 epoch:  90.2981014251709
+Repeat 100 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.00567293167114
+Repeat 101 	 Acc: 0.917747
+time (secs) for 1 epoch:  85.2003812789917
+Repeat 102 	 Acc: 0.920989
+time (secs) for 1 epoch:  32.79975366592407
+Repeat 103 	 Acc: 0.920178
+time (secs) for 1 epoch:  39.89650082588196
+Repeat 104 	 Acc: 0.917342
+time (secs) for 1 epoch:  45.67627453804016
+Repeat 105 	 Acc: 0.918963
+time (secs) for 1 epoch:  45.700024366378784
+Repeat 106 	 Acc: 0.920583
+time (secs) for 1 epoch:  45.652182817459106
+Repeat 107 	 Acc: 0.918558
+time (secs) for 1 epoch:  45.73191785812378
+Repeat 108 	 Acc: 0.920989
+time (secs) for 1 epoch:  45.59122109413147
+Repeat 109 	 Acc: 0.918963
+time (secs) for 1 epoch:  45.65959405899048
+Repeat 110 	 Acc: 0.920989
+time (secs) for 1 epoch:  45.749821186065674
+Repeat 111 	 Acc: 0.918558
+time (secs) for 1 epoch:  45.743796825408936
+Repeat 112 	 Acc: 0.920989
+time (secs) for 1 epoch:  45.70972037315369
+Repeat 113 	 Acc: 0.916937
+time (secs) for 1 epoch:  45.707730293273926
+Repeat 114 	 Acc: 0.921394
+time (secs) for 1 epoch:  45.7167329788208
+Repeat 115 	 Acc: 0.919773
+time (secs) for 1 epoch:  45.72993540763855
+Repeat 116 	 Acc: 0.921394
+time (secs) for 1 epoch:  38.48293709754944
+Repeat 117 	 Acc: 0.923015
+time (secs) for 1 epoch:  33.13442778587341
+Repeat 118 	 Acc: 0.922609
+time (secs) for 1 epoch:  33.12301182746887
+Repeat 119 	 Acc: 0.916937
+time (secs) for 1 epoch:  33.16462540626526
+Repeat 120 	 Acc: 0.923015
+time (secs) for 1 epoch:  33.23965811729431
+Repeat 121 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.27394771575928
+Repeat 122 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.419673919677734
+Repeat 123 	 Acc: 0.922609
+time (secs) for 1 epoch:  33.24040198326111
+Repeat 124 	 Acc: 0.916937
+time (secs) for 1 epoch:  33.27509784698486
+Repeat 125 	 Acc: 0.924230
+time (secs) for 1 epoch:  33.23036980628967
+Repeat 126 	 Acc: 0.922204
+time (secs) for 1 epoch:  33.24558615684509
+Repeat 127 	 Acc: 0.918152
+time (secs) for 1 epoch:  33.25608420372009
+Repeat 128 	 Acc: 0.917747
+time (secs) for 1 epoch:  33.27128553390503
+Repeat 129 	 Acc: 0.920178
+time (secs) for 1 epoch:  33.29252338409424
+Repeat 130 	 Acc: 0.923015
+time (secs) for 1 epoch:  110.55955648422241
+Repeat 131 	 Acc: 0.915721
+time (secs) for 1 epoch:  72.0216920375824
+Repeat 132 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.33899664878845
+Repeat 133 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.355252265930176
+Repeat 134 	 Acc: 0.922609
+time (secs) for 1 epoch:  33.32641291618347
+Repeat 135 	 Acc: 0.920989
+time (secs) for 1 epoch:  33.29755616188049
+Repeat 136 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.262102127075195
+Repeat 137 	 Acc: 0.917747
+time (secs) for 1 epoch:  33.303571939468384
+Repeat 138 	 Acc: 0.920989
+time (secs) for 1 epoch:  33.295068979263306
+Repeat 139 	 Acc: 0.917747
+time (secs) for 1 epoch:  33.32928514480591
+Repeat 140 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.31262230873108
+Repeat 141 	 Acc: 0.918152
+time (secs) for 1 epoch:  33.39666509628296
+Repeat 142 	 Acc: 0.916937
+time (secs) for 1 epoch:  33.4997501373291
+Repeat 143 	 Acc: 0.917342
+time (secs) for 1 epoch:  71.00238823890686
+Repeat 144 	 Acc: 0.920989
+time (secs) for 1 epoch:  111.85931658744812
+Repeat 145 	 Acc: 0.916937
+time (secs) for 1 epoch:  33.261900424957275
+Repeat 146 	 Acc: 0.916126
+time (secs) for 1 epoch:  33.287975549697876
+Repeat 147 	 Acc: 0.916937
+time (secs) for 1 epoch:  33.30277347564697
+Repeat 148 	 Acc: 0.917747
+time (secs) for 1 epoch:  33.32777523994446
+Repeat 149 	 Acc: 0.919773
+time (secs) for 1 epoch:  33.36425709724426
+Repeat 150 	 Acc: 0.920178
+time (secs) for 1 epoch:  33.299537897109985
+Repeat 151 	 Acc: 0.916937
+time (secs) for 1 epoch:  33.26354002952576
+Repeat 152 	 Acc: 0.916937
+time (secs) for 1 epoch:  33.3093638420105
+Repeat 153 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.36785125732422
+Repeat 154 	 Acc: 0.916937
+time (secs) for 1 epoch:  33.34165072441101
+Repeat 155 	 Acc: 0.922204
+time (secs) for 1 epoch:  59.68231415748596
+Repeat 156 	 Acc: 0.912480
+time (secs) for 1 epoch:  123.28098249435425
+Repeat 157 	 Acc: 0.916126
+time (secs) for 1 epoch:  32.8887255191803
+Repeat 158 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.056264877319336
+Repeat 159 	 Acc: 0.920178
+time (secs) for 1 epoch:  33.30985355377197
+Repeat 160 	 Acc: 0.918963
+time (secs) for 1 epoch:  33.38834476470947
+Repeat 161 	 Acc: 0.919773
+time (secs) for 1 epoch:  33.3704092502594
+Repeat 162 	 Acc: 0.920989
+time (secs) for 1 epoch:  33.29933500289917
+Repeat 163 	 Acc: 0.920178
+time (secs) for 1 epoch:  33.350234508514404
+Repeat 164 	 Acc: 0.918963
+time (secs) for 1 epoch:  33.284477949142456
+Repeat 165 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.29894709587097
+Repeat 166 	 Acc: 0.923015
+time (secs) for 1 epoch:  33.29300808906555
+Repeat 167 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.32645320892334
+Repeat 168 	 Acc: 0.916937
+time (secs) for 1 epoch:  33.40894055366516
+Repeat 169 	 Acc: 0.915316
+time (secs) for 1 epoch:  33.34080648422241
+Repeat 170 	 Acc: 0.918963
+time (secs) for 1 epoch:  98.01530694961548
+Repeat 171 	 Acc: 0.918558
+time (secs) for 1 epoch:  84.58105897903442
+Repeat 172 	 Acc: 0.921799
+time (secs) for 1 epoch:  33.33405327796936
+Repeat 173 	 Acc: 0.920178
+time (secs) for 1 epoch:  33.29089665412903
+Repeat 174 	 Acc: 0.920583
+time (secs) for 1 epoch:  33.361899852752686
+Repeat 175 	 Acc: 0.916532
+time (secs) for 1 epoch:  33.426246881484985
+Repeat 176 	 Acc: 0.920583
+time (secs) for 1 epoch:  33.303415060043335
+Repeat 177 	 Acc: 0.915721
+time (secs) for 1 epoch:  33.296531438827515
+Repeat 178 	 Acc: 0.917342
+time (secs) for 1 epoch:  33.31182551383972
+Repeat 179 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.337125062942505
+Repeat 180 	 Acc: 0.917747
+time (secs) for 1 epoch:  34.6486279964447
+Repeat 181 	 Acc: 0.920583
+time (secs) for 1 epoch:  124.10553312301636
+Repeat 182 	 Acc: 0.915721
+time (secs) for 1 epoch:  57.013179063797
+Repeat 183 	 Acc: 0.919773
+time (secs) for 1 epoch:  32.997175216674805
+Repeat 184 	 Acc: 0.921799
+time (secs) for 1 epoch:  33.222453117370605
+Repeat 185 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.27851724624634
+Repeat 186 	 Acc: 0.918963
+time (secs) for 1 epoch:  33.234410524368286
+Repeat 187 	 Acc: 0.916126
+time (secs) for 1 epoch:  33.40813493728638
+Repeat 188 	 Acc: 0.917747
+time (secs) for 1 epoch:  33.38987493515015
+Repeat 189 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.27407932281494
+Repeat 190 	 Acc: 0.918963
+time (secs) for 1 epoch:  33.380937337875366
+Repeat 191 	 Acc: 0.921394
+time (secs) for 1 epoch:  33.282702684402466
+Repeat 192 	 Acc: 0.923420
+time (secs) for 1 epoch:  33.31131172180176
+Repeat 193 	 Acc: 0.916126
+time (secs) for 1 epoch:  33.32422423362732
+Repeat 194 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.386160373687744
+Repeat 195 	 Acc: 0.918152
+time (secs) for 1 epoch:  91.63544631004333
+Repeat 196 	 Acc: 0.914506
+time (secs) for 1 epoch:  91.17793297767639
+Repeat 197 	 Acc: 0.922204
+time (secs) for 1 epoch:  33.3740336894989
+Repeat 198 	 Acc: 0.921799
+time (secs) for 1 epoch:  33.28644919395447
+Repeat 199 	 Acc: 0.921394
+time (secs) for 1 epoch:  33.39147233963013
+Repeat 200 	 Acc: 0.918152
+time (secs) for 1 epoch:  33.27932047843933
+Repeat 201 	 Acc: 0.920989
+time (secs) for 1 epoch:  33.27993440628052
+Repeat 202 	 Acc: 0.916532
+time (secs) for 1 epoch:  33.300588846206665
+Repeat 203 	 Acc: 0.921799
+time (secs) for 1 epoch:  33.386810064315796
+Repeat 204 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.34745931625366
+Repeat 205 	 Acc: 0.921394
+time (secs) for 1 epoch:  33.36140966415405
+Repeat 206 	 Acc: 0.920178
+time (secs) for 1 epoch:  76.10809826850891
+Repeat 207 	 Acc: 0.923015
+time (secs) for 1 epoch:  106.59241533279419
+Repeat 208 	 Acc: 0.922204
+time (secs) for 1 epoch:  32.90013360977173
+Repeat 209 	 Acc: 0.917342
+time (secs) for 1 epoch:  32.958500623703
+Repeat 210 	 Acc: 0.916532
+time (secs) for 1 epoch:  33.03939151763916
+Repeat 211 	 Acc: 0.914506
+time (secs) for 1 epoch:  33.13629770278931
+Repeat 212 	 Acc: 0.916126
+time (secs) for 1 epoch:  99.27215266227722
+Repeat 213 	 Acc: 0.919773
+time (secs) for 1 epoch:  83.38105964660645
+Repeat 214 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.62458109855652
+Repeat 215 	 Acc: 0.918963
+time (secs) for 1 epoch:  70.15745282173157
+Repeat 216 	 Acc: 0.918558
+time (secs) for 1 epoch:  112.67778396606445
+Repeat 217 	 Acc: 0.919773
+time (secs) for 1 epoch:  33.35509514808655
+Repeat 218 	 Acc: 0.916937
+time (secs) for 1 epoch:  33.33919072151184
+Repeat 219 	 Acc: 0.920989
+time (secs) for 1 epoch:  33.55813908576965
+Repeat 220 	 Acc: 0.920178
+time (secs) for 1 epoch:  33.56780385971069
+Repeat 221 	 Acc: 0.917747
+time (secs) for 1 epoch:  33.38646483421326
+Repeat 222 	 Acc: 0.926256
+time (secs) for 1 epoch:  33.37254214286804
+Repeat 223 	 Acc: 0.920583
+time (secs) for 1 epoch:  122.91949796676636
+Repeat 224 	 Acc: 0.919368
+time (secs) for 1 epoch:  59.60938215255737
+Repeat 225 	 Acc: 0.922204
+time (secs) for 1 epoch:  33.101438999176025
+Repeat 226 	 Acc: 0.925446
+time (secs) for 1 epoch:  33.368051528930664
+Repeat 227 	 Acc: 0.914506
+time (secs) for 1 epoch:  33.330453395843506
+Repeat 228 	 Acc: 0.919773
+time (secs) for 1 epoch:  33.33496642112732
+Repeat 229 	 Acc: 0.916532
+time (secs) for 1 epoch:  33.428566694259644
+Repeat 230 	 Acc: 0.921394
+time (secs) for 1 epoch:  33.37010669708252
+Repeat 231 	 Acc: 0.922609
+time (secs) for 1 epoch:  33.32460594177246
+Repeat 232 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.36322593688965
+Repeat 233 	 Acc: 0.919773
+time (secs) for 1 epoch:  33.340083360672
+Repeat 234 	 Acc: 0.918963
+time (secs) for 1 epoch:  33.34739017486572
+Repeat 235 	 Acc: 0.918963
+time (secs) for 1 epoch:  33.351314544677734
+Repeat 236 	 Acc: 0.919773
+time (secs) for 1 epoch:  42.82039666175842
+Repeat 237 	 Acc: 0.917747
+time (secs) for 1 epoch:  123.91556572914124
+Repeat 238 	 Acc: 0.918558
+time (secs) for 1 epoch:  49.09417176246643
+Repeat 239 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.26498031616211
+Repeat 240 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.380425453186035
+Repeat 241 	 Acc: 0.923015
+time (secs) for 1 epoch:  33.27529740333557
+Repeat 242 	 Acc: 0.922204
+time (secs) for 1 epoch:  33.3345513343811
+Repeat 243 	 Acc: 0.923015
+time (secs) for 1 epoch:  33.35502004623413
+Repeat 244 	 Acc: 0.918152
+time (secs) for 1 epoch:  33.36468744277954
+Repeat 245 	 Acc: 0.916937
+time (secs) for 1 epoch:  33.34626650810242
+Repeat 246 	 Acc: 0.917342
+time (secs) for 1 epoch:  33.32126784324646
+Repeat 247 	 Acc: 0.918963
+time (secs) for 1 epoch:  33.357922315597534
+Repeat 248 	 Acc: 0.919773
+time (secs) for 1 epoch:  33.41738295555115
+Repeat 249 	 Acc: 0.921394
+time (secs) for 1 epoch:  33.391680002212524
+Repeat 250 	 Acc: 0.920178
+time (secs) for 1 epoch:  59.382755517959595
+Repeat 251 	 Acc: 0.920178
+time (secs) for 1 epoch:  117.1837649345398
+Repeat 252 	 Acc: 0.921394
+time (secs) for 1 epoch:  39.249383211135864
+Repeat 253 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.26594805717468
+Repeat 254 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.2746856212616
+Repeat 255 	 Acc: 0.917342
+time (secs) for 1 epoch:  33.289767265319824
+Repeat 256 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.36791729927063
+Repeat 257 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.35139274597168
+Repeat 258 	 Acc: 0.916532
+time (secs) for 1 epoch:  33.27500009536743
+Repeat 259 	 Acc: 0.917342
+time (secs) for 1 epoch:  33.31914043426514
+Repeat 260 	 Acc: 0.922609
+time (secs) for 1 epoch:  33.37044715881348
+Repeat 261 	 Acc: 0.918152
+time (secs) for 1 epoch:  33.370649337768555
+Repeat 262 	 Acc: 0.919773
+time (secs) for 1 epoch:  52.123427391052246
+Repeat 263 	 Acc: 0.919773
+time (secs) for 1 epoch:  117.5145857334137
+Repeat 264 	 Acc: 0.923015
+time (secs) for 1 epoch:  46.00007367134094
+Repeat 265 	 Acc: 0.923015
+time (secs) for 1 epoch:  33.36019229888916
+Repeat 266 	 Acc: 0.920989
+time (secs) for 1 epoch:  33.31213140487671
+Repeat 267 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.34507155418396
+Repeat 268 	 Acc: 0.916937
+time (secs) for 1 epoch:  33.33945035934448
+Repeat 269 	 Acc: 0.917747
+time (secs) for 1 epoch:  33.389710426330566
+Repeat 270 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.28627109527588
+Repeat 271 	 Acc: 0.918558
+time (secs) for 1 epoch:  33.36572003364563
+Repeat 272 	 Acc: 0.920178
+time (secs) for 1 epoch:  33.39726996421814
+Repeat 273 	 Acc: 0.917342
+time (secs) for 1 epoch:  33.34771394729614
+Repeat 274 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.32847714424133
+Repeat 275 	 Acc: 0.918152
+time (secs) for 1 epoch:  33.448978424072266
+Repeat 276 	 Acc: 0.917342
+time (secs) for 1 epoch:  78.52098417282104
+Repeat 277 	 Acc: 0.920989
+time (secs) for 1 epoch:  103.95102715492249
+Repeat 278 	 Acc: 0.922609
+time (secs) for 1 epoch:  33.302544593811035
+Repeat 279 	 Acc: 0.917747
+time (secs) for 1 epoch:  33.36574912071228
+Repeat 280 	 Acc: 0.917747
+time (secs) for 1 epoch:  33.31632971763611
+Repeat 281 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.25064730644226
+Repeat 282 	 Acc: 0.916126
+time (secs) for 1 epoch:  33.39080333709717
+Repeat 283 	 Acc: 0.916126
+time (secs) for 1 epoch:  33.330535888671875
+Repeat 284 	 Acc: 0.921394
+time (secs) for 1 epoch:  33.366050481796265
+Repeat 285 	 Acc: 0.918152
+time (secs) for 1 epoch:  33.35477805137634
+Repeat 286 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.37714171409607
+Repeat 287 	 Acc: 0.921394
+time (secs) for 1 epoch:  33.32598161697388
+Repeat 288 	 Acc: 0.917342
+time (secs) for 1 epoch:  33.36530685424805
+Repeat 289 	 Acc: 0.918963
+time (secs) for 1 epoch:  33.46366906166077
+Repeat 290 	 Acc: 0.917747
+time (secs) for 1 epoch:  92.56572484970093
+Repeat 291 	 Acc: 0.917747
+time (secs) for 1 epoch:  89.13518452644348
+Repeat 292 	 Acc: 0.914100
+time (secs) for 1 epoch:  32.93658781051636
+Repeat 293 	 Acc: 0.920583
+time (secs) for 1 epoch:  33.26640439033508
+Repeat 294 	 Acc: 0.920989
+time (secs) for 1 epoch:  33.410452365875244
+Repeat 295 	 Acc: 0.923825
+time (secs) for 1 epoch:  33.41871428489685
+Repeat 296 	 Acc: 0.920989
+time (secs) for 1 epoch:  33.318071126937866
+Repeat 297 	 Acc: 0.918963
+time (secs) for 1 epoch:  33.35442876815796
+Repeat 298 	 Acc: 0.919773
+time (secs) for 1 epoch:  33.36305022239685
+Repeat 299 	 Acc: 0.918963
+time (secs) for 1 epoch:  33.34276747703552
+Repeat 300 	 Acc: 0.919368
+time (secs) for 1 epoch:  33.29892659187317
+
+Best voting acc: 0.926256

@@ -146,8 +146,19 @@ class _PointnetSAModuleBase(nn.Module):
         xyz_flipped = xyz.transpose(1, 2).contiguous()
         
         if self.npoint is not None:
+            '''
             fps_idx = pointnet2_utils.furthest_point_sample(xyz, self.npoint) \
                       if self.pool else torch.from_numpy(np.arange(xyz.size(1))).int().cuda().repeat(xyz.size(0), 1)
+            '''
+
+            # random sampling
+            if self.pool:
+                fps_idx = np.random.randint(0, xyz.shape[1]-1, size=[xyz.shape[0], self.npoint])
+                fps_idx = torch.from_numpy(fps_idx).type(torch.IntTensor).cuda()
+            else:
+                fps_idx = torch.from_numpy(np.arange(xyz.size(1))).int().cuda().repeat(xyz.size(0), 1)
+
+
             new_xyz = pointnet2_utils.gather_operation(xyz_flipped, fps_idx).transpose(1, 2).contiguous()
         else:
             new_xyz = None
