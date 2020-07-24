@@ -19,9 +19,11 @@ parser.add_argument('--use_baseline', type=bool, default=False, help='Use baseli
 parser.add_argument('--use_limited', type=bool, default=False, help='Use limited aggr. instead of efficient version.')
 FLAGS = parser.parse_args()
 
-COMPILE_MODELS = ['pointnet2', 'frustum-pointnets']
+COMPILE_MODELS = ['pointnet2', 'frustum-pointnets', 'ldgcnn', 'dgcnn', 'DensePoint']
 
-# Compile necessary modules
+'''
+    Compile necessary modules
+'''
 if FLAGS.compile == 'all':
     for m in COMPILE_MODELS:
         dir_path = './Networks/%s' % m
@@ -43,6 +45,10 @@ elif FLAGS.compile is not None:
     print('[ERROR]: can\'t find the model %s to compile.' % FLAGS.compile)
     exit()
 
+
+'''
+    Download datasets
+'''
 DOWNLOAD_SCRIPTS = {
     'pointnet2' : 'modelnet_h5_dataset.py',
     'frustum-pointnets' : 'download_dataset.py',
@@ -71,29 +77,36 @@ elif FLAGS.download is not None:
     print('[ERROR]: can\'t find the model %s\'s dataset to download.' % FLAGS.download)
     exit()
 
+
+'''
+    Evaluate models
+'''
 RUN_MODELS = {
     'pointnet2' : 'python evaluate.py',
     'frustum-pointnets' : 'bash scripts/command_test_v2.sh',
     'ldgcnn' : 'python evaluate.py --log_dir log_new --model_cnn ldgcnn',
-    'dgcnn' : 'python evaluate.py'
+    'dgcnn' : 'python evaluate.py',
+    'DensePoint' : 'python evaluate.py'
 }
 
 RUN_BASELINES = {
     'pointnet2' : 'python evaluate-baseline.py',
     'frustum-pointnets' : 'bash scripts/command_test_v2_baselline.sh',
     'ldgcnn' : 'python evaluate.py --log_dir log_baseline --model_cnn ldgcnn_baseline',
-    'dgcnn' : 'python evaluate-baseline.py'
+    'dgcnn' : 'python evaluate-baseline.py',
+    'DensePoint' : 'python evaluate-baseline.py'
 }
 
 RUN_LIMITED = {
     'pointnet2' : 'python evaluate-limited.py',
     'frustum-pointnets' : 'bash scripts/command_test_v2_limited.sh',
     'ldgcnn' : 'python evaluate.py --log_dir log_new --model_cnn ldgcnn',
-    'dgcnn' : 'python evaluate.py'
+    'dgcnn' : 'python evaluate.py',
+    'DensePoint' : 'python evaluate.py'
 }
 
+# Evaluate models
 dir_path = './Networks/%s' % FLAGS.run
-# Run some models
 if FLAGS.run in RUN_MODELS and os.path.exists(dir_path):
     print('cd %s' % dir_path)
     if FLAGS.use_baseline:
@@ -110,3 +123,48 @@ elif FLAGS.run is not None:
     print('[ERROR]: can\'t find the model %s to run.' % FLAGS.run)
     exit()
 
+
+'''
+    Train models
+'''
+TRAIN_MODELS = {
+    'pointnet2' : 'python train.py',
+    'frustum-pointnets' : 'bash scripts/command_train_v2.sh',
+    'ldgcnn' : 'python train.py --log_dir log_new --model_cnn ldgcnn',
+    'dgcnn' : 'python train.py',
+    'DensePoint' : 'bash train.sh'
+}
+
+TRAIN_BASELINES = {
+    'pointnet2' : 'python train-baseline.py',
+    'frustum-pointnets' : 'bash scripts/command_train_v2_baselline.sh',
+    'ldgcnn' : 'python train.py --log_dir log_baseline --model_cnn ldgcnn_baseline',
+    'dgcnn' : 'python train-baseline.py',
+    'DensePoint' : 'bash train-baseline.sh'
+}
+
+TRAIN_LIMITED = {
+    'pointnet2' : 'python train-limited.py',
+    'frustum-pointnets' : 'bash scripts/command_train_v2_limited.sh',
+    'ldgcnn' : 'python train.py --log_dir log_new --model_cnn ldgcnn',
+    'dgcnn' : 'python train.py',
+    'DensePoint' : 'bash train.sh'
+}
+
+# Train models
+dir_path = './Networks/%s' % FLAGS.train
+if FLAGS.train in TRAIN_MODELS and os.path.exists(dir_path):
+    print('cd %s' % dir_path)
+    if FLAGS.use_baseline:
+        print('training baseline verstion for %s' % FLAGS.train)
+        os.system('cd %s; %s' % (dir_path, TRAIN_BASELINES[FLAGS.train]))
+    elif FLAGS.use_limited:
+        print('training limited delayed-aggregation version for %s' % FLAGS.train)
+        os.system('cd %s; %s' % (dir_path, TRAIN_LIMITED[FLAGS.train]))
+    else:
+        print('training fully delayed-aggregation version for %s' % FLAGS.train)
+        os.system('cd %s; %s' % (dir_path, TRAIN_MODELS[FLAGS.train]))
+    exit()
+elif FLAGS.train is not None:
+    print('[ERROR]: can\'t find the model %s to train.' % FLAGS.train)
+    exit()
