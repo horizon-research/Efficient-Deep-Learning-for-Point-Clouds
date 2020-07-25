@@ -1,5 +1,10 @@
 #/bin/bash
-CUDA_PATH=/usr/local/cuda-10.2
+if [ ! $1 ]; then
+    CUDA_PATH='/usr/local/cuda-10.2'
+else
+    CUDA_PATH=$1
+fi
+
 $CUDA_PATH/bin/nvcc tf_grouping_g.cu -o tf_grouping_g.cu.o -c -O2 -DGOOGLE_CUDA=1 -x cu -Xcompiler -fPIC
 
 # TF1.4
