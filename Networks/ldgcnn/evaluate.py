@@ -53,14 +53,14 @@ LOG_FOUT.write(str(FLAGS)+'\n')
 
 NUM_CLASSES = 40
 SHAPE_NAMES = [line.rstrip() for line in \
-    open(os.path.join(BASE_DIR, 'data/modelnet40_ply_hdf5_2048/shape_names.txt'))] 
+    open(os.path.join(BASE_DIR, '../../Datasets/modelnet40_ply_hdf5_2048/shape_names.txt'))]
 HOSTNAME = socket.gethostname()
 #%%
 # ModelNet40 official train/test split
 TRAIN_FILES = provider.getDataFiles( \
-    os.path.join(BASE_DIR, 'data/modelnet40_ply_hdf5_2048/train_files.txt'))
+    os.path.join(BASE_DIR, '../../Datasets/modelnet40_ply_hdf5_2048/train_files.txt'))
 TEST_FILES = provider.getDataFiles(\
-    os.path.join(BASE_DIR, 'data/modelnet40_ply_hdf5_2048/test_files.txt'))
+    os.path.join(BASE_DIR, '../../Datasets/modelnet40_ply_hdf5_2048/test_files.txt'))
 
 is_training = False
 #%%

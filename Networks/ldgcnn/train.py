@@ -82,7 +82,7 @@ BN_DECAY_CLIP = 0.99
 HOSTNAME = socket.gethostname()
 
 # ModelNet40 official train/test split
-folder = 'data/modelnet40_ply_hdf5_2048'
+folder = '../../Datasets/modelnet40_ply_hdf5_2048'
 TRAIN_FILES = provider.getDataFiles( \
     os.path.join(BASE_DIR, folder + '/train_files.txt'))
 TEST_FILES = provider.getDataFiles(\
@@ -90,7 +90,7 @@ TEST_FILES = provider.getDataFiles(\
 
 # Feature files, which are generated after training the whole network.
 # The extracted feature files are utilized to train the classifier.
-path = 'data/extracted_feature'
+path = 'extracted_feature'
 TRAIN_FILES_CLS = provider.getDataFiles( \
     os.path.join(BASE_DIR, path + '/train_files.txt'))
 TEST_FILES_CLS = provider.getDataFiles(\
@@ -358,7 +358,7 @@ def save_global_feature(sess, ops, saver, layers):
                     global_feature_vec = np.concatenate([global_feature_vec, global_feature])
                     label_vec = np.concatenate([label_vec, current_label[start_idx:end_idx]])      
         # Save all global features to the disk.
-        with h5py.File('data/extracted_feature/' + file_name + '.h5', 'w') as f:
+        with h5py.File('extracted_feature/' + file_name + '.h5', 'w') as f:
             f.create_dataset('data', data=global_feature_vec)
             f.create_dataset('label', data=label_vec)
         # file_obj  = FileIO('data/extracted_feature/' + file_name + '.h5')

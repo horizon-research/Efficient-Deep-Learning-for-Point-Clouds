@@ -6,7 +6,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(BASE_DIR)
 
 # Download dataset for point cloud classification
-DATA_DIR = os.path.join(BASE_DIR, 'data')
+DATA_DIR = os.path.join(BASE_DIR, '../../Datasets/')
 if not os.path.exists(DATA_DIR):
   os.mkdir(DATA_DIR)
 if not os.path.exists(os.path.join(DATA_DIR, 'modelnet40_ply_hdf5_2048')):
@@ -136,7 +136,7 @@ def random_scale_point_cloud(batch_data, scale_low=0.8, scale_high=1.25):
   return batch_data
 
 def getDataFiles(list_filename):
-  return [line.rstrip() for line in open(list_filename)]
+    return [DATA_DIR + line.rstrip().split("data/")[1] for line in open(list_filename)]
 
 def load_h5(h5_filename):
   f = h5py.File(h5_filename)
