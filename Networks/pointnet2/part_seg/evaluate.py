@@ -60,7 +60,6 @@ def evaluate():
         with tf.device('/gpu:'+str(GPU_INDEX)):
             pointclouds_pl, labels_pl = MODEL.placeholder_inputs(BATCH_SIZE, NUM_POINT)
             is_training_pl = tf.placeholder(tf.bool, shape=())
-            print is_training_pl
             
             print "--- Get model and loss"
             pred, end_points = MODEL.get_model(pointclouds_pl, is_training_pl)
@@ -130,7 +129,7 @@ def eval_one_epoch(sess, ops, EPOCH_CNT):
             seg_label_to_cat[label] = cat
 
     log_string(str(datetime.now()))
-    log_string('---- EPOCH %03d EVALUATION ----'%(EPOCH_CNT))
+    log_string('\n---- EPOCH %03d EVALUATION ----'%(EPOCH_CNT))
     
     batch_data = np.zeros((BATCH_SIZE, NUM_POINT, 6))
     batch_label = np.zeros((BATCH_SIZE, NUM_POINT)).astype(np.int32)
@@ -196,13 +195,14 @@ def eval_one_epoch(sess, ops, EPOCH_CNT):
         for iou in shape_ious[cat]:
             all_shape_ious.append(iou)
         shape_ious[cat] = np.mean(shape_ious[cat])
-    print len(all_shape_ious)
     mean_shape_ious = np.mean(shape_ious.values())
     log_string('eval mean loss: %f' % (loss_sum / float(len(TEST_DATASET)/BATCH_SIZE)))
     log_string('eval accuracy: %f'% (total_correct / float(total_seen)))
     log_string('eval avg class acc: %f' % (np.mean(np.array(total_correct_class)/np.array(total_seen_class,dtype=np.float))))
+    '''
     for cat in sorted(shape_ious.keys()):
         log_string('eval mIoU of %s:\t %f'%(cat, shape_ious[cat]))
+    '''
     log_string('eval mean mIoU: %f' % (mean_shape_ious))
     log_string('eval mean mIoU (all shapes): %f' % (np.mean(all_shape_ious)))
 

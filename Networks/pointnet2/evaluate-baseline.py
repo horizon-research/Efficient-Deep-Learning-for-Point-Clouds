@@ -104,11 +104,10 @@ def evaluate(num_votes):
     best_acc = -1
     best_acc_class = -1
     for i in range(FLAGS.evaluate_epoch):
+        log_string('\n---- EPOCH %03d EVALUATION ----'%(i))
         s = time.time()
         cur_acc, cur_acc_class = eval_one_epoch(sess, ops, num_votes)
         e = time.time()
-
-	log_string('EVALUATE EPOCH: %d' %(i))
 
 	if cur_acc > best_acc:
             best_acc = cur_acc
@@ -140,7 +139,7 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
     while TEST_DATASET.has_next_batch():
         batch_data, batch_label = TEST_DATASET.next_batch(augment=False)
         bsize = batch_data.shape[0]
-        print('Batch: %03d, batch size: %d'%(batch_idx, bsize))
+        # print('Batch: %03d, batch size: %d'%(batch_idx, bsize))
         # for the last batch in the epoch, the bsize:end are from last batch
         cur_batch_data[0:bsize,...] = batch_data
         cur_batch_label[0:bsize] = batch_label
