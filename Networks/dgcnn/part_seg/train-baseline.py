@@ -24,7 +24,7 @@ parser.add_argument('--output_dir', type=str, default='train_results_baseline', 
 parser.add_argument('--wd', type=float, default=0, help='Weight Decay [Default: 0.0]')
 FLAGS = parser.parse_args()
 
-hdf5_data_dir = os.path.join(BASE_DIR, './hdf5_data')
+hdf5_data_dir = os.path.join(BASE_DIR, '../../../Datasets/hdf5_data')
 
 # MAIN SCRIPT
 point_num = FLAGS.point_num
@@ -223,9 +223,9 @@ def train():
     train_writer = tf.summary.FileWriter(SUMMARIES_FOLDER + '/train', sess.graph)
     test_writer = tf.summary.FileWriter(SUMMARIES_FOLDER + '/test')
 
-    train_file_list = provider.getDataFiles(TRAINING_FILE_LIST)
+    train_file_list = provider.getDataFilesShapeNet(TRAINING_FILE_LIST)
     num_train_file = len(train_file_list)
-    test_file_list = provider.getDataFiles(TESTING_FILE_LIST)
+    test_file_list = provider.getDataFilesShapeNet(TESTING_FILE_LIST)
     num_test_file = len(test_file_list)
 
     fcmd = open(os.path.join(LOG_STORAGE_PATH, 'cmd.txt'), 'w')

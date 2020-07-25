@@ -9,18 +9,18 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(BASE_DIR)
 sys.path.append(os.path.dirname(BASE_DIR))
 import provider
-import part_seg_model as model
+import part_seg_model_baseline as model
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--model_path', default='train_results/trained_models/model.ckpt', help='Model checkpoint path')
+parser.add_argument('--model_path', default='train_results_baseline/trained_models/model.ckpt', help='Model checkpoint path')
 FLAGS = parser.parse_args()
 
 # DEFAULT SETTINGS
 pretrained_model_path = FLAGS.model_path 
-hdf5_data_dir = os.path.join(BASE_DIR, './hdf5_data')
-ply_data_dir = os.path.join(BASE_DIR, './PartAnnotation')
+hdf5_data_dir = os.path.join(BASE_DIR, '../../../Datasets/hdf5_data')
+ply_data_dir = os.path.join(BASE_DIR, '../../../Datasets/PartAnnotation')
 gpu_to_use = 0
-output_dir = os.path.join(BASE_DIR, './test_results')
+output_dir = os.path.join(BASE_DIR, './test_results_baseline')
 output_verbose = False  
 
 # MAIN SCRIPT
