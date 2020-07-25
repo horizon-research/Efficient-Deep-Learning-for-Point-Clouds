@@ -17,9 +17,10 @@ parser.add_argument('--run', type=str, default=None, help='Launch the model with
 parser.add_argument('--train', type=str, default=None, help='Train the model with default settings.')
 parser.add_argument('--use_baseline', type=bool, default=False, help='Use baseline instead of efficient version.')
 parser.add_argument('--use_limited', type=bool, default=False, help='Use limited aggr. instead of efficient version.')
+parser.add_argument('--segmentation', type=bool, default=False, help='Execute the segmentation version.')
 FLAGS = parser.parse_args()
 
-COMPILE_MODELS = ['pointnet2', 'frustum-pointnets', 'ldgcnn', 'dgcnn', 'DensePoint']
+COMPILE_MODELS = ['pointnet2', 'frustum-pointnets', 'DensePoint']
 
 '''
     Compile necessary modules
@@ -106,17 +107,21 @@ RUN_LIMITED = {
 }
 
 # Evaluate models
-dir_path = './Networks/%s' % FLAGS.run
+if FLAGS.segmentation:
+    dir_path = './Networks/%s/part_seg' % FLAGS.run
+else:
+    dir_path = './Networks/%s' % FLAGS.run
+
 if FLAGS.run in RUN_MODELS and os.path.exists(dir_path):
     print('cd %s' % dir_path)
     if FLAGS.use_baseline:
-        print('launching %s baseline' % FLAGS.run)
+        print('launching baseline version for %s ...\n' % FLAGS.run)
         os.system('cd %s; %s' % (dir_path, RUN_BASELINES[FLAGS.run]))
     elif FLAGS.use_limited:
-        print('launching %s limited-aggr.' % FLAGS.run)
+        print('launching limited delayed-aggregation version for %s ...\n' % FLAGS.run)
         os.system('cd %s; %s' % (dir_path, RUN_LIMITED[FLAGS.run]))
     else:
-        print('launching %s efficient net' % FLAGS.run)
+        print('launching fully delayed-aggregation version for %s ...\n' % FLAGS.run)
         os.system('cd %s; %s' % (dir_path, RUN_MODELS[FLAGS.run]))
     exit()
 elif FLAGS.run is not None:
@@ -130,7 +135,7 @@ elif FLAGS.run is not None:
 TRAIN_MODELS = {
     'pointnet2' : 'python train.py',
     'frustum-pointnets' : 'bash scripts/command_train_v2.sh',
-    'ldgcnn' : 'python train.py --log_dir log_new --model_cnn ldgcnn',
+    'ldgcnn' : 'python train.py --log_dir log_new --model ldgcnn',
     'dgcnn' : 'python train.py',
     'DensePoint' : 'bash train.sh'
 }
@@ -138,7 +143,7 @@ TRAIN_MODELS = {
 TRAIN_BASELINES = {
     'pointnet2' : 'python train-baseline.py',
     'frustum-pointnets' : 'bash scripts/command_train_v2_baselline.sh',
-    'ldgcnn' : 'python train.py --log_dir log_baseline --model_cnn ldgcnn_baseline',
+    'ldgcnn' : 'python train.py --log_dir log_baseline --model ldgcnn_baseline',
     'dgcnn' : 'python train-baseline.py',
     'DensePoint' : 'bash train-baseline.sh'
 }
@@ -146,23 +151,27 @@ TRAIN_BASELINES = {
 TRAIN_LIMITED = {
     'pointnet2' : 'python train-limited.py',
     'frustum-pointnets' : 'bash scripts/command_train_v2_limited.sh',
-    'ldgcnn' : 'python train.py --log_dir log_new --model_cnn ldgcnn',
+    'ldgcnn' : 'python train.py --log_dir log_new --model ldgcnn',
     'dgcnn' : 'python train.py',
     'DensePoint' : 'bash train.sh'
 }
 
 # Train models
-dir_path = './Networks/%s' % FLAGS.train
+if FLAGS.segmentation:
+    dir_path = './Networks/%s/part_seg' % FLAGS.train
+else:
+    dir_path = './Networks/%s' % FLAGS.train
+
 if FLAGS.train in TRAIN_MODELS and os.path.exists(dir_path):
     print('cd %s' % dir_path)
     if FLAGS.use_baseline:
-        print('training baseline verstion for %s' % FLAGS.train)
+        print('training baseline verstion for %s ...\n' % FLAGS.train)
         os.system('cd %s; %s' % (dir_path, TRAIN_BASELINES[FLAGS.train]))
     elif FLAGS.use_limited:
-        print('training limited delayed-aggregation version for %s' % FLAGS.train)
+        print('training limited delayed-aggregation version for %s ...\n' % FLAGS.train)
         os.system('cd %s; %s' % (dir_path, TRAIN_LIMITED[FLAGS.train]))
     else:
-        print('training fully delayed-aggregation version for %s' % FLAGS.train)
+        print('training fully delayed-aggregation version for %s ...\n' % FLAGS.train)
         os.system('cd %s; %s' % (dir_path, TRAIN_MODELS[FLAGS.train]))
     exit()
 elif FLAGS.train is not None:
