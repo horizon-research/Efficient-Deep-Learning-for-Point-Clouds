@@ -1,19 +1,31 @@
 ### DensePoint (Classification)
 ------------
 This repository is the code release for applying the delayed-aggregation method on DensePoint. The DensePoint paper reference can be found [here](https://arxiv.org/pdf/1909.03669.pdf). 
-For more detailed information, please visit the GitHub repository [here](https://github.com/Yochengliu/DensePoint). 
+For more detailed information about original implementation, please visit the GitHub repository [here](https://github.com/Yochengliu/DensePoint).
 
-### Prerequisite
-We tested our implementation on the environment listed below:
--   Ubuntu 16.04.6 LTS
--   Python: 3.5 <br>
--     gcc / gxx: 5.5.0 (to compile the tf ops)
--   Dependencies:
-    - Pytorch 0.3.0 
-    - numpy 1.13
-    - CUDA 8.0
-    - cuDNN 5.1.10
-    
+
+### Dataset
+The classification task is tested on the [ModelNet40](https://shapenet.cs.stanford.edu/media/modelnet40_ply_hdf5_2048.zip) (415M) benchmark.
+Use the following command to download the dataset if you skipped this step in launcher.py:
+```
+$ python download.py
+```
+
+
+### Environment/Libraries:
+We highly recommend using virtual environment tools like Anaconda to set up an environment identical to the one we tested. <br>
+We have been experimenting in the environment below:
+
+OS: Ubuntu 16.04.6 LTS <br>
+Python: 3.5 <br>
+Libraries: Pytorch 0.3.0, numpy 1.13, CUDA 8.0, cudnn 5.1.10
+
+Compiler Toolchain:
+- gcc / gxx: 5.5.0 (to compile the tf ops)
+
+We highly recommend using virtual environment tools like Anaconda to set up the right environment.
+
+
 ### Creating Environment
 We use the following instructions to create and manage the working environment in Anaconda3. Steps with ***** are optional.
 
@@ -46,49 +58,62 @@ Install other dependencies.
 $ conda install torchvision h5py pyyaml scipy
 ```
 
-### Preparing Dataset 
-The classification task is tested on the [ModelNet40](https://shapenet.cs.stanford.edu/media/modelnet40_ply_hdf5_2048.zip) (415M) benchmark. To download the dataset, change the directory to `Dataset` and run: 
+### Compile Customized Operators
+Use the following command to compile the customized operators if you skipped this step in launcher.py:
 ```
-$ wget https://shapenet.cs.stanford.edu/media/modelnet40_ply_hdf5_2048.zip
-``` 
-Unzip the dataset and change the `$data_root$` in `cfgs/config_cls.yaml`.
-
-### Building Kernel
-Change directory to `Networks/DenseNet/` and create `build` folder.
+$ python compile.py
 ```
-$ mkdir build && cd build
-```
-Modify the `CMakeList.txt` if there are multiple CUDA versions.
+If you encounter any compiling issues or you have multiple CUDA versions, modify the `CMakeList.txt`:
 
 -    Comment out 4th line: **find_package(CUDA REQUIRED)**.
 -    Uncomment 6th and 7th line: **set(CUDA_TOOLKIT_ROOT_DIR)** and **find_package(CUDA)**, and then change the CUDA version to the one currently used by the system.
 
-Build the kernel.
+
+### Training
+In this particular network, Limited Delayed-Aggregation is the same as the full Delayed-Aggregation because each module has only one MLP layer.
+Below shows how to train different versions of DensePoint:
+
+0\. Make sure you are under the ```DensePoint``` directory. <br>
+1\. To train the **Baseline** version: <br>
 ```
-$ cmake .. && make
+$ bash train-baseline.sh
 ```
 
-### Run DensePoint Model
-Our efficient version (`DensePoint_mesorasi`) of DensePoint shares the identical directory structure with the baseline version (`DensePoint_baseline`). We provide the pre-trained models in `cls` and the training logs in `log_example` for both versions.
-
-To run the inference on both the baseline version and our optimized version, change the directory to the corresponding folder and run:
+2\. To train the **Fully Delayed-Aggregation** version: <br>
 ```
-$ python voting_evaluate_cls.py
+$ bash train.sh
 ```
 
-Training on both versions can be executed by:
+Modify the `$checkpoint$` to `' '`in `cfgs/config_cls.yaml` if you want to start the training from scratch. Otherwise, it will continue from the saved model.
+
+
+### Evaluation
+Below shows how to evaluate different versions of DensePoint:
+
+0\. Make sure you are under the ```DensePoint``` directory. <br>
+1\. To evaluate the **Baseline** version: <br>
 ```
-$ ./train_cls.sh
+$ python evaluate-baseline.py
 ```
-Modify the `$checkpoint$` to `' '`in `cfgs/config_cls.yaml` if one wants to start the training from scratch. Otherwise, it will continue from the saved model.
+
+2\. To evaluate the **Fully Delayed-Aggregation** version: <br>
+```
+$ python evaluate.py
+```
+
+Add ``` -h``` after the above commands to check out all the optional arguments, e.g.: <br>
+```
+$ python evaluate.py -h
+```
 
 **Note that model_cls_L6_iter_36567_acc_0.923825_ori_bkup.pth is the pre-trained model provided by the original DensePoint repo.*
 
-### License
+3\. Check the results. Below shows the example accuracies and latency for different versions: <br>
+The **Baseline** version: <br>
+<img src="https://user-images.githubusercontent.com/18485088/88476732-ca5cf880-cf08-11ea-92bf-d3fc8c02898f.jpg">
 
-The code is released under MIT License (see LICENSE file for details).
+The **Fully Delayed-Aggregation** version: <br>
+<img src="https://user-images.githubusercontent.com/18485088/88476739-d8ab1480-cf08-11ea-92fd-d2e4fa97df21.jpg">
 
-### Acknowledgement
 
-The code is heavily borrowed from [Pointnet2_PyTorch](https://github.com/erikwijmans/Pointnet2_PyTorch).
-
+***You can also switch back to [the root directory](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds) and follow the instructions there for training and evaluation.***
