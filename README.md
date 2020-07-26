@@ -68,8 +68,8 @@ There is a slight naming difference between the actual model name and the name i
 
 
 ### Dataset
-Datasets shared by multiple networks are placed in the `Datasets` directory, e.g., ModelNet40 and ShapeNet.
-Datasets exclusively used by a network are placed in its directory, e.g., `KITTI` for `F-PointNet`.
+Datasets shared by multiple networks are placed in the `Datasets` directory, e.g., ModelNet40 and ShapeNet.<br>
+Datasets exclusively used by a network are placed in its directory, e.g., `KITTI` for `F-PointNet`.<br>
 Use the following command to download dataset:
 ```
 $ python launcher.py --download [NETWORK]
@@ -79,17 +79,17 @@ $ python launcher.py --download [NETWORK]
 
 
 ### Compile Customized Operators
-Some networks are native Python code and do not need to compile. Others such as `pointnet++`, `f-pointnet`, and `DensePoint` have customized modules that need to be compiled.
+Some networks are native Python code and do not need to compile. Others such as `pointnet++`, `f-pointnet`, and `DensePoint` have customized modules that need to be compiled.<br>
 To compile, run:
 ```
 $ python launcher.py --compile [NETWORK]
 ```
-- `[NETWORK]` can be `pointnet2` (for `pointnet++`), `frustum-pointnets` (for `f-pointnet`), or `DensePoint` (for `DensePoint`), or simply compile all by using `all`.
+- `[NETWORK]` can be `pointnet2` (for `pointnet++`), `frustum-pointnets` (for `f-pointnet`), `DensePoint` (for `DensePoint`), or simply compile all by using `all`.
 - Please check out the instructions in each network to modify the `CUDA_PATH` if you encounter any compiling issues.
 
 
 ### Training
-**Make sure to activate the correct environment for each network before running any of the following commands.**
+**Make sure to activate the correct environment for each network before running any of the following commands.**<br>
 To train the Baseline version:
 ```
 $ python launcher.py --train [NETWORK]
@@ -109,7 +109,7 @@ $ python launcher.py --train [NETWORK] --use_limited 1 --segmentation 1
 
 
 ### Evaluation
-**Make sure to activate the correct environment for each network before running any of the following commands.**
+**Make sure to activate the correct environment for each network before running any of the following commands.**<br>
 To evaluate the Baseline version:
 ```
 $ python launcher.py --run [NETWORK]
