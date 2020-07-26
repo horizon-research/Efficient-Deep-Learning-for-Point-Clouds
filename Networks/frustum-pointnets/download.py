@@ -10,7 +10,7 @@ if not os.path.exists(DATA_DIR):
     
 www = 'https://shapenet.cs.stanford.edu/media/frustum_data.zip'
 zipfile = os.path.basename(www)
-os.system('wget %s; unzip %s' % (www, zipfile))
+os.system('wget %s --no-check-certificate; unzip %s' % (www, zipfile))
 os.system('mv %s/*.pickle %s' % (zipfile[:-4], DATA_DIR))
 os.system('rm %s' % (zipfile))
 os.system('rm -r %s' % (zipfile[:-4]))

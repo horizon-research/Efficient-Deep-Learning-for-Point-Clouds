@@ -5,17 +5,7 @@ import h5py
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(BASE_DIR)
 
-# Download dataset for point cloud classification
-DATA_DIR = os.path.join(BASE_DIR, '../../Datasets/')
-if not os.path.exists(DATA_DIR):
-  os.mkdir(DATA_DIR)
-if not os.path.exists(os.path.join(DATA_DIR, 'modelnet40_ply_hdf5_2048')):
-  www = 'https://shapenet.cs.stanford.edu/media/modelnet40_ply_hdf5_2048.zip'
-  zipfile = os.path.basename(www)
-  os.system('wget %s --no-check-certificate; unzip %s' % (www, zipfile))
-  os.system('mv %s %s' % (zipfile[:-4], DATA_DIR))
-  os.system('rm %s' % (zipfile))
-
+DATASET_DIR = '../../Datasets/'
 
 def shuffle_data(data, labels):
   """ Shuffle data and labels.
@@ -137,7 +127,7 @@ def random_scale_point_cloud(batch_data, scale_low=0.8, scale_high=1.25):
   return batch_data
 
 def getDataFiles(list_filename):
-    return [DATA_DIR + line.rstrip().split("data/")[1] for line in open(list_filename)]
+    return [DATASET_DIR + line.rstrip().split("data/")[1] for line in open(list_filename)]
 
 def getDataFilesShapeNet(list_filename):
     return [line.rstrip() for line in open(list_filename)]
