@@ -27,7 +27,7 @@ We highly recommend using virtual environment tools like Anaconda to set up the 
 
 
 ### Creating Environment
-We use the following instructions to create and manage the working environment in Anaconda3. Steps with ***** are optional.
+We use the following instructions to create and manage the working environment in Anaconda3. Steps with * are optional.
 
 *Add channels to support earlier versions of dependencies if necessary. 
 ```
@@ -108,7 +108,7 @@ $ python evaluate.py -h
 
 **Note that model_cls_L6_iter_36567_acc_0.923825_ori_bkup.pth is the pre-trained model provided by the original DensePoint repo.*
 
-3\. Check the results. Below shows the example accuracies and latency for different versions: <br>
+3\. Check the results. Below shows the example accuracy for different versions: <br>
 The **Baseline** version: <br>
 <img src="https://user-images.githubusercontent.com/18485088/88476732-ca5cf880-cf08-11ea-92bf-d3fc8c02898f.jpg">
 
