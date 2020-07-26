@@ -10,13 +10,13 @@ ROOT_DIR = BASE_DIR
 sys.path.append(BASE_DIR)
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--compile', type=str, default=None, help='Compile libraries in the models, to compile a specific network, use: --compile [NETWORK_NAME] or to copmpile all models using, --compile all')
-parser.add_argument('--download', type=str, default=None, help='Download the specific dataset for the models, to download a dataset for a specific network, use: --compile [NETWORK_NAME] or to copmpile all models using, --compile all')
+parser.add_argument('--compile', type=str, default=None, help='Compile libraries in the models, to compile a specific network, use: --compile [NETWORK_NAME] or to compile all models using, --compile all')
+parser.add_argument('--download', type=str, default=None, help='Download the specific dataset for the models, to download a dataset for a specific network, use: --compile [NETWORK_NAME] or to compile all models using, --compile all')
 parser.add_argument('--list_models', help='List all model names.')
-parser.add_argument('--run', type=str, default=None, help='Launch the model with default settings.')
-parser.add_argument('--train', type=str, default=None, help='Train the model with default settings.')
-parser.add_argument('--use_baseline', type=bool, default=False, help='Use baseline instead of efficient version.')
-parser.add_argument('--use_limited', type=bool, default=False, help='Use limited aggr. instead of efficient version.')
+parser.add_argument('--run', type=str, default=None, help='Evaluate the model with Fully Delayed-Aggregation.')
+parser.add_argument('--train', type=str, default=None, help='Train the model with Fully Delayed-Aggregation.')
+parser.add_argument('--use_baseline', type=bool, default=False, help='Use the baseline without any kind of Delayed-Aggregation.')
+parser.add_argument('--use_limited', type=bool, default=False, help='Use Limited Delayed-Aggregation.')
 parser.add_argument('--segmentation', type=bool, default=False, help='Execute the segmentation version.')
 FLAGS = parser.parse_args()
 
@@ -51,10 +51,11 @@ elif FLAGS.compile is not None:
     Download datasets
 '''
 DOWNLOAD_SCRIPTS = {
-    'pointnet2' : 'modelnet_h5_dataset.py',
-    'frustum-pointnets' : 'download_dataset.py',
-    'ldgcnn' : 'download_modelnet.py',
-    'dgcnn' : 'provider.py',
+    'pointnet2' : 'download.py',
+    'frustum-pointnets' : 'download.py',
+    'ldgcnn' : 'download.py',
+    'dgcnn' : 'download.py',
+    'DensePoint' : 'download.py'
 }
 
 if FLAGS.download == 'all':
@@ -62,17 +63,24 @@ if FLAGS.download == 'all':
         dir_path = './Networks/%s' % key
         if os.path.exists(dir_path):
             print('run %s/%s' % (dir_path, DOWNLOAD_SCRIPTS[key]))
-            os.system('cd %s; python %s' % dir_path, DOWNLOAD_SCRIPTS[key])
-        else:
-            print('[ERROR]: can\'t find the path %s' % dir_path)
+            os.system('cd %s; python %s' % (dir_path, DOWNLOAD_SCRIPTS[key]))
+        dir_path = './Networks/%s/part_seg' % key
+        if os.path.exists(dir_path):
+            print('run %s/%s' % (dir_path, DOWNLOAD_SCRIPTS[key]))
+            os.system('cd %s; python %s' % (dir_path, DOWNLOAD_SCRIPTS[key]))
+    print ('done!')
     exit()
-elif FLAGS.download in COMPILE_MODELS:
-    dir_path = './Networks/%s' % FLAGS.download
+elif FLAGS.download in DOWNLOAD_SCRIPTS:
+    if FLAGS.segmentation:
+        dir_path = './Networks/%s/part_seg' % FLAGS.download
+    else:
+        dir_path = './Networks/%s' % FLAGS.download
     if os.path.exists(dir_path):
         print('cd %s' % dir_path)
-        os.system('cd %s; python %s' % (dir_path, DOWNLOAD_SCRIPTS[key]))
+        os.system('cd %s; python %s' % (dir_path, DOWNLOAD_SCRIPTS[FLAGS.download]))
     else:
         print('[ERROR]: can\'t find the path %s' % dir_path)
+    print ('done!')
     exit()
 elif FLAGS.download is not None:
     print('[ERROR]: can\'t find the model %s\'s dataset to download.' % FLAGS.download)

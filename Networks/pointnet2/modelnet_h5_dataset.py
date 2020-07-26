@@ -13,18 +13,7 @@ ROOT_DIR = BASE_DIR
 sys.path.append(os.path.join(ROOT_DIR, 'utils'))
 import provider
 
-
-# Download dataset for point cloud classification
-DATASET_DIR = os.path.join(ROOT_DIR, '../../Datasets/')
-if not os.path.exists(DATASET_DIR):
-    os.mkdir(DATASET_DIR)
-if not os.path.exists(os.path.join(DATASET_DIR, 'modelnet40_ply_hdf5_2048')):
-    www = 'https://shapenet.cs.stanford.edu/media/modelnet40_ply_hdf5_2048.zip'
-    zipfile = os.path.basename(www)
-    os.system('wget %s --no-check-certificate; unzip %s' % (www, zipfile))
-    os.system('mv %s %s' % (zipfile[:-4], DATASET_DIR))
-    os.system('rm %s' % (zipfile))
-
+DATASET_DIR = '../../Datasets/'
 
 def shuffle_data(data, labels):
     """ Shuffle data and labels.
