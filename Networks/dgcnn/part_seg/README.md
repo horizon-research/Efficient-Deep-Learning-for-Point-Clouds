@@ -71,7 +71,7 @@ Add ``` -h``` after the above commands to check out all the optional arguments, 
 $ python evaluate.py -h
 ```
 
-4\. Check the results. Below shows the example accuracy for different versions: <br>
+3\. Check the results. Below shows the example accuracy for different versions: <br>
 The **Baseline** version: <br>
 <img src="https://user-images.githubusercontent.com/19209239/83949089-e63cfb80-a7ef-11ea-87ee-89f50b5a9c06.png" alt="drawing" width="520"/>
 
