@@ -98,17 +98,17 @@ To train the Baseline version:
 ```
 $ python launcher.py --train [NETWORK]
 ```
-To train the Limited Delayed-Aggregation version, add flag `--use_baseline 1`:
+To train the Limited Delayed-Aggregation version, add flag `--use_baseline True`:
 ```
-$ python launcher.py --train [NETWORK] --use_baseline 1
+$ python launcher.py --train [NETWORK] --use_baseline True
 ```
-To train the Fully Delayed-Aggregation version, add flag `--use_limited 1`:
+To train the Fully Delayed-Aggregation version, add flag `--use_limited True`:
 ```
-$ python launcher.py --train [NETWORK] --use_limited 1
+$ python launcher.py --train [NETWORK] --use_limited True
 ```
-To train the segmentation model of `pointnet++` and `dgcnn`, add flag `--segmentation 1` to the above commands:
+To train the segmentation model of `pointnet++` and `dgcnn`, add flag `--segmentation True` to the above commands:
 ```
-$ python launcher.py --train [NETWORK] --use_limited 1 --segmentation 1
+$ python launcher.py --train [NETWORK] --use_limited True --segmentation True
 ```
 
 
@@ -117,17 +117,17 @@ To evaluate the Baseline version:
 ```
 $ python launcher.py --run [NETWORK]
 ```
-To evaluate the Limited Delayed-Aggregation version, add flag `--use_baseline 1`:
+To evaluate the Limited Delayed-Aggregation version, add flag `--use_baseline True`:
 ```
-$ python launcher.py --run [NETWORK] --use_baseline 1
+$ python launcher.py --run [NETWORK] --use_baseline True
 ```
-To evaluate the Fully Delayed-Aggregation version, add flag `--use_limited 1`:
+To evaluate the Fully Delayed-Aggregation version, add flag `--use_limited True`:
 ```
-$ python launcher.py --run [NETWORK] --use_limited 1
+$ python launcher.py --run [NETWORK] --use_limited True
 ```
-To evaluate the segmentation model of `pointnet++` and `dgcnn`, add flag `--segmentation 1` to the above commands:
+To evaluate the segmentation model of `pointnet++` and `dgcnn`, add flag `--segmentation True` to the above commands:
 ```
-$ python launcher.py --run [NETWORK] --use_limited 1 --segmentation 1
+$ python launcher.py --run [NETWORK] --use_limited True --segmentation True
 ```
 
 
