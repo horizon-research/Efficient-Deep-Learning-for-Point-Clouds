@@ -77,6 +77,11 @@ $ python launcher.py --download [NETWORK]
 - Specify [NETWORK] to the name of a network to download the corresponding dataset or `all` to download all the datasets.
 - Add `--segmentation 1` to download segmentation data for `pointnet++` and `dgcnn`.
 
+---
+
+### * Make sure to activate the correct environment for each network before running any of the following commands.<br>
+
+---
 
 ### Compile Customized Operators
 Some networks are native Python code and do not need to compile. Others such as `pointnet++`, `f-pointnet`, and `DensePoint` have customized modules that need to be compiled.<br>
@@ -89,7 +94,6 @@ $ python launcher.py --compile [NETWORK]
 
 
 ### Training
-**Make sure to activate the correct environment for each network before running any of the following commands.**<br>
 To train the Baseline version:
 ```
 $ python launcher.py --train [NETWORK]
@@ -109,7 +113,6 @@ $ python launcher.py --train [NETWORK] --use_limited 1 --segmentation 1
 
 
 ### Evaluation
-**Make sure to activate the correct environment for each network before running any of the following commands.**<br>
 To evaluate the Baseline version:
 ```
 $ python launcher.py --run [NETWORK]
