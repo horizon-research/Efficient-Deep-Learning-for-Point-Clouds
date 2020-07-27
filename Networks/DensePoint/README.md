@@ -1,12 +1,12 @@
-### DensePoint (Classification)
-------------
-This repository is the code release for applying the delayed-aggregation method on DensePoint. The DensePoint paper reference can be found [here](https://arxiv.org/pdf/1909.03669.pdf). 
-For more detailed information about original implementation, please visit the GitHub repository [here](https://github.com/Yochengliu/DensePoint).
+## DensePoint (Classification)
+
+This repository contains code released for applying delayed-aggregation to [DensePoint](https://arxiv.org/pdf/1909.03669.pdf). <br>
+The original implementation is [here](https://github.com/Yochengliu/DensePoint).
 
 
 ### Dataset
-The classification task is tested on the [ModelNet40](https://shapenet.cs.stanford.edu/media/modelnet40_ply_hdf5_2048.zip) (415M) benchmark.
-Use the following command to download the dataset if you skipped this step in launcher.py:
+The classification task is tested on the [ModelNet40](https://shapenet.cs.stanford.edu/media/modelnet40_ply_hdf5_2048.zip) (415M) dataset.
+Use the following command to download the dataset if you skipped this step in `launcher.py`:
 ```
 $ python download.py
 ```
@@ -58,19 +58,28 @@ Install other dependencies.
 $ conda install torchvision h5py pyyaml scipy
 ```
 
+---
+
+### * Make sure to activate the correct environment before running any of the following commands.<br>
+
+---
+
 ### Compile Customized Operators
-Use the following command to compile the customized operators if you skipped this step in launcher.py:
+Use the following command to compile the customized operators if you skipped this step in `launcher.py`:
 ```
 $ python compile.py
 ```
-If you encounter any compiling issues or you have multiple CUDA versions, modify the `CMakeList.txt`:
+If you encounter any compiling issues or you have multiple CUDA versions, modify the `CMakeList.txt` in ``DensePoint` directory:
 
--    Comment out 4th line: **find_package(CUDA REQUIRED)**.
--    Uncomment 6th and 7th line: **set(CUDA_TOOLKIT_ROOT_DIR)** and **find_package(CUDA)**, and then change the CUDA version to the one currently used by the system.
+<img src="https://user-images.githubusercontent.com/18485088/88491066-08d8ce80-cf6e-11ea-966b-abcf68545a60.jpg">
+
+-  	Comment out 4th line: `find_package(CUDA REQUIRED)`.
+-  	Uncomment 6th and 7th line: `set(CUDA_TOOLKIT_ROOT_DIR)` and `find_package(CUDA)`, and then change the CUDA version to the one currently used by the system.
+-	For futher information, we suggest following the original instructions [here](https://github.com/Yochengliu/DensePoint#usage-preparation).
 
 
 ### Training
-In this particular network, Limited Delayed-Aggregation is the same as the full Delayed-Aggregation because each module has only one MLP layer.
+In this particular network, Limited Delayed-Aggregation is the same as the Fully Delayed-Aggregation because each module has only one MLP layer.
 Below shows how to train different versions of DensePoint:
 
 0\. Make sure you are under the ```DensePoint``` directory. <br>
