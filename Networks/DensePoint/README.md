@@ -1,6 +1,6 @@
 ## DensePoint (Classification)
 
-This repository contains code released for applying delayed-aggregation to [DensePoint](https://arxiv.org/pdf/1909.03669.pdf). <br>
+This repository contains code released for applying delayed-aggregation to [DensePoint](https://arxiv.org/pdf/1909.03669.pdf) classification. <br>
 The original implementation is [here](https://github.com/Yochengliu/DensePoint).
 
 
@@ -69,7 +69,7 @@ Use the following command to compile the customized operators if you skipped thi
 ```
 $ python compile.py
 ```
-If you encounter any compiling issues or you have multiple CUDA versions, modify the `CMakeList.txt` in ``DensePoint` directory:
+If you encounter any compiling issues or you have multiple CUDA versions, modify the `CMakeList.txt` in `DensePoint` directory:
 
 <img src="https://user-images.githubusercontent.com/18485088/88491066-08d8ce80-cf6e-11ea-966b-abcf68545a60.jpg">
 
