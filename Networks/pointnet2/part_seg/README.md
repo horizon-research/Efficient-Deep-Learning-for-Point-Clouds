@@ -32,7 +32,7 @@ We highly recommend using virtual environment tools like Anaconda to set up the 
 
 ### Compile Customized Operators
 If you have done this step for the classification version, you can skip it now.<br>
-Otherwise, please check out the instructions [here](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/pointnet2#) for compilation.
+Otherwise, please check out the instructions [here](https://github.com/horizon-research/Efficient-Deep-Learning-for-Point-Clouds/tree/master/Networks/pointnet2#compile-customized-operators) for compilation.
 
 
 ### Training
