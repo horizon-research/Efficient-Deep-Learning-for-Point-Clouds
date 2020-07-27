@@ -39,7 +39,7 @@ Install <a href="https://www.tensorflow.org/install/">TensorFlow</a>.There are a
 
 Suppose the root directory is at `frustum-pointnets`. Compile several custom Tensorflow operators from PointNet++. The TF operators are included under `models/tf_ops`, you need to compile them (check `tf_xxx_compile.sh` under each ops subfolder) first. Update `cuda` and `python` path if necessary. Assuming the paths are all correct. you can use the script `compile.py` to compile those modules.
 ```
- $ python compile.py
+$ python compile.py
 ```
 Then, compile the evaluation code in `train/kitti_eval`, go to the directory `train/kitti_eval` and run:
 ```
