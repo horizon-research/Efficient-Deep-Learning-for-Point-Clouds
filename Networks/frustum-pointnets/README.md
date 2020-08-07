@@ -3,16 +3,13 @@
 This repository contains code released for applying delayed-aggregation to [Frustum PointNets](https://arxiv.org/abs/1711.08488) 3D object detection. <br>
 The original implementation is [here](https://github.com/charlesq34/frustum-pointnets).
 
-
-
 ### Dataset
 The 3D object detection task is tested on the [KITTI](https://shapenet.cs.stanford.edu/media/frustum_data.zip) (960 MB) dataset.
-Use the following command to download the dataset if you skipped this step in `launcher.py`:
+Use the following command to download the dataset if you skipped the download step in `launcher.py`:
 ```
 $ python download.py
 ```
 You can run `python train/provider.py` to visualize the training data (frustum point clouds and 3D bounding box labels, in rect camera coordinate).
-
 
 ### Environment/Libraries:
 We highly recommend using virtual environment tools like Anaconda to set up an environment identical to the one we tested. <br>
@@ -24,9 +21,6 @@ Libraries: Tensorflow 1.12.0, numpy 1.14, CUDA 10.2, cudnn 7.6.5
 
 Compiler Toolchain: 
 - gcc / gxx: 7.3.0 (to compile the tf ops)
-
-We highly recommend using virtual environment tools like Anaconda to set up the right environment.
-
 
 ---
 
