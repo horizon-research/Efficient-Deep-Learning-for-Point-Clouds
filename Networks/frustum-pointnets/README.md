@@ -55,7 +55,7 @@ Below shows how to train different versions of Frustum PointNets:
 0\. Make sure you are under the ```frustum-pointnets``` directory. <br>
 1\. To train the **Baseline** version: <br>
 ```
-$ bash scripts/command_train_v2_baselline.sh
+$ bash scripts/command_train_v2_baseline.sh
 ```
 
 2\. To train the **Limited Delayed-Aggregation** version: <br>

@@ -11,7 +11,7 @@ sys.path.append(BASE_DIR)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--compile', type=str, default=None, help='Compile libraries in the models, to compile a specific network, use: --compile [NETWORK_NAME] or to compile all models using, --compile all')
-parser.add_argument('--download', type=str, default=None, help='Download the specific dataset for the models, to download a dataset for a specific network, use: --compile [NETWORK_NAME] or to compile all models using, --compile all')
+parser.add_argument('--download', type=str, default=None, help='Download the specific dataset for the models, to download a dataset for a specific network, use: --download [NETWORK_NAME] or to download all models using, --download all')
 parser.add_argument('--list_models', help='List all model names.')
 parser.add_argument('--run', type=str, default=None, help='Evaluate the model with Fully Delayed-Aggregation.')
 parser.add_argument('--train', type=str, default=None, help='Train the model with Fully Delayed-Aggregation.')
