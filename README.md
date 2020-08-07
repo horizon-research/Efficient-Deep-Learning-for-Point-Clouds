@@ -75,7 +75,7 @@ Use the following command to download dataset:
 $ python launcher.py --download [NETWORK]
 ```
 - Specify [NETWORK] to the name of a network to download the corresponding dataset or `all` to download all the datasets.
-- Add `--segmentation 1` to download segmentation data for `pointnet++` and `dgcnn`.
+- Add `--segmentation True` to download segmentation data for `pointnet++` and `dgcnn`.
 
 ---
 
