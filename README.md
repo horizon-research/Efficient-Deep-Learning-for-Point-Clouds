@@ -94,40 +94,40 @@ $ python launcher.py --compile [NETWORK]
 
 
 ### Training
-To train the Baseline version:
-```
-$ python launcher.py --train [NETWORK]
-```
-To train the Limited Delayed-Aggregation version, add flag `--use_baseline True`:
+To train the Baseline version, add flag `--use_baseline True`:
 ```
 $ python launcher.py --train [NETWORK] --use_baseline True
 ```
-To train the Fully Delayed-Aggregation version, add flag `--use_limited True`:
+To train the Limited Delayed-Aggregation version, add flag `--use_limited True`:
 ```
 $ python launcher.py --train [NETWORK] --use_limited True
 ```
+To train the Fully Delayed-Aggregation version:
+```
+$ python launcher.py --train [NETWORK]
+```
 To train the segmentation model of `pointnet++` and `dgcnn`, add flag `--segmentation True` to the above commands:
 ```
-$ python launcher.py --train [NETWORK] --use_limited True --segmentation True
+$ python launcher.py --train [NETWORK] --segmentation True
 ```
 
 
 ### Evaluation
-To evaluate the Baseline version:
-```
-$ python launcher.py --run [NETWORK]
-```
-To evaluate the Limited Delayed-Aggregation version, add flag `--use_baseline True`:
+To evaluate the Baseline version, add flag `--use_baseline True`:
 ```
 $ python launcher.py --run [NETWORK] --use_baseline True
 ```
-To evaluate the Fully Delayed-Aggregation version, add flag `--use_limited True`:
+To evaluate the Limited Delayed-Aggregation version, add flag `--use_limited True`:
 ```
 $ python launcher.py --run [NETWORK] --use_limited True
 ```
+To evaluate the Fully Delayed-Aggregation version:
+```
+$ python launcher.py --run [NETWORK]
+```
 To evaluate the segmentation model of `pointnet++` and `dgcnn`, add flag `--segmentation True` to the above commands:
 ```
-$ python launcher.py --run [NETWORK] --use_limited True --segmentation True
+$ python launcher.py --run [NETWORK] --segmentation True
 ```
 
 
