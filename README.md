@@ -42,8 +42,8 @@ optional arguments:
                         all models using, --compile all
   --download DOWNLOAD   Download the specific dataset for the models, to
                         download a dataset for a specific network, use:
-                        --compile [NETWORK_NAME] or to compile all models
-                        using, --compile all
+                        --download [NETWORK_NAME] or to download all datasets
+                        using, --download all
   --list_models LIST_MODELS
                         List all model names.
   --run RUN             Evaluate the model with Fully Delayed-Aggregation.
