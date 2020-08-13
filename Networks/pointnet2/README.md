@@ -8,7 +8,7 @@ For PointNet++ (Segmentation), please check out the [part_seg](https://github.co
 
 ### Dataset
 The classification task is tested on the [ModelNet40](https://shapenet.cs.stanford.edu/media/modelnet40_ply_hdf5_2048.zip) (415 MB) dataset.
-Use the following command to download the dataset if you skipped this step in `launcher.py`:
+Use the following command to download the dataset if you skip this step in `launcher.py`:
 ```
 $ python download.py
 ```
