@@ -132,11 +132,11 @@ $ python launcher.py --run [NETWORK] --segmentation True
 
 
 ### Publication ###
-This project contains the artifact for our paper [Mesorasi: Enabling Efficient Point Cloud Analytics via Delayed-Aggregation](https://www.cs.rochester.edu/horizon/pubs/micro20-mesorasi.pdf) (MICRO 2020).
+This project contains the artifact for our paper [Mesorasi: Architecture Support for Point Cloud Analytics via Delayed-Aggregation](https://www.cs.rochester.edu/horizon/pubs/micro20-mesorasi.pdf) (MICRO 2020).
 
 ```
 @inproceedings{feng2020mesorasi,
-  title={Mesorasi: Enabling Efficient Point Cloud Analytics via Delayed-Aggregation},
+  title={Mesorasi: Architecture Support for Point Cloud Analytics via Delayed-Aggregation},
   author={Feng, Yu and Tian, Boyuan and Xu, Tiancheng and Whatmough, Paul and Zhu, Yuhao},
   booktitle={Proceedings of the 53th International Symposium on Microarchitecture},
   year={2020},
